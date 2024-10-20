@@ -1,5 +1,6 @@
 import json
-foodHistory = {
+import utils
+foodHistory = """{
     "user": "John Doe",
     "foods" : [
           {
@@ -19,11 +20,11 @@ foodHistory = {
           },
           
      ]
-}
+}"""
 def getFoodHistory(userName):
     if(userName == None):
         print("User data is empty")
         return None
     else:
-        return json.dumps(foodHistory)
+        return utils.escape_curly_braces(foodHistory)
     

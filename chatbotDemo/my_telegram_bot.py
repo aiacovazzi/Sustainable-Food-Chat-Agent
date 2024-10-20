@@ -40,10 +40,9 @@ def send_action(action):
 @send_action(ChatAction.TYPING)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Starts the conversation."""
-    await context.bot.sendMessage(chat_id=update.message.chat_id, text="Hi "+str(update.message.from_user['id']))
     context.user_data['userData'] =  us.getUserData(update.message.from_user['id'])
     #if the user data is empty the start a "get data", conversation
-    response = cc.answerQuestion(context.user_data['userData'],"Hi, who are you?",con.TASK_1_HOOK)
+    response = cc.answerQuestion(context.user_data['userData'],"Hi, who are you?",con.TASK_1_HOOK,"")
     await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
     context.user_data['action'] = response.action
     return INTERACTION
