@@ -15,7 +15,7 @@ recipe2 = """{
 
 def getRecipeSuggestion(mealType):
     mealType = mealType.strip()
-    if(mealType == "[Dinner]"):
+    if(mealType == "<Dinner>"):
         return utils.escape_curly_braces(recipe1)
     else:
         return utils.escape_curly_braces(recipe2)

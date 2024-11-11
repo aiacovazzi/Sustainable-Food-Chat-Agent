@@ -5,8 +5,6 @@ import service.userDataService as user
 import service.suggestFoodService as food
 import service.improveRecipeService as imp
 import dto.responseClass as rc
-import utils
-import json
 
 def aswerRouter(userData,userPrompt,token):
     response = rc.Response('','','')
@@ -18,7 +16,31 @@ def aswerRouter(userData,userPrompt,token):
     return response   
 
 def answerQuestion(userData,userPrompt,token,info):
-    if(token == p.TASK_1_HOOK):
+    if(token == p.TASK_0_HOOK):
+        print("PRESENTING_USER_DATA_RETRIEVAL" )
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0, userPrompt, 0.6)
+        return response;
+    elif(token == p.TASK_0_1_HOOK):
+        print("PERFORMING_USER_DATA_RETRIEVAL" )
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_1, "User data: " + str(userData) + " "+ userPrompt, 0.2)
+        return response;
+    elif(token == p.TASK_0_2_HOOK):
+        print("PERFORMING_USER_DATA_EVALUATION" )
+
+        #update user data using the information so far retrieved
+        userData.from_json(info)
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + info, 0.4)
+
+        return response;
+    elif(token == p.TASK_0_3_HOOK):
+        print("PERSISTING_USER_DATA" )
+        #persist user data calling MongoDB...
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3, "User data: " + str(userData), 0.4)
+
+        #adjust the user prompt to the greetings in order to start the regular conversation
+        userPrompt = p.USER_GREETINGS_PHRASE
+        return response;
+    elif(token == p.TASK_1_HOOK):
         print("GRETINGS")
         response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.6)
         return response;
@@ -34,7 +56,7 @@ def answerQuestion(userData,userPrompt,token,info):
         #produce suggestion
         return response;
     elif(token == p.TASK_3_HOOK):
-        print("RECIPE_IMPROVEMENT" )
+        print("RECIPE_EXPERT" )
         response = lcs.execute_chain(p.TASK_3_PROMPT, userPrompt, 0.1)
         return response;
     elif(token == p.TASK_3_10_HOOK):
@@ -44,7 +66,7 @@ def answerQuestion(userData,userPrompt,token,info):
         return response;
     elif(token == p.TASK_4_HOOK):
         print("PROFILE_SUMMARY" )
-        userPrompt = p.USER_PROMPT.format(user_data=userData)
+        userPrompt = p.USER_PROMPT.format(user_data=str(userData))
         response = lcs.execute_chain(p.TASK_4_PROMPT, userPrompt, 0.8)
         return response;
     elif(token == p.TASK_4_10_HOOK):
@@ -60,4 +82,8 @@ def answerQuestion(userData,userPrompt,token,info):
         userName = "Jhon Doe"
         foodHistory = history.getFoodHistory(userName)
         response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6)
+        return response;
+    elif(token == p.TASK_6_HOOK):
+        print("SUSTAINABILITY_EXPERT" )
+        response = lcs.execute_chain(p.TASK_6_PROMPT, userPrompt, 0.8)
         return response;

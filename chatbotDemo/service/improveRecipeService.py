@@ -14,6 +14,6 @@ improved_recipe = """{
 }"""
 
 def getRecipeSuggestion(recipe):
-    recipe = recipe.strip()
-    if(recipe == "[Classic Lasagna]"):
+    recipe = recipe.strip().lower()
+    if(recipe == "<lasagna>"):
         return [utils.escape_curly_braces(start_recipe), utils.escape_curly_braces(improved_recipe)]

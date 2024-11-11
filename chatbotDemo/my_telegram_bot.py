@@ -2,7 +2,7 @@ import logging
 import os
 import chatbotController as cc
 import constants as con
-import dto.responseClass as rc
+import dto.user as user
 import service.userDataService as us
 from time import sleep
 from random import random
@@ -40,18 +40,24 @@ def send_action(action):
 @send_action(ChatAction.TYPING)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Starts the conversation."""
-    context.user_data['userData'] =  us.getUserData(update.message.from_user['id'])
+    #context.user_data['userData'] =  us.getUserData(update.message.from_user['id'])
+    context.user_data['userData'] =  us.getUserData(None)
     #if the user data is empty the start a "get data", conversation
-    response = cc.answerQuestion(context.user_data['userData'],"Hi, who are you?",con.TASK_1_HOOK,"")
-    await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
-    context.user_data['action'] = response.action
+    if(context.user_data['userData'] == None):
+        context.user_data['userData'] = user.User(None,None,None,None,None)
+        response = cc.answerQuestion(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,"")
+        await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
+        context.user_data['action'] = response.action
+    else:
+        response = cc.answerQuestion(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"")
+        await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
+        context.user_data['action'] = response.action
     return INTERACTION
 
 @send_action(ChatAction.TYPING)
 async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Manage the conversation loop between the user and the chatbot."""
     userMessage = update.message.text
-    sleep(random() * 2 + 3.)
     response = cc.aswerRouter(context.user_data['userData'],userMessage,context.user_data['action'])
     await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
     context.user_data['action'] = response.action
