@@ -23,3 +23,9 @@ datasetUtilities/data/cleaned_final_recipes_set.csv
 chatbotDemo/dto/__pycache__/responseClass.cpython-311.pyc
 chatbotDemo/dto/__pycache__/responseClass.cpython-311.pyc
 *.pyc
+chatbotDemo/service/__pycache__/foodHistoryService.cpython-311.pyc
+chatbotDemo/service/__pycache__/langChainService.cpython-311.pyc
+chatbotDemo/dto/__pycache__/responseClass.cpython-311.pyc
+chatbotDemo/service/__pycache__/userDataService.cpython-311.pyc
+chatbotDemo/service/__pycache__/langChainService.cpython-311.pyc
+/chatbotDemo/service/__pycache__
