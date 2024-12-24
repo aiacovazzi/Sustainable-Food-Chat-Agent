@@ -2,9 +2,11 @@ import os
 import re
 import dto.responseClass as rc
 from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv, find_dotenv
+from langchain.memory import ChatMessageHistory
+from langchain_core.messages import HumanMessage, AIMessage
 MODEL = 'openai'
 TOKEN_REGEX = r"TOKEN -?\d+(\.\d+)?"
 INFO_REGEX_ANGULAR = r"<(.*?)>"
@@ -25,21 +27,49 @@ if(MODEL == 'openai'):
     openai_api_key = os.getenv("OPENAI_API_KEY")
     llm = ChatOpenAI(api_key=openai_api_key, model="gpt-4o-2024-08-06")
 
-def execute_chain(input_prompt, input_query, temperature):
+def get_prompt(input_prompt,memory):
+    if(memory != None):
+        return ChatPromptTemplate.from_messages(
+            [
+                ("system", input_prompt),
+                MessagesPlaceholder(variable_name="memory"),
+                ("human", "{query}"),
+            ]
+        )
+    else:
+        return ChatPromptTemplate.from_messages(
+            [
+                ("system", input_prompt),
+                ("human", "{query}"),
+            ]
+        )
+    
+def execute_chain(input_prompt, input_query, temperature, memory = None, memory_enabled = False):
     llm.temperature = temperature
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            ("system", input_prompt),
-            ("human", "{query}"),
-        ]
-    )
+
+    # Initialize memory if it is not provided and required
+    if memory == None and memory_enabled:
+        memory = ChatMessageHistory()
+        memory.add_user_message(input_prompt)
+
+    prompt = get_prompt(input_prompt,memory)
     output_parser = StrOutputParser()
+
     chain = prompt | llm | output_parser
-    answer = chain.invoke({ "query": input_query })
+
+    if(memory != None):
+        answer = chain.invoke({ "query": input_query, "memory": memory.messages })
+    else:
+        answer = chain.invoke({ "query": input_query })
+    
     action = get_token(answer)
     info = get_info(answer)
     answer = clean_answer_from_token_and_info(answer, info)
-    response = rc.Response(answer,action,info)
+    if(memory != None):
+        memory.add_user_message(input_query)
+        memory.add_ai_message(answer)
+        
+    response = rc.Response(answer,action,info,memory,'')
     return response
 
 def get_token(answer):

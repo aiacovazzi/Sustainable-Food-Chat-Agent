@@ -1,13 +1,14 @@
 # This file is used to get user data from the database
 import dto.user as user
-def getUserData(userName):
-    if(userName == None):
+import persistence.UserPersistence as userDB
+import jsonpickle
+def getUserData(userId):
+    if(userId == None):
         print("User data is empty")
         return None
     else:
-        #...
-
-        # Create a user object
-        userData = user.User("John", "Doe", "01/01/1990", None, None)
+        userDbData = userDB.getUserByUserId(userId)
+        userJson = jsonpickle.encode(userDbData)
+        userData = user.User("","","","","","","")
+        userData.from_json(userJson)
         return userData
-    

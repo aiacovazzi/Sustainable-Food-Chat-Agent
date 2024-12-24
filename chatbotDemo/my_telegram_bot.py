@@ -12,6 +12,7 @@ from telegram.ext import *
 from dotenv import load_dotenv, find_dotenv
 from functools import wraps
 
+
 load_dotenv(find_dotenv())
 token = os.getenv("TELEGRAM_BOT_TOKEN")
 
@@ -24,6 +25,11 @@ userMessage = ''
 
 #chatbot states
 INTERACTION = range(1)
+
+def update_context(context: ContextTypes.DEFAULT_TYPE, response):
+        context.user_data['action'] = response.action
+        context.user_data['memory'] = response.memory
+        return context
 
 def send_action(action):
     """Sends `action` while processing func command."""
@@ -40,27 +46,28 @@ def send_action(action):
 @send_action(ChatAction.TYPING)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Starts the conversation."""
-    #context.user_data['userData'] =  us.getUserData(update.message.from_user['id'])
-    context.user_data['userData'] =  us.getUserData(None)
+    telegramUser = update.message.from_user
+    context.user_data['userData'] =  us.getUserData(telegramUser['id'])
+
     #if the user data is empty the start a "get data", conversation
     if(context.user_data['userData'] == None):
-        context.user_data['userData'] = user.User(None,None,None,None,None)
-        response = cc.answerQuestion(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,"")
+        context.user_data['userData'] = user.User(telegramUser['username'],telegramUser['id'],None,None,None,None,None)
+        response = cc.answer_question(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,"",None)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
-        context.user_data['action'] = response.action
+        context = update_context(context,response)
     else:
-        response = cc.answerQuestion(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"")
+        response = cc.answer_question(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"",None)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
-        context.user_data['action'] = response.action
+        context = update_context(context,response)
     return INTERACTION
 
 @send_action(ChatAction.TYPING)
 async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Manage the conversation loop between the user and the chatbot."""
     userMessage = update.message.text
-    response = cc.aswerRouter(context.user_data['userData'],userMessage,context.user_data['action'])
+    response = cc.aswer_router(context.user_data['userData'],userMessage,context.user_data['action'],context.user_data['memory'])
     await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
-    context.user_data['action'] = response.action
+    context = update_context(context,response)
     return None
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -88,3 +95,4 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+

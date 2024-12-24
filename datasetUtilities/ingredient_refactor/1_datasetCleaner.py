@@ -17,7 +17,7 @@ MODEL = 'openai'
 # gpt-4
 
 SYSTEM_PROMPT = """Given a noisy text provided by the user:
-Extract the ingredients' name using the simplest noun possible in singular form, like a vocabulary entry; then derive the related quantity using the availble information.
+Extract the ingredients' name using the simplest noun possible in singular form, like a vocabulary entry; then derive the related quantity using the available information.
 Quantities can be expressed in different ways, like in ounces, grams, cups, tablespoons, or units of the ingredient.
 If you can't derive a quantity, just provide the ingredient's name. 
 Do not made up quantities.

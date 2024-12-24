@@ -1,0 +1,89 @@
+Dataset notes:
+problems on mapping compound ingredients or industrially processed ones
+
+how many no match: 2397
+how many wrong association (manually checked): 722
+
+Category intorduced:
+TOO_GENERIC mapping introduced, are ingredient for which the renaming procedure was destructive and should be redone
+NOT_FOOD mapping introduced, are tools used in the preparation or simply error on processing text
+NO_DATA maping introduced when no matchable information was found
+
+
+Next steps:
+	sweets for candy is not ok //fixed
+	there is soluble coffe for coffee instant etc...
+	re-check pasta and egg pasta
+	re-check all vegetables typology (probably wfp is wrong)
+	re-check all specific ingredients over the whole db (carbon cloud etc) //candy, candy bar, liqueur, vodka done
+
+	Apply Assumption:
+		remove frozen ingredient if not explicit
+		remove heated in greenhouse if not explicit
+		exotic fruit as imported by default
+
+Then:
+	self mapping on no match data
+	analyze self mapped data and correct mistakes
+
+	> a lot of mistakes! this because algorithm foud several spurious correlation between ingredients names
+	
+	still no matched data will left as that
+	
+	merge dataset
+	
+
+Vetables: take the greenhouse one or the open field one as standard?
+
+Finally:
+	import data and recompute sustainability score where ingredient covered are more than 80%
+	
+	computing:
+		normalized cpf
+		normalized wfp
+		______________
+		RecipeCarbonSustainabilityScore
+		RecipeWaterSustainabilityScore
+		
+		RecipeSustainabilityScore = alpha*RecipeCarbonSustainabilityScore + beta*RecipeWaterSustainabilityScore
+		
+		This allow us to compute score even when an ingredient doesn't ave both informations
+		
+		Then normalized
+	
+	create clusters
+	
+	documentation
+
+
+Future steps:
+	Allergies
+	
+	Fix "should be fixed" ingredients
+		
+	TOO_GENERIC category should be fixed
+	
+	add information aboun locality
+	
+	compute weight of units
+	
+________
+old number of ingredients: 79195
+
+________
+
+Recipe suggestion:
+select by tipology ({tags: /main-dish/}), coverage, duration, absence of allergies, sustainable clusters, healty cluster, not presence in last 7 accpeted recipes, similar to the vector of tastes, eventually using the list of ingredient 
+
+{ "$and": [ { "tags": { "$regex": "breakfast" } } ] }
+{ "$and": [ { "tags": { "$regex": "snack" } } ] }
+{ "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "dinner" } } ] }
+{ "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] }
+
+{"sustainability_score": {"$gte": 0.1, "$lte": 0.15}}
+
+food similarity notebook
+https://colab.research.google.com/drive/1qqw8YJ7CLkD4RBIXnSMM-p1r_2NqwY-w#scrollTo=4ThSLOOpz_hI
+https://huggingface.co/Alibaba-NLP/gte-large-en-v1.5
+
+the actual list of allergenes should be explicit in recipe

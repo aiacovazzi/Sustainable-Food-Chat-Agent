@@ -1,0 +1,2014 @@
+ingredient,cfp,wfp,mapping_type,mapped_item,data_origin,notes
+broth,"1,18",336,typology,VEGETABLES,,Self-mapped
+soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+soda,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+chip,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+stock,"2,12","2313,5",typology,FISH PROCESSED,,Self-mapped
+shortening,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+cake mix,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+macaroni,"1,21",1508,ingredient,PASTA*,,Self-mapped
+rosemary,"0,84",8280,typology,SPICIES,,Self-mapped
+scallion,"1,18",336,typology,VEGETABLES,,Self-mapped
+tortilla,"0,57",1081,ingredient,MAIZE GROATS,,Self-mapped
+chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+half-and-half,"5,45",3838,ingredient,CREAM,,Self-mapped
+bay leaf,,,NO_MATCH,NO_MATCH,,
+chips,"0,24",555,ingredient,POTATO,,Self-mapped
+rind,,,NO_MATCH,NO_MATCH,,
+marshmallow,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+topping,"2,42",,ingredient,"Cr�me de lait, 15 � 20% MG, l�g�re, semi-�paisse, UHT",https://agribalyse.ademe.fr/app/aliments/19430,Self-mapped
+soup mix,"0,43",5053,ingredient,BEAN,,Self-mapped
+roll,"0,86",667,ingredient,BREAD,,Self-mapped
+cream of tartar,,,NO_MATCH,NO_MATCH,,
+breast,"3,88",4325,ingredient,DUCK MEAT BONE FREE*,,Self-mapped
+tarragon,"1,93",,ingredient,Vinegar,https://livelca.com/products/vinegar_e8dd5701-9817-479d-8178-8e01b8dc0026,Self-mapped
+filling,"0,81",6847,ingredient,APPLES,,Self-mapped
+pie shell,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+boiling water,,,NO_MATCH,NO_MATCH,,
+slice,,,NO_MATCH,NO_MATCH,,
+hot water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+marmalade,"0,3",654,ingredient,ORANGE,,Self-mapped
+dough,"0,86","901,8",typology,BREAD,,Self-mapped
+kosher salt,"0,44",,ingredient,Salt,https://livelca.com/products/salt_e6c545cd-6221-4665-a1da-a562fc37ef60,Self-mapped
+cream of mushroom soup,"0,24",555,ingredient,POTATO,,Self-mapped
+caper,"1,48","806,6",typology,VEGETABLES CANNED,,Self-mapped
+fettuccine,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+penne,"1,21",1508,ingredient,PASTA*,,Self-mapped
+ground beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+Bisquick,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+ice cube,"0,84",288,ingredient,PEPPERMINT,,Self-mapped
+germ,"0,57",1639,ingredient,WHEAT,,Self-mapped
+whites,"1,69",1540,ingredient,YOGURT WHITE,,Self-mapped
+butterscotch chip,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+beef broth,"36,8",,ingredient,"VALU TIME, BEEF BOUILLON CUBES",https://apps.carboncloud.com/climatehub/product-reports/011225125584/USA,Self-mapped
+hamburger,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+cream of chicken soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+baking mix,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+orzo,"1,21",1508,ingredient,PASTA*,,Self-mapped
+tartar,,,NO_MATCH,NO_MATCH,,
+hash brown,"0,24",555,ingredient,POTATO,,Self-mapped
+capers,"1,48","806,6",typology,VEGETABLES CANNED,,Self-mapped
+relish,"0,64",276,ingredient,CRANBERRY,,Self-mapped
+dill weed,"1,18",336,typology,VEGETABLES,,Self-mapped
+substitute,,,NO_MATCH,NO_MATCH,,
+cube,"0,78","1294,5",typology,SUGAR,,Self-mapped
+pectin,,,NO_MATCH,NO_MATCH,,
+Grand Marnier,,,NO_MATCH,NO_MATCH,,
+warm water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+tahini,"0,84",8280,typology,SPICIES,,Self-mapped
+chopped pecan,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+pancetta,"5,99",6177,typology,PORK CURED MEAT,,Self-mapped
+puff pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+chutney,"2,15",748,typology,FRUIT,,Self-mapped
+salami,"5,99",6177,typology,PORK CURED MEAT,,Self-mapped
+muffin,"0,86","901,8",typology,BREAD,,Self-mapped
+tequila,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+dried oregano,"0,84",8280,typology,SPICIES,,Self-mapped
+mirin,,,NO_MATCH,NO_MATCH,,
+sugar substitute,"0,78","1294,5",typology,SUGAR,,Self-mapped
+sirloin,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+Crisco,,,NO_MATCH,NO_MATCH,,
+chuck,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+rose water,,,NO_MATCH,NO_MATCH,,
+veal,"3,44",5677,ingredient,FRESH SHOULDERS WITH BONE,,Self-mapped
+schnapps,"0,61",413,ingredient,STRAWBERRY,,Self-mapped
+Amaretto,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+chorizo,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+rice wine,"2,19",1597,ingredient,RICE*,,Self-mapped
+wedge,,,NO_MATCH,NO_MATCH,,
+egg white,"3,2",2562,ingredient,EGGS*,,Self-mapped
+beef stock,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+flank steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+tamari,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+gravy,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+dried thyme,"0,84",8280,typology,SPICIES,,Self-mapped
+lard,,,NO_MATCH,NO_MATCH,,
+vermicelli,"2,19",1597,ingredient,RICE*,,Self-mapped
+stuffing mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+rigatoni,"1,21",1508,ingredient,PASTA*,,Self-mapped
+coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+chop,"16,7",4362,ingredient,LAMB MEAT WITH BONE*,,Self-mapped
+smoke,"0,84",8280,typology,SPICIES,,Self-mapped
+fusilli,"1,21",1508,ingredient,PASTA*,,Self-mapped
+Whip,"2,42",,ingredient,"Cr�me de lait, 15 � 20% MG, l�g�re, semi-�paisse, UHT",https://agribalyse.ademe.fr/app/aliments/19430,Self-mapped
+whip,"2,42",,ingredient,"Cr�me de lait, 15 � 20% MG, l�g�re, semi-�paisse, UHT",https://agribalyse.ademe.fr/app/aliments/19430,Self-mapped
+muffin mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+cola,"1,35",1599,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+ghee,,,NO_MATCH,NO_MATCH,,
+watercress,"1,18",336,typology,VEGETABLES,,Self-mapped
+tomato soup,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+beef stew meat,,,NO_MATCH,NO_MATCH,,
+cognac,"4,63",,ingredient,Merlet XO Cognac,https://apps.carboncloud.com/climatehub/product-reports/3443210000892/SWE,Self-mapped
+buns,"0,86","901,8",typology,BREAD,,Self-mapped
+coconut extract,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+biscuit mix,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+package,"3,29",,ingredient,YEAST DRIED*,,Self-mapped
+bulgur,"0,57",1639,ingredient,WHEAT,,Self-mapped
+gin,"0,34",642,ingredient,LEMON,,Self-mapped
+grated orange rind,"0,3",654,ingredient,ORANGE,,Self-mapped
+skewer,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+sprig,,,NO_MATCH,NO_MATCH,,
+essence,"4,3",,ingredient,VANILLA,,Self-mapped
+sake,"0,69",155,ingredient,BEER*,,Self-mapped
+poultry seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+bit,,,NO_MATCH,NO_MATCH,,
+crushed ice,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+semolina,"0,87","1889,5",typology,GRAIN FLOUR,,Self-mapped
+lime rind,"0,34",642,ingredient,LIME,,Self-mapped
+dip,"0,43",5053,ingredient,BEAN,,Self-mapped
+marshmallow creme,"5,45",3838,ingredient,CREAM,,Self-mapped
+miso,"0,48",1423,ingredient,BARLEY,,Self-mapped
+creamed corn,"0,81","750,5",typology,VEGETABLES FROZEN,,Self-mapped
+prepared horseradish,"0,33",750,typology,VEGETABLES OPENFIELD,,Self-mapped
+grit,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+polenta,,,NO_MATCH,NO_MATCH,,
+sage leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+club soda,,,NO_MATCH,NO_MATCH,,
+sprinkle,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+ground chuck,,,NO_MATCH,NO_MATCH,,
+dried parsley,,,NO_MATCH,NO_MATCH,,
+miniature marshmallow,,,NO_MATCH,NO_MATCH,,
+wonton wrapper,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+liquid smoke,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+packet,,,NO_MATCH,NO_MATCH,,
+potato chip,"0,24",555,ingredient,POTATO,,Self-mapped
+eggnog,,,NO_MATCH,NO_MATCH,,
+cup,"1,84",,ingredient,PEANUT BUTTER,,Self-mapped
+beef brisket,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+chuck roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+red food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+toothpick,,,NO_MATCH,NO_MATCH,,
+edamame,,,NO_MATCH,NO_MATCH,,
+bar,"9,63",,ingredient,"SNICKERS, CANDY BAR",https://apps.carboncloud.com/climatehub/product-reports/040000499039/USA,Self-mapped
+provolone,"8,93",5253,ingredient,CHEESE,,Self-mapped
+butterscotch schnapps,,,NO_MATCH,NO_MATCH,,
+cheddar cheese soup,"8,93",5253,ingredient,CHEESE,,Self-mapped
+triple sec,,,NO_MATCH,NO_MATCH,,
+bisquick,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+savory,"0,84",8280,typology,SPICIES,,Self-mapped
+unsweetened applesauce,"0,81",6847,ingredient,APPLES,,Self-mapped
+wrapper,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+chunk,,,NO_MATCH,NO_MATCH,,
+manicotti,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+sambal oelek,"0,84",8280,typology,SPICIES,,Self-mapped
+piece,,,NO_MATCH,NO_MATCH,,
+leaves,"0,84",8280,typology,SPICIES,,Self-mapped
+venison,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+gnocchi,"0,24",555,ingredient,POTATO,,Self-mapped
+ziti,"1,21",1508,ingredient,PASTA*,,Self-mapped
+butter flavor crisco,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+nutritional yeast,"3,29",,ingredient,YEAST DRIED*,,Self-mapped
+granule,"0,55",960,ingredient,COFFEE SOLUBLE POWDER (L),,Self-mapped
+stock cube,"1,75",,ingredient,"Vegetable Bouillon, cubes",https://apps.carboncloud.com/climatehub/product-reports/id/164865146932,Self-mapped
+caramel ice cream topping,"6,8",,ingredient,Topping Karamell,https://apps.carboncloud.com/climatehub/product-reports/8720182837752/SWE,Self-mapped
+coleslaw mix,"1,18",336,typology,VEGETABLES,,Self-mapped
+jello,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+mincemeat,,,NO_MATCH,NO_MATCH,,
+Frangelico,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+almond flour,,,NO_MATCH,NO_MATCH,,
+mini marshmallow,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+cottage,"8,93",5253,ingredient,CHEESE,,Self-mapped
+lean ground beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+hearts,"0,33",818,ingredient,ARTICHOKE,,Self-mapped
+orange blossom water,"0,3",654,ingredient,ORANGE,,Self-mapped
+Sprite,,,NO_MATCH,NO_MATCH,,
+dripping,"1,46",572,typology,DRESSING,,Self-mapped
+mango chutney,"2,15",748,typology,FRUIT,,Self-mapped
+stevia,"0,78","1294,5",typology,SUGAR,,Self-mapped
+rotel,"0,45",41,ingredient,TOMATO,,Self-mapped
+consomme,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+rutabaga,,,NO_MATCH,NO_MATCH,,
+panko,"0,86","901,8",typology,BREAD,,Self-mapped
+escarole,,,NO_MATCH,NO_MATCH,,
+elbow macaroni,"1,21",1508,ingredient,PASTA*,,Self-mapped
+dried sage,"0,84",8280,typology,SPICIES,,Self-mapped
+corned beef,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+sec,,,NO_MATCH,NO_MATCH,,
+wrap,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+marinade,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+pierogi,"0,24",555,ingredient,POTATO,,Self-mapped
+ramen noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+maple extract,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+vegetable shortening,,,NO_MATCH,NO_MATCH,,
+amaretto,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+hummus,,,NO_MATCH,NO_MATCH,,
+gravy mix,"0,65",379,ingredient,PEPPER,,Self-mapped
+thigh,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+ground round,"1,88",11264,ingredient,ALMOND,,Self-mapped
+ring,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+Cointreau,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+foil,"8,29",19956,ingredient,COFFEE PARCHMENT,,Self-mapped
+nori,,,NO_MATCH,NO_MATCH,,
+bay,,,NO_MATCH,NO_MATCH,,
+butterscotch chips,"1,84",,ingredient,PEANUT BUTTER,,Self-mapped
+template2,,,NO_MATCH,NO_MATCH,,
+kirsch,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+swiss chard,"1,18",336,typology,VEGETABLES,,Self-mapped
+canola,"5,44",,ingredient,COOKING OIL CANOLA,https://apps.carboncloud.com/climatehub/product-reports/758940527261/USA,Self-mapped
+xanthan gum,,,NO_MATCH,NO_MATCH,,
+shavings,"4,3",,ingredient,CHOCOLATE,,Self-mapped
+honeydew,"0,61","1506,5",ingredient,MELON,,Self-mapped
+lime leaf,"2,15",748,typology,FRUIT,,Self-mapped
+tenderloin,"3,68",3960,ingredient,CHICKEN BONE FREE MEAT,,Self-mapped
+beef tenderloin,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+rice noodle,"2,19",1597,ingredient,RICE*,,Self-mapped
+base,,,NO_MATCH,NO_MATCH,,
+concentrate,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+endive,"0,41",237,ingredient,LETTUCE,,Self-mapped
+hominy,"0,57",1618,typology,GRAINS,,Self-mapped
+sheet,"2,19",1597,ingredient,RICE*,,Self-mapped
+corn tortilla,"0,87",1167,ingredient,MAIZE FLOUR & MEAL,,Self-mapped
+pie filling,"2,15",748,typology,FRUIT,,Self-mapped
+shaving,"4,3",,ingredient,CHOCOLATE,,Self-mapped
+curl,,,NO_MATCH,NO_MATCH,,
+rocket,"0,41",237,ingredient,LETTUCE,,Self-mapped
+drippings,"5,99",6116,ingredient,BACON,,Self-mapped
+stew meat,"25,23",10412,ingredient,LAMB BONE FREE MEAT*,,Self-mapped
+green food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+Spam,,,NO_MATCH,NO_MATCH,,
+bicarbonate,"1,14",,ingredient,BAKING SODA,https://apps.carboncloud.com/climatehub/product-reports/039978033918/USA,Self-mapped
+bark,,,NO_MATCH,NO_MATCH,,
+chow mein noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+self-raising flour,"0,57",2133,typology,"PROCESSED GRAINS (grouts, malt)",,Self-mapped
+stalk,"0,33",362,ingredient,CELERY,,Self-mapped
+hoisin,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+floret,"0,57",336,ingredient,BROCCOLI,,Self-mapped
+ground pork,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+mushroom soup,"0,22",290,ingredient,ONION,,Self-mapped
+icing,"1,14",,ingredient,WHITE FROSTING,https://apps.carboncloud.com/climatehub/product-reports/070980322966/USA,Self-mapped
+cream-style corn,"0,81","750,5",typology,VEGETABLES FROZEN,,Self-mapped
+Splenda sugar substitute,"0,78","1294,5",typology,SUGAR,,Self-mapped
+rump roast,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+caramel topping,"6,8",,ingredient,Topping Karamell,https://apps.carboncloud.com/climatehub/product-reports/8720182837752/SWE,Self-mapped
+tempeh,"5,99",6116,ingredient,BACON,,Self-mapped
+granules,,,NO_MATCH,NO_MATCH,,
+tomatillo,"2,15",748,typology,FRUIT,,Self-mapped
+tomato ketchup,"1,46",534,ingredient,KETCHUP,,Self-mapped
+caraway,"0,88","3087,5",typology,SEEDS,,Self-mapped
+tamarind paste,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+chicken stock cube,"1,75",,ingredient,"Vegetable Bouillon, cubes",https://apps.carboncloud.com/climatehub/product-reports/id/164865146932,Self-mapped
+alfredo sauce,,,NO_MATCH,NO_MATCH,,
+shoot,"0,52",595,ingredient,PEA (fresh),,Self-mapped
+Crisco shortening,"2,11",6792,typology,OIL,,Self-mapped
+Southern Comfort,"4,43",,ingredient,John Lee Straight Bourbon Whiskey,https://apps.carboncloud.com/climatehub/product-reports/3012993050501/SWE,Self-mapped
+Midori,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+fryer,"0,24",555,ingredient,POTATO,,Self-mapped
+caramel sauce,,,NO_MATCH,NO_MATCH,,
+msg,,,NO_MATCH,NO_MATCH,,
+calvados,,,NO_MATCH,NO_MATCH,,
+bouquet garni,,,NO_MATCH,NO_MATCH,,
+thyme leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+lavender,,,NO_MATCH,NO_MATCH,,
+ditalini,"1,21",1508,ingredient,PASTA*,,Self-mapped
+orecchiette,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+rotini,"1,21",1508,ingredient,PASTA*,,Self-mapped
+dried rosemary,"0,84",8280,typology,SPICIES,,Self-mapped
+ciabatta,"0,86","901,8",typology,BREAD,,Self-mapped
+poblano,"0,84",8280,typology,SPICIES,,Self-mapped
+bleu cheese salad dressing,"9,59",5060,ingredient,CHEESE BLUE-VEINED,,Self-mapped
+monterey jack,"8,93",5253,ingredient,CHEESE,,Self-mapped
+glaze,,,NO_MATCH,NO_MATCH,,
+bottle,"0,69",155,typology,BEER,,Self-mapped
+slices,"0,86",667,ingredient,BREAD,,Self-mapped
+mostaccioli,"1,21",1508,ingredient,PASTA*,,Self-mapped
+pieces,,,NO_MATCH,NO_MATCH,,
+Oreo,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+Baileys,"7,83",,ingredient,Baileys Original Irish Cream,https://apps.carboncloud.com/climatehub/product-reports/5011013100156/SWE,Self-mapped
+carbonated lemon-lime beverage,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+envelope,"3,29",,ingredient,YEAST DRIED*,,Self-mapped
+hock,"3,44",5677,ingredient,FRESH HAM WITH BONE,,Self-mapped
+kumara,"0,27",383,ingredient,SWEET POTATO,,Self-mapped
+sparerib,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+sprinkles,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+coconut flour,"0,87",1849,ingredient,WHEAT FLOUR,,Self-mapped
+container,"2,42",,ingredient,"Cr�me de lait, 15 � 20% MG, l�g�re, semi-�paisse, UHT",https://agribalyse.ademe.fr/app/aliments/19430,Self-mapped
+Dorito,"0,93",1378,ingredient,FLAVORED CRACKERS**,,Self-mapped
+drink mix,"4,3",,ingredient,CHOCOLATE,,Self-mapped
+orange flower water,"0,3",654,ingredient,ORANGE,,Self-mapped
+caramel syrup,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+creme de menthe,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+pickle relish,"1,18",336,typology,VEGETABLES,,Self-mapped
+dried dill,"0,33",362,ingredient,FENNEL,,Self-mapped
+Bisquick baking mix,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+dried mint,"0,84",288,ingredient,PEPPERMINT,,Self-mapped
+self rising flour,"0,57",2133,typology,"PROCESSED GRAINS (grouts, malt)",,Self-mapped
+marzipan,,,NO_MATCH,NO_MATCH,,
+ouzo,,,NO_MATCH,NO_MATCH,,
+sumac,"0,84",8280,typology,SPICIES,,Self-mapped
+ranch dressing mix,"1,46",572,typology,DRESSING,,Self-mapped
+round,"0,86","901,8",typology,BREAD,,Self-mapped
+ketjap manis,,,NO_MATCH,NO_MATCH,,
+yellow cake mix,"0,3",654,ingredient,ORANGE,,Self-mapped
+tagliatelle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+bits,"2,74",,ingredient,Toffees,https://livelca.com/products/toffees_b0dee6db-9d0d-46c2-bcf1-34eeabfbebc5,Self-mapped
+jack,"8,93",5253,ingredient,CHEESE,,Self-mapped
+tapioca flour,"0,27",2818,ingredient,TAPIOCA OF CASSAVA,,Self-mapped
+orange roughy,"5,19","2313,5",typology,FISH,,Self-mapped
+green curry paste,"0,84",8280,typology,SPICIES,,Self-mapped
+Marnier,"0,84",8280,typology,SPICIES,,Self-mapped
+unbaked pie shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+gum,,,NO_MATCH,NO_MATCH,,
+horseradish sauce,"5,45",3838,ingredient,CREAM,,Self-mapped
+seltzer,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+beef base,"36,8",,ingredient,"VALU TIME, BEEF BOUILLON CUBES",https://apps.carboncloud.com/climatehub/product-reports/011225125584/USA,Self-mapped
+jar,,,NO_MATCH,NO_MATCH,,
+pickle juice,,,NO_MATCH,NO_MATCH,,
+fresh rosemary,"0,84",8280,typology,SPICIES,,Self-mapped
+seafood,"5,19","2313,5",typology,FISH,,Self-mapped
+sauce mix,"1,84",,ingredient,PEANUT PASTE,,Self-mapped
+cube steak,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+soba noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+aluminum foil,"6,71",19956,typology,COFFEE GROUND & PARCHMENT,,Self-mapped
+mexicorn,,,NO_MATCH,NO_MATCH,,
+fresh oregano,"0,84",8280,typology,SPICIES,,Self-mapped
+tart shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+phyllo,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+caviar,,,NO_MATCH,NO_MATCH,,
+fontina,"8,93",5253,ingredient,CHEESE,,Self-mapped
+bicarbonate of soda,"1,14",,ingredient,BAKING SODA,https://apps.carboncloud.com/climatehub/product-reports/039978033918/USA,Self-mapped
+low-fat sour cream,"2,55",1540,typology,YOGURT,,Self-mapped
+enchilada sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+oxtail,"5,99",6177,ingredient,NECK,,Self-mapped
+galangal,,,NO_MATCH,NO_MATCH,,
+pico de gallo,,,NO_MATCH,NO_MATCH,,
+ingredient,,,NO_MATCH,NO_MATCH,,
+walnut half,"2,06",11264,ingredient,WALNUT,,Self-mapped
+chervil,,,NO_MATCH,NO_MATCH,,
+waffle,"2,15",,ingredient,"BUTTERMILK PANCAKE & WAFFLE MIX, BUTTERMILK",https://apps.carboncloud.com/climatehub/product-reports/085239030486/USA,Self-mapped
+clarified butter,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+food,,,NO_MATCH,NO_MATCH,,
+oreo,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+wax,"0,43",5053,ingredient,BEAN,,Self-mapped
+morsels,"4,3",,ingredient,CHOCOLATE,,Self-mapped
+paraffin wax,,,NO_MATCH,NO_MATCH,,
+butterscotch,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+cheesecloth,,,NO_MATCH,NO_MATCH,,
+cocktail,"2,15",748,typology,FRUIT,,Self-mapped
+Curacao,"0,3",654,ingredient,ORANGE,,Self-mapped
+box,,,NO_MATCH,NO_MATCH,,
+black tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+Pernod,,,NO_MATCH,NO_MATCH,,
+wasabi paste,"0,84",8280,typology,SPICIES,,Self-mapped
+sweet pickle relish,"1,18",336,typology,VEGETABLES,,Self-mapped
+dip mix,"0,22",290,ingredient,ONION,,Self-mapped
+black,,,NO_MATCH,NO_MATCH,,
+sirloin steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+dried tarragon,"0,3",,ingredient,BASIL FRESH,https://livelca.com/products/basil-fresh_f6a4ddbe-1c2c-44e8-886e-4d5388d33bb1,Self-mapped
+yellow food coloring,,,NO_MATCH,NO_MATCH,,
+morel,,,NO_MATCH,NO_MATCH,,
+farfalle,"1,21",1508,ingredient,PASTA*,,Self-mapped
+capellini,,,NO_MATCH,NO_MATCH,,
+dumpling,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+buttermilk baking mix,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+Fontina,"8,93",5253,ingredient,CHEESE,,Self-mapped
+cooking spray,"2,11",6792,typology,OIL,,Self-mapped
+Chambord,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+potato water,,,NO_MATCH,NO_MATCH,,
+drop,"0,78","1294,5",typology,SUGAR,,Self-mapped
+dried marjoram,"0,84",8280,typology,SPICIES,,Self-mapped
+crystal,"0,78","1294,5",typology,SUGAR,,Self-mapped
+brine,,,NO_MATCH,NO_MATCH,,
+soup base,"3,68",3960,ingredient,CHICKEN BONE FREE MEAT,,Self-mapped
+chicken stock powder,"36,8",,ingredient,"BOUILLON CUBES, CHICKEN",https://apps.carboncloud.com/climatehub/product-reports/032251100482/USA,Self-mapped
+half,,,NO_MATCH,NO_MATCH,,
+angel food cake,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+beef round steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+French onion soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+hamburger meat,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+adobo sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+tzatziki,,,NO_MATCH,NO_MATCH,,
+sorrel,,,NO_MATCH,NO_MATCH,,
+whole kernel corn,"0,48",1191,ingredient,MAIZE,,Self-mapped
+herbs,"0,84",8280,ingredient,CORIANDER,,Self-mapped
+Lipton Onion Soup Mix,"0,22",290,ingredient,ONION,,Self-mapped
+leg,"2,13","3330,3",ingredient,DUCK MEAT WITH BONE*,,Self-mapped
+red curry paste,"0,84",8280,typology,SPICIES,,Self-mapped
+ranch salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+condensed cream of mushroom soup,"0,33",362,ingredient,CELERY,,Self-mapped
+jar marshmallow cream,"5,45",3838,ingredient,CREAM,,Self-mapped
+ranch dip mix,"0,22",290,ingredient,ONION,,Self-mapped
+orange soda,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+rose,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+salad dressing mix,"1,46",572,typology,DRESSING,,Self-mapped
+template3,,,NO_MATCH,NO_MATCH,,
+pot roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+jalapeno juice,"0,84",8280,typology,SPICIES,,Self-mapped
+flower,"0,88",3366,ingredient,SUNFLOWER SEED,,Self-mapped
+citric acid,"1,44",1599,ingredient,MILK ACID,,Self-mapped
+segment,"2,15",748,typology,FRUIT,,Self-mapped
+Tia Maria,,,NO_MATCH,NO_MATCH,,
+masa harina,"0,87","1889,5",typology,GRAIN FLOUR,,Self-mapped
+surimi,,,NO_MATCH,NO_MATCH,,
+tender,"3,68",3960,ingredient,CHICKEN BONE FREE MEAT,,Self-mapped
+seitan,,,NO_MATCH,NO_MATCH,,
+Dijon,"1,76",,ingredient,Mustard,https://livelca.com/products/mustard_7eb333ac-568e-4de9-ae04-0a4feb790282,Self-mapped
+caesar salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+mochiko,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+dog,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+chayote,,,NO_MATCH,NO_MATCH,,
+grape leaf,,,NO_MATCH,NO_MATCH,,
+kasha,,,NO_MATCH,NO_MATCH,,
+broccoli coleslaw mix,"1,18",336,typology,VEGETABLES,,Self-mapped
+choy,"1,18",336,typology,VEGETABLES,,Self-mapped
+Coke,"0,425",,ingredient,Soft Drink,https://livelca.com/products/soft-drink_a0892893-831f-4dd5-b4bf-a8977543b775,Self-mapped
+ball,,,NO_MATCH,NO_MATCH,,
+wonton,,,NO_MATCH,NO_MATCH,,
+cavatelli,,,NO_MATCH,NO_MATCH,,
+maple,"3,06",,ingredient,Maple syrup,https://livelca.com/products/maple-syrup_4db53f50-ad8d-4315-8c83-e17bf7b28de6,Self-mapped
+rice vermicelli,"2,19",1597,ingredient,RICE*,,Self-mapped
+steak sauce,"1,46",534,ingredient,KETCHUP,,Self-mapped
+suet,,,NO_MATCH,NO_MATCH,,
+vegemite,,,NO_MATCH,NO_MATCH,,
+Splenda granular,"0,78","1294,5",typology,SUGAR,,Self-mapped
+kefalotiri,"8,93",5253,ingredient,CHEESE,,Self-mapped
+thread,"0,84",731000,ingredient,SAFFRON,,Self-mapped
+cutlet,"16,7",4362,ingredient,LAMB MEAT WITH BONE*,,Self-mapped
+mini marshmallows,,,NO_MATCH,NO_MATCH,,
+baileys,"7,83",,ingredient,Baileys Original Irish Cream,https://apps.carboncloud.com/climatehub/product-reports/5011013100156/SWE,Self-mapped
+fast rising yeast,"3,29",,ingredient,YEAST DRIED*,,Self-mapped
+halves,,,NO_MATCH,NO_MATCH,,
+tot,"0,27",1523,typology,STARCHY TUBER,,Self-mapped
+pan,"1,46",572,typology,DRESSING,,Self-mapped
+cavatappi,,,NO_MATCH,NO_MATCH,,
+Shake-n-Bake,,,NO_MATCH,NO_MATCH,,
+campari,,,NO_MATCH,NO_MATCH,,
+raspberry sherbet,"4,3",1599,typology,ICE CREAM,,Self-mapped
+vanilla wafer crumb,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+buckwheat groat,"0,87","1889,5",ingredient,BUCKWHEAT FLOUR,,Self-mapped
+Kitchen Bouquet,,,NO_MATCH,NO_MATCH,,
+drink,"0,425",,ingredient,Soft Drink,https://livelca.com/products/soft-drink_a0892893-831f-4dd5-b4bf-a8977543b775,Self-mapped
+roll wrap,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+crumbles,"1,32",2523,ingredient,SOY MEAL,,Self-mapped
+cooked wild rice,"0,57",2230,ingredient,RICE GROATS,,Self-mapped
+teaspoon,,,NO_MATCH,NO_MATCH,,
+gingerbread,"0,84",1657,ingredient,GINGER,,Self-mapped
+queso fresco,"8,93",5253,ingredient,CHEESE,,Self-mapped
+vegetable stock cube,"1,75",,ingredient,"Vegetable Bouillon, cubes",https://apps.carboncloud.com/climatehub/product-reports/id/164865146932,Self-mapped
+giardiniera,,,NO_MATCH,NO_MATCH,,
+beef gravy,"36,8",,ingredient,"VALU TIME, BEEF BOUILLON CUBES",https://apps.carboncloud.com/climatehub/product-reports/011225125584/USA,Self-mapped
+dried herb,"0,3",,ingredient,BASIL FRESH,https://livelca.com/products/basil-fresh_f6a4ddbe-1c2c-44e8-886e-4d5388d33bb1,Self-mapped
+chunks,,,NO_MATCH,NO_MATCH,,
+low sodium chicken broth,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+blue curacao,"0,3",654,ingredient,ORANGE,,Self-mapped
+barberry,,,NO_MATCH,NO_MATCH,,
+gel,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+cake crumb,"1,94",3468,ingredient,COCOA CAKES AND CROISSANT**,,Self-mapped
+poundcake mix,,,NO_MATCH,NO_MATCH,,
+doughnut,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+skewers,,,NO_MATCH,NO_MATCH,,
+deep dish pie shell,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+shortcrust pastry,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+dry oregano,"0,84",8280,typology,SPICIES,,Self-mapped
+citron,"0,81","2636,5",typology,DRIED FRUIT,,Self-mapped
+dried Italian seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+chunky applesauce,"0,81",6847,ingredient,APPLES,,Self-mapped
+vegan butter,"1,39",1324,ingredient,MARGARINE*,,Self-mapped
+orange food coloring,,,NO_MATCH,NO_MATCH,,
+Karo,"0,78","1294,5",typology,SUGAR,,Self-mapped
+herbes de provence,"0,84",8280,typology,SPICIES,,Self-mapped
+rolls,"0,86","901,8",typology,BREAD,,Self-mapped
+dried beef,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+Molly McButter,,,NO_MATCH,NO_MATCH,,
+Butter Flavor Crisco,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+taco seasoning mix,"0,84",8280,typology,SPICIES,,Self-mapped
+blend,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+bechamel,,,NO_MATCH,NO_MATCH,,
+carrot juice,"1,18",336,typology,VEGETABLES,,Self-mapped
+fat-free half-and-half,"1,44",1599,typology,ANIMAL MILK,,Self-mapped
+template,"6,71",19956,typology,COFFEE GROUND & PARCHMENT,,Self-mapped
+red pepper sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+muesli,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+soy margarine,"1,39",1324,ingredient,MARGARINE*,,Self-mapped
+bag,,,NO_MATCH,NO_MATCH,,
+Applejack,"0,25",622,ingredient,APPLE,,Self-mapped
+dash,,,NO_MATCH,NO_MATCH,,
+dashi,,,NO_MATCH,NO_MATCH,,
+roast beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+bay leaf powder,,,NO_MATCH,NO_MATCH,,
+filbert,,,NO_MATCH,NO_MATCH,,
+Dr. Pepper,"0,67",,ingredient,Cola,https://livelca.com/products/cola_496c1d33-6579-44f7-b2d8-2242545d3502,Self-mapped
+skirt steak,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+ribs,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+florets,"0,57",336,ingredient,BROCCOLI,,Self-mapped
+radiatore,,,NO_MATCH,NO_MATCH,,
+tidbit,"0,55",255,ingredient,PINEAPPLE (I),,Self-mapped
+violet,,,NO_MATCH,NO_MATCH,,
+chopped,,,NO_MATCH,NO_MATCH,,
+tomato passata,"0,45",41,ingredient,TOMATO,,Self-mapped
+beef cube steak,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+baby corn,"0,48",1191,ingredient,MAIZE,,Self-mapped
+beef mince,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+rib eye steak,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+ground meat,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+bulgar,"0,57",1639,ingredient,WHEAT,,Self-mapped
+curacao,"0,3",654,ingredient,ORANGE,,Self-mapped
+Copha,,,NO_MATCH,NO_MATCH,,
+amaranth flour,"0,57",1618,typology,GRAINS,,Self-mapped
+liverwurst,"5,99",6177,ingredient,PORK SAUSAGES,,Self-mapped
+kidney,,,NO_MATCH,NO_MATCH,,
+ovaltine,,,NO_MATCH,NO_MATCH,,
+wax paper,"8,29",19956,ingredient,COFFEE PARCHMENT,,Self-mapped
+bamboo skewer,,,NO_MATCH,NO_MATCH,,
+passata,,,NO_MATCH,NO_MATCH,,
+oregano leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+bars,,,NO_MATCH,NO_MATCH,,
+gizzard,,,NO_MATCH,NO_MATCH,,
+pastina,,,NO_MATCH,NO_MATCH,,
+pinch,,,NO_MATCH,NO_MATCH,,
+fiddlehead,,,NO_MATCH,NO_MATCH,,
+curls,"4,3",,ingredient,CHOCOLATE,,Self-mapped
+phyllo pastry sheet,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+panir,"9,59",5253,ingredient,GOAT CHEESE,,Self-mapped
+toasted wheat germ,"0,57",1639,ingredient,WHEAT,,Self-mapped
+sugar cookie mix,"1,39",1723,ingredient,SIMPLE COOKIES**,,Self-mapped
+dried dill weed,"1,18",336,typology,VEGETABLES,,Self-mapped
+tablespoon,,,NO_MATCH,NO_MATCH,,
+twine,,,NOT_FOOD,NOT_FOOD,,Self-mapped
+bechamel sauce,,,NO_MATCH,NO_MATCH,,
+naan,"0,86",667,ingredient,BREAD,,Self-mapped
+pastrami,,,NO_MATCH,NO_MATCH,,
+browns,"0,24",555,ingredient,POTATO,,Self-mapped
+lox,,,NO_MATCH,NO_MATCH,,
+tamale,,,NO_MATCH,NO_MATCH,,
+chicken soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+Bouquet,,,NO_MATCH,NO_MATCH,,
+meatloaf mix,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+cinnamon applesauce,"0,81",6847,ingredient,APPLES,,Self-mapped
+Sure-Jell,,,NO_MATCH,NO_MATCH,,
+carambola,,,NO_MATCH,NO_MATCH,,
+sago,,,NO_MATCH,NO_MATCH,,
+lavender flower,"0,3",654,ingredient,ORANGE,,Self-mapped
+spelt,"0,36","1889,5",ingredient,WHOLE WHEAT FLOUR,,Self-mapped
+jaggery,"0,78","1294,5",typology,SUGAR,,Self-mapped
+filling mix,"4,3",,ingredient,VANILLA,,Self-mapped
+dill pickle relish,"1,18",336,typology,VEGETABLES,,Self-mapped
+brown gravy mix,"0,22",290,ingredient,ONION,,Self-mapped
+patis,,,NO_MATCH,NO_MATCH,,
+beef liver,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+instant tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+macaroon,"1,99",2158,typology,SWEETS,,Self-mapped
+cinnamon baking chip,"0,84",15526,ingredient,CINNAMON,,Self-mapped
+enhancer,,,,,,Self-mapped
+lumpia skin,,,NO_MATCH,NO_MATCH,,
+amaretti,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+sesame tahini,"0,84",8280,typology,SPICIES,,Self-mapped
+drambuie,,,NO_MATCH,NO_MATCH,,
+bottle carbonated lemon-lime beverage,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+black bean garlic sauce,"0,43",5053,ingredient,BEAN,,Self-mapped
+rosemary leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+angel food cake mix,"1,94",3468,ingredient,COCOA CAKES AND CROISSANT**,,Self-mapped
+tapenade,,,NO_MATCH,NO_MATCH,,
+ounce,,,NO_MATCH,NO_MATCH,,
+seasoned bread crumbs,"0,86","901,8",typology,BREAD,,Self-mapped
+stock powder,,,NO_MATCH,NO_MATCH,,
+udon noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+pasta water,"1,21",1508,ingredient,PASTA*,,Self-mapped
+au jus mix,,,NO_MATCH,NO_MATCH,,
+pak choi,"1,18",336,typology,VEGETABLES,,Self-mapped
+short rib,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+Italian herb seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+package dry onion soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+Belgian endive,,,NO_MATCH,NO_MATCH,,
+prepared white horseradish,"0,33",750,typology,VEGETABLES OPENFIELD,,Self-mapped
+gai lan,,,NO_MATCH,NO_MATCH,,
+improver,,,,,,Self-mapped
+toasted pine nut,"1,11",11264,typology,NUTS,,Self-mapped
+rose petal,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+Schnapps,"0,61",413,ingredient,STRAWBERRY,,Self-mapped
+midori,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+wonton skin,,,NO_MATCH,NO_MATCH,,
+cracked ice,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+cachaca,,,NO_MATCH,NO_MATCH,,
+rump steak,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+malibu,"4,63",,ingredient,Chairmans Reserve Rum,https://apps.carboncloud.com/climatehub/product-reports/786992000456/SWE,Self-mapped
+Everclear alcohol,,,NO_MATCH,NO_MATCH,,
+creme de banane,,,NO_MATCH,NO_MATCH,,
+popsicle stick,"4,3",1599,typology,ICE CREAM,,Self-mapped
+olive juice,,,NO_MATCH,NO_MATCH,,
+jelly bean,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+cornbread stuffing mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+macaroni and cheese mix,"4,03",,ingredient,MACARONI & CHEESE,https://apps.carboncloud.com/climatehub/product-reports/id/1090520914685,Self-mapped
+kohlrabi,,,NO_MATCH,NO_MATCH,,
+farro,,,NO_MATCH,NO_MATCH,,
+stevia powder,,,NO_MATCH,NO_MATCH,,
+sun-dried tomato paste,"0,81","2636,5",typology,DRIED FRUIT,,Self-mapped
+tidbits,"0,55",255,ingredient,PINEAPPLE (I),,Self-mapped
+pepper oil,"0,84",8280,typology,SPICIES,,Self-mapped
+Emerils Original Essence,,,NO_MATCH,NO_MATCH,,
+quick-cooking tapioca,"0,27",2818,ingredient,TAPIOCA OF CASSAVA,,Self-mapped
+cupcake liner,,,NO_MATCH,NO_MATCH,,
+cinnamon schnapps,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+spam,"0,27",343,ingredient,YAM,,Self-mapped
+mortadella,,,NO_MATCH,NO_MATCH,,
+chicken fat,"5,99",6116,ingredient,BACON,,Self-mapped
+fresh yeast,"0,5",,ingredient,YEAST LIQUID*,,Self-mapped
+sambuca,,,NO_MATCH,NO_MATCH,,
+phyllo cup,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+large marshmallow,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+treacle,,,NO_MATCH,NO_MATCH,,
+spice cake mix,,,NO_MATCH,NO_MATCH,,
+cinnamon baking chips,"0,84",15526,ingredient,CINNAMON,,Self-mapped
+farfel,"0,86","901,8",typology,BREAD,,Self-mapped
+cannelloni tube,,,NO_MATCH,NO_MATCH,,
+packet dry onion soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+mixed Italian herb,,,NO_MATCH,NO_MATCH,,
+unseasoned breadcrumb,"0,86","901,8",typology,BREAD,,Self-mapped
+sliced scallion,"1,18",336,typology,VEGETABLES,,Self-mapped
+gluten-free flour,,,NO_MATCH,NO_MATCH,,
+butter substitute,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+deviled ham,,,NO_MATCH,NO_MATCH,,
+white sauce,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+lasagna,"1,21",1508,ingredient,PASTA*,,Self-mapped
+mesclun,,,NO_MATCH,NO_MATCH,,
+strawberry cake mix,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+condensed cream of chicken soup,"0,33",362,ingredient,CELERY,,Self-mapped
+taco sauce,,,NO_MATCH,NO_MATCH,,
+minced meat,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+agave,"0,78","1294,5",typology,SUGAR,,Self-mapped
+dessert mix,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+pork spareribs,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+ascorbic acid,,,NO_MATCH,NO_MATCH,,
+lemon balm,"0,34",642,ingredient,LEMON,,Self-mapped
+corned beef brisket,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+pearl tapioca,"0,27",2818,ingredient,TAPIOCA OF CASSAVA,,Self-mapped
+inch,,,NO_MATCH,NO_MATCH,,
+Clear Jel,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+packet Lipton Onion Soup Mix,"0,22",290,ingredient,ONION,,Self-mapped
+seaweed,,,NO_MATCH,NO_MATCH,,
+fast-rising active dry yeast,"3,29",,ingredient,YEAST DRIED*,,Self-mapped
+white tequila,,,NO_MATCH,NO_MATCH,,
+shoyu,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+flax,"0,88","3087,5",typology,SEEDS,,Self-mapped
+mixed baby green,"1,18",336,typology,VEGETABLES,,Self-mapped
+pastry for double-crust pie,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+cooking,"2,11",6792,typology,OIL,,Self-mapped
+cracked wheat,"0,57",1639,ingredient,WHEAT,,Self-mapped
+slaw,"1,18",336,typology,VEGETABLES,,Self-mapped
+balm,,,NO_MATCH,NO_MATCH,,
+lovage,,,NO_MATCH,NO_MATCH,,
+beef sirloin,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+low sodium vegetable broth,"1,18",336,typology,VEGETABLES,,Self-mapped
+perciatelli,"1,21",1508,ingredient,PASTA*,,Self-mapped
+annatto,"0,88","3087,5",typology,SEEDS,,Self-mapped
+seasoned flour,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+beef chuck roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+top,"0,22",290,ingredient,ONION,,Self-mapped
+maggi seasoning,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+dried parsley flake,"0,84",8280,typology,SPICIES,,Self-mapped
+veal shank,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+filet mignon,,,NO_MATCH,NO_MATCH,,
+chopped fresh rosemary,"0,84",8280,typology,SPICIES,,Self-mapped
+pepita,,,NO_MATCH,NO_MATCH,,
+sofrito sauce,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+fresh mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+wooden skewer,,,NO_MATCH,NO_MATCH,,
+sauterne,"0,66",524,typology,WINE,,Self-mapped
+meat substitute,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+creme de cassis,,,NO_MATCH,NO_MATCH,,
+skin,,,NO_MATCH,NO_MATCH,,
+double crust pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+soup stock,"0,54",362,ingredient,VEGETABLES,,Self-mapped
+lima,"0,52",516,ingredient,BEAN (fresh),,Self-mapped
+Pepsi,"0,425",,ingredient,Soft Drink,https://livelca.com/products/soft-drink_a0892893-831f-4dd5-b4bf-a8977543b775,Self-mapped
+matzo cake meal,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+tartar sauce,,,NO_MATCH,NO_MATCH,,
+sweet green pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+Italian turkey sausage,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+queso,"8,93",5253,ingredient,CHEESE,,Self-mapped
+blueberry muffin mix,"2,15",,ingredient,BUTTERMILK PANCAKE MIX,https://apps.carboncloud.com/climatehub/product-reports/078716001505/USA,Self-mapped
+fine breadcrumb,"0,86","901,8",typology,BREAD,,Self-mapped
+adobo,"0,84",8280,typology,SPICIES,,Self-mapped
+scape,"0,25",589,ingredient,GARLIC,,Self-mapped
+chicken rice pilaf mix,"2,19",1597,ingredient,RICE*,,Self-mapped
+toasted sesame,"0,88","3087,5",typology,SEEDS,,Self-mapped
+fresh Italian parsley,"1,18",336,typology,VEGETABLES,,Self-mapped
+sweet relish,"0,32",1604,ingredient,CHERRY SWEET,,Self-mapped
+round steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+filberts,"1,88",11264,ingredient,ALMOND,,Self-mapped
+beef sirloin steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+minced scallion,"1,18",336,typology,VEGETABLES,,Self-mapped
+flower water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+turkey slice,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+roughy,"5,19","2313,5",typology,FISH,,Self-mapped
+ground sirloin,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+demi-glace,,,NO_MATCH,NO_MATCH,,
+pie filling mix,"2,15",748,typology,FRUIT,,Self-mapped
+white Karo,,,NO_MATCH,NO_MATCH,,
+segments,"2,15",748,typology,FRUIT,,Self-mapped
+lb,"0,5",,ingredient,YEAST LIQUID*,,Self-mapped
+zaatar,"4,3",1599,typology,ICE CREAM,,Self-mapped
+panettone,"0,86",667,ingredient,BREAD,,Self-mapped
+cedar plank,,,NO_MATCH,NO_MATCH,,
+chopped roasted red pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+crushed potato chip,"0,24",555,ingredient,POTATO,,Self-mapped
+artificial sweetener,"0,78","1294,5",typology,SUGAR,,Self-mapped
+margarita mix,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+kirschwasser,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+chicken soup base,"3,68",3960,ingredient,CHICKEN BONE FREE MEAT,,Self-mapped
+pork rind,,,NO_MATCH,NO_MATCH,,
+nutmeats,"1,38",11264,ingredient,CASHEW NUT,,Self-mapped
+hollandaise sauce mix,"1,46",572,ingredient,MAYONNAISE,,Self-mapped
+louisiana hot sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+Mars bar,"3,16",20717,ingredient,MILK CHOCOLATE,,Self-mapped
+tarragon leaf,,,NO_MATCH,NO_MATCH,,
+minced fresh parsley,"1,18",336,typology,VEGETABLES,,Self-mapped
+prune baby food,"0,32",2180,ingredient,PLUM,,Self-mapped
+truffle,"2,11",6792,typology,OIL,,Self-mapped
+black treacle,,,NO_MATCH,NO_MATCH,,
+rosebud,,,NO_MATCH,NO_MATCH,,
+snap,"0,45",1979,ingredient,PEA,,Self-mapped
+finely chopped pecans,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+shank,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+drops green food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+coating,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+ice cream topping,"0,61",413,ingredient,STRAWBERRY,,Self-mapped
+chitterling,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+pumpernickel,"0,77",887,ingredient,BREAD WHOLE**,,Self-mapped
+marshmallows,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+ear,"0,33","750,5",typology,VEGETABLES OPENFIELD,,Self-mapped
+citron peel,"0,81","2636,5",typology,DRIED FRUIT,,Self-mapped
+salad cream,"1,46",572,typology,DRESSING,,Self-mapped
+powdered,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+dried herbs,"0,3",,ingredient,BASIL FRESH,https://livelca.com/products/basil-fresh_f6a4ddbe-1c2c-44e8-886e-4d5388d33bb1,Self-mapped
+finely chopped pecan,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+fresh tarragon,"1,18",336,typology,VEGETABLES,,Self-mapped
+strand,"0,33",547,ingredient,STRING BEAN,,Self-mapped
+petal,,,NO_MATCH,NO_MATCH,,
+mirliton,,,NO_MATCH,NO_MATCH,,
+cubes,"0,98",1258,typology,CRACKERS,,Self-mapped
+ranch,"1,46",572,typology,DRESSING,,Self-mapped
+broccoli slaw mix,"0,57",336,ingredient,BROCCOLI,,Self-mapped
+turkey ham,,,NO_MATCH,NO_MATCH,,
+Cheetos,"0,93",1378,ingredient,FLAVORED CRACKERS**,,Self-mapped
+turkey pepperoni,"0,65",379,ingredient,PEPPER,,Self-mapped
+alfredo,"9,59",5253,ingredient,PECORINO,,Self-mapped
+whole wheat penne,"1,21",1508,ingredient,PASTA*,,Self-mapped
+picante,"0,84",8280,typology,SPICIES,,Self-mapped
+muenster,"8,93",5253,ingredient,CHEESE,,Self-mapped
+Italian breadcrumbs,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+ranch dip,"1,46",572,typology,DRESSING,,Self-mapped
+tubetti,"1,21",1508,ingredient,PASTA*,,Self-mapped
+Italian salad dressing mix,,,NO_MATCH,NO_MATCH,,
+nugget,,,NO_MATCH,NO_MATCH,,
+cups,,,NO_MATCH,NO_MATCH,,
+capicola,,,NO_MATCH,NO_MATCH,,
+cannelloni,,,NO_MATCH,NO_MATCH,,
+boiled water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+Italian salad kit,,,NO_MATCH,NO_MATCH,,
+fruit spread,"0,3",1287,ingredient,APRICOT,,Self-mapped
+crushed pecan,"1,11",11264,typology,NUTS,,Self-mapped
+dry pectin,,,NO_MATCH,NO_MATCH,,
+tang orange drink mix,"0,46",1019,ingredient,ORANGE JUICE,,Self-mapped
+pork fillet,"3,68",3960,ingredient,CHICKEN BONE FREE MEAT,,Self-mapped
+agar-agar,,,NO_MATCH,NO_MATCH,,
+fruit pectin,,,NO_MATCH,NO_MATCH,,
+tawny port,"0,66",524,typology,WINE,,Self-mapped
+eau de vie,,,NO_MATCH,NO_MATCH,,
+fajita seasoning mix,"0,84",8280,typology,SPICIES,,Self-mapped
+calendula flower,,,NO_MATCH,NO_MATCH,,
+red wine vinaigrette,"3,27",14415,ingredient,OLIVE OIL,,Self-mapped
+screwpine leaf,"0,34",748,ingredient,BANANA,,Self-mapped
+cassis,,,NO_MATCH,NO_MATCH,,
+mary mix,"2,86",267,ingredient,TOMATO JUICE,,Self-mapped
+advocaat,,,NO_MATCH,NO_MATCH,,
+Tang,,,NO_MATCH,NO_MATCH,,
+tartaric,,,NO_MATCH,NO_MATCH,,
+piloncillo,,,NO_MATCH,NO_MATCH,,
+baby food,"0,34",748,ingredient,BANANA,,Self-mapped
+rose extract,,,NO_MATCH,NO_MATCH,,
+chai tea,,,ERROR,ERROR,,
+aquavit,,,NO_MATCH,NO_MATCH,,
+chopped fresh mint leaf,"0,84",288,ingredient,PEPPERMINT,,Self-mapped
+earl grey tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+sticks,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+egg mayonnaise,"1,46",572,ingredient,MAYONNAISE,,Self-mapped
+pie pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+beef tongue,"5,99",6177,ingredient,NECK,,Self-mapped
+dried cilantro,,,NO_MATCH,NO_MATCH,,
+egg white powder,,,NO_MATCH,NO_MATCH,,
+meat tenderizer,,,NO_MATCH,NO_MATCH,,
+marmite,,,NO_MATCH,NO_MATCH,,
+queso blanco,"8,93",5253,ingredient,CHEESE,,Self-mapped
+kelp,,,NO_MATCH,NO_MATCH,,
+brown sugar substitute,"0,78","1294,5",typology,SUGAR,,Self-mapped
+hot roll mix,"0,36","1889,5",ingredient,WHOLE WHEAT FLOUR,,Self-mapped
+rice bran,"0,67",1788,ingredient,OAT,,Self-mapped
+licorice root,"2,404",,ingredient,Licorice,https://livelca.com/products/licorice_1f6c12ee-67d2-4231-a385-abc07647ee53,Self-mapped
+kewra essence,,,NO_MATCH,NO_MATCH,,
+fideo,,,NO_MATCH,NO_MATCH,,
+elk steak,"5,45",,ingredient,Wild Venison 50x100g,https://apps.carboncloud.com/climatehub/product-reports/7350118550182/SWE,Self-mapped
+kamaboko,,,NO_MATCH,NO_MATCH,,
+berbere,,,NO_MATCH,NO_MATCH,,
+chopped seeded tomato,"1,47",713,ingredient,TOMATO CHOPPED,,Self-mapped
+bell,"0,65",379,ingredient,PEPPER,,Self-mapped
+liter,"0,87",524,ingredient,WINE RED,,Self-mapped
+wakame seaweed,,,NO_MATCH,NO_MATCH,,
+pocket,"0,86",667,ingredient,BREAD,,Self-mapped
+raspberry chipotle sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+low sodium beef broth,,,NO_MATCH,NO_MATCH,,
+package onion soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+steak fillet,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+fat-free Italian salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+roll wrapper,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+prepared horseradish sauce,"5,45",3838,ingredient,CREAM,,Self-mapped
+bubbles,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+rib eye,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+gochujang,,,NO_MATCH,NO_MATCH,,
+carbonated lemon-lime,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+sprite,,,NO_MATCH,NO_MATCH,,
+dal,,,NO_MATCH,NO_MATCH,,
+top sirloin steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+dried soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+borage,,,NO_MATCH,NO_MATCH,,
+kashk,,,NO_MATCH,NO_MATCH,,
+ham stock,,,NO_MATCH,NO_MATCH,,
+jeera,,,NO_MATCH,NO_MATCH,,
+medium scallion,"1,18",336,typology,VEGETABLES,,Self-mapped
+quahog,,,NO_MATCH,NO_MATCH,,
+hibiscus flower,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+spear,"0,83",2150,ingredient,ASPARAGUS,,Self-mapped
+goldschlager,"1,35",1447,ingredient,PLAIN CRACKERS**,,Self-mapped
+dry ice,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+strips,"5,19","2313,5",TOO_GENERIC,TOO_GENERIC,,Self-mapped
+chourico,,,NO_MATCH,NO_MATCH,,
+Angostura bitters,"0,84",8280,typology,SPICIES,,Self-mapped
+white shoepeg corn,"0,48",1191,ingredient,MAIZE,,Self-mapped
+low-fat Italian salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+flavor enhancer,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+vegetable soup mix,"0,81",339,ingredient,MIXED VEGETABLES (F),,Self-mapped
+Galliano,,,NO_MATCH,NO_MATCH,,
+turkey gravy mix,"0,22",290,ingredient,ONION,,Self-mapped
+rack,"16,7",4362,ingredient,LAMB MEAT WITH BONE*,,Self-mapped
+dried mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+pork loin steak,"3,44",4361,ingredient,PORK MEAT WITH BONE*,,Self-mapped
+chocolate wafer pie crust,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+banana cake mix,"0,86","901,8",typology,BREAD,,Self-mapped
+yellow cherry tomato,"0,45",41,ingredient,TOMATO,,Self-mapped
+Russian salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+Comfort,"1,44",1599,typology,ANIMAL MILK,,Self-mapped
+Velveeta shell,"8,93",5253,ingredient,CHEESE,,Self-mapped
+creme de coconut,"0,54",2030,ingredient,COCONUT MILK,,Self-mapped
+rice pilaf mix,"2,19",1597,ingredient,RICE*,,Self-mapped
+schmaltz,,,NO_MATCH,NO_MATCH,,
+liner,,,NO_MATCH,NO_MATCH,,
+bird eye chile,"0,65",379,ingredient,PEPPER,,Self-mapped
+blossom,"0,34",748,ingredient,BANANA,,Self-mapped
+kaffir lime leaves,"2,15",748,typology,FRUIT,,Self-mapped
+unsalted chicken stock,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+beef schnitzel,,,NO_MATCH,NO_MATCH,,
+Malibu,"4,63",,ingredient,Chairmans Reserve Rum,https://apps.carboncloud.com/climatehub/product-reports/786992000456/SWE,Self-mapped
+batter,,,NO_MATCH,NO_MATCH,,
+finely chopped chive,"1,18",336,typology,VEGETABLES,,Self-mapped
+sazon goya,"0,84",8280,ingredient,CORIANDER,,Self-mapped
+Substitute,,,NO_MATCH,NO_MATCH,,
+vanilla cake mix,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+tripe,,,NO_MATCH,NO_MATCH,,
+rib-eye,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+medium pasta shell,"1,21",1508,ingredient,PASTA*,,Self-mapped
+sheet puff pastry,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+myrtle,,,NO_MATCH,NO_MATCH,,
+crushed corn flake,"2,64","2196,5",ingredient,CORNFLAKES*,,Self-mapped
+giblet,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+teabag,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+top round roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+popped popcorn,"1,48",807,ingredient,CORN CANNED,,Self-mapped
+baby rocket,"0,41",237,ingredient,LETTUCE,,Self-mapped
+box yellow cake mix,,,NO_MATCH,NO_MATCH,,
+Italian-style diced tomato,"1,48","806,6",typology,VEGETABLES CANNED,,Self-mapped
+cooked sushi rice,"2,19",1597,ingredient,RICE*,,Self-mapped
+sheet frozen puff pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+cheese whiz,"5,45",5253,typology,CHEESE FRESH,,Self-mapped
+kadaifi,,,NO_MATCH,NO_MATCH,,
+dish,,,NO_MATCH,NO_MATCH,,
+petite diced tomato,"1,47",713,ingredient,TOMATO CHOPPED,,Self-mapped
+corn husk,,,NO_MATCH,NO_MATCH,,
+chestnut mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+grain and wild rice blend,"2,19",1597,ingredient,RICE*,,Self-mapped
+orange oil,,,NO_MATCH,NO_MATCH,,
+beef eye round,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+dried thyme leaves,"0,84",8280,typology,SPICIES,,Self-mapped
+Accent,"0,84",8280,typology,SPICIES,,Self-mapped
+filet of beef,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+corn beef hash,,,NO_MATCH,NO_MATCH,,
+friendship starter,"0,86","901,8",typology,BREAD,,Self-mapped
+dashi stock,,,NO_MATCH,NO_MATCH,,
+soft shortening,,,NO_MATCH,NO_MATCH,,
+crumpet,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+meatloaf mixture,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+weet-bix,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+dried bay leaf,,,NO_MATCH,NO_MATCH,,
+escargot,,,NO_MATCH,NO_MATCH,,
+nonpareils,,,NO_MATCH,NO_MATCH,,
+box spice cake mix,,,NO_MATCH,NO_MATCH,,
+baked pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+rigate,,,NO_MATCH,NO_MATCH,,
+toasted sliced almonds,"1,11",16095,ingredient,ALMOND SHELLED,,Self-mapped
+canned chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+prepared pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+jar marshmallow creme,"5,45",3838,ingredient,CREAM,,Self-mapped
+double-acting baking powder,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+unsulphured molasses,"0,78","1294,5",typology,SUGAR,,Self-mapped
+drops red food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+heart of palm,,,NO_MATCH,NO_MATCH,,
+sheets phyllo dough,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+rolo,"4,3",,ingredient,CHOCOLATE,,Self-mapped
+chopped macadamia nut,"1,11",11264,ingredient,HAZELNUT,,Self-mapped
+blintz,,,NO_MATCH,NO_MATCH,,
+guar gum,,,NO_MATCH,NO_MATCH,,
+mixed mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+brewed tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+veal scallopini,,,NO_MATCH,NO_MATCH,,
+crushed pineapple with juice,"0,55",255,ingredient,PINEAPPLE (I),,Self-mapped
+Hines,,,NO_MATCH,NO_MATCH,,
+toasted chopped pecan,"2,06",11264,ingredient,WALNUT,,Self-mapped
+chopped macadamia nuts,"1,11",11264,typology,NUTS,,Self-mapped
+drop green food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+superfine,"0,78","1294,5",typology,SUGAR,,Self-mapped
+beef blade roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+Campbells Cream of Mushroom Soup,"0,33",362,ingredient,CELERY,,Self-mapped
+envelope onion soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+carton,,,NO_MATCH,NO_MATCH,,
+chicken and rice soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+spike,"5,19","2313,5",typology,FISH,,Self-mapped
+burghul,"0,57",1639,ingredient,WHEAT,,Self-mapped
+nuoc nam,,,NO_MATCH,NO_MATCH,,
+frozen pie shell,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+besan,"1,32",2523,typology,LEGUME FLOUR,,Self-mapped
+file powder,"0,84",8280,typology,SPICIES,,Self-mapped
+colored sprinkle,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+ham soup base,"5,99",5798,ingredient,CURED HAM WITH BONE,,Self-mapped
+chopped fresh parsley leaves,"1,18",336,typology,VEGETABLES,,Self-mapped
+cream of onion soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+herb stuffing mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+bailey,"5,45",3838,ingredient,CREAM,,Self-mapped
+cornbread stuffing,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+nam pla,"1,84",,ingredient,PEANUT BUTTER,,Self-mapped
+white cake mix,,,NO_MATCH,NO_MATCH,,
+pappardelle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+sections,"2,15",748,typology,FRUIT,,Self-mapped
+Sweet \n Low,"0,78","1294,5",typology,SUGAR,,Self-mapped
+butter powder,"15,8",,ingredient,"Whole milk powder, 95% DM",https://apps.carboncloud.com/climatehub/product-reports/id/170300964422,Self-mapped
+Bisquick Heart Smart mix,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+rich chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+baharat,,,NO_MATCH,NO_MATCH,,
+template4,,,NO_MATCH,NO_MATCH,,
+braunschweiger,,,NO_MATCH,NO_MATCH,,
+triscuit,,,NO_MATCH,NO_MATCH,,
+caponata,,,NO_MATCH,NO_MATCH,,
+nonstick spray,"2,11",6792,typology,OIL,,Self-mapped
+Stilton,"8,93",5253,ingredient,CHEESE,,Self-mapped
+shoe peg corn,"0,48",1191,ingredient,MAIZE,,Self-mapped
+buttershots,,,NO_MATCH,NO_MATCH,,
+shelled,,,NO_MATCH,NO_MATCH,,
+salad mix,"0,41",237,ingredient,LETTUCE,,Self-mapped
+garni,,,NO_MATCH,NO_MATCH,,
+mixed herb,"0,26",,ingredient,"Herbs, open field, fresh",https://apps.carboncloud.com/climatehub/product-reports/id/482093060569,Self-mapped
+beef suet,,,NO_MATCH,NO_MATCH,,
+blue,"0,78",845,ingredient,BLUEBERRY,,Self-mapped
+soy cheese,"2,27","1724,5",typology,VEGETAL PROTEINS,,Self-mapped
+parmesan rind,"9,59",5060,ingredient,CHEESE GRATED,,Self-mapped
+chopped red pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+Roquefort,"8,93",5253,ingredient,CHEESE,,Self-mapped
+chai concentrate,"0,84",8280,typology,SPICIES,,Self-mapped
+Fritos corn chip,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+almond brickle chip,"1,88",11264,ingredient,ALMOND,,Self-mapped
+section,"0,3",654,ingredient,ORANGE,,Self-mapped
+alfredo sauce mix,,,NO_MATCH,NO_MATCH,,
+pignolis,"4,19",,ingredient,PINE NUTS,https://apps.carboncloud.com/climatehub/product-reports/034952148596/USA,Self-mapped
+fudge topping,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+Alfredo,"9,59",5253,ingredient,PECORINO,,Self-mapped
+frisee,,,NO_MATCH,NO_MATCH,,
+maltitol,,,NO_MATCH,NO_MATCH,,
+large flour tortilla,"0,86","901,8",typology,BREAD,,Self-mapped
+green chili salsa,"2,72",2174,typology,PESTO,,Self-mapped
+sun-dried tomatoes,"0,81","2636,5",typology,DRIED FRUIT,,Self-mapped
+hard salami,,,NO_MATCH,NO_MATCH,,
+non-dairy whipped topping,"2,42",,ingredient,"Cr�me de lait, 15 � 20% MG, l�g�re, semi-�paisse, UHT",https://agribalyse.ademe.fr/app/aliments/19430,Self-mapped
+seasoned breadcrumb,"0,86","901,8",typology,BREAD,,Self-mapped
+buffalo wing sauce,,,NO_MATCH,NO_MATCH,,
+toasted pine nuts,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+shake-n-bake,,,NO_MATCH,NO_MATCH,,
+ground sage,"0,84",8280,typology,SPICIES,,Self-mapped
+snaps,"0,84",1657,ingredient,GINGER,,Self-mapped
+Ro-Tel tomato,"0,45",41,ingredient,TOMATO,,Self-mapped
+dried Italian herb seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+penne rigate,"1,21",1508,ingredient,PASTA*,,Self-mapped
+crisco,,,NO_MATCH,NO_MATCH,,
+hormel chili,"0,65",379,ingredient,PEPPER,,Self-mapped
+Frenchs cheddar french fried onion,"0,22",290,ingredient,ONION,,Self-mapped
+pie,"1,85",,ingredient,"CHERRY PIE, CHERRY",https://apps.carboncloud.com/climatehub/product-reports/046567032924/USA,Self-mapped
+extra lean ground beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+Italian seasoned breadcrumbs,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+fresh chive,"1,18",336,typology,VEGETABLES,,Self-mapped
+stewing beef,"25,23",10412,ingredient,LAMB BONE FREE MEAT*,,Self-mapped
+creamed horseradish,"5,45",3838,ingredient,CREAM,,Self-mapped
+vegetarian ground beef,,,NO_MATCH,NO_MATCH,,
+shells,,,ingredient,DEEP DISH PASTRY PIE SHELLS,https://apps.carboncloud.com/climatehub/product-reports/612781201004/USA,Self-mapped
+lemonade drink mix,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+cordial,"8,22",,ingredient,Brandy,https://livelca.com/products/brandy_30e6d270-02c0-4de2-8777-622ea7e107a7,Self-mapped
+Red Bull,"0,425",,ingredient,Soft Drink,https://livelca.com/products/soft-drink_a0892893-831f-4dd5-b4bf-a8977543b775,Self-mapped
+instant iced tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+vitamin,,,NO_MATCH,NO_MATCH,,
+ready-made pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+Dubonnet red,,,NO_MATCH,NO_MATCH,,
+dash red food coloring,"0,65",379,ingredient,PEPPER,,Self-mapped
+pitu cachaca,,,NO_MATCH,NO_MATCH,,
+zesty Italian dressing,"1,46",572,typology,DRESSING,,Self-mapped
+cold freshly brewed decaffinated tea,,,NO_MATCH,NO_MATCH,,
+arm roast,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+chokecherry,,,NO_MATCH,NO_MATCH,,
+red sloe gin,,,NO_MATCH,NO_MATCH,,
+carbonated beverage,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+beef tail,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+grand marnier custard,"5,45",3838,ingredient,CREAM,,Self-mapped
+crisps,"0,24",555,ingredient,POTATO,,Self-mapped
+raspberry vinaigrette,"1,46",572,typology,DRESSING,,Self-mapped
+splenda sugar substitute,"0,78","1294,5",typology,SUGAR,,Self-mapped
+hibiscus,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+raspberry tea,"2,86",1019,ingredient,STRAWBERRY JUICE (I),,Self-mapped
+channa dal,,,NO_MATCH,NO_MATCH,,
+package dry pectin,,,NO_MATCH,NO_MATCH,,
+prepared baked pie shell,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+clover,"0,54",362,ingredient,VEGETABLES,,Self-mapped
+everclear,,,NO_MATCH,NO_MATCH,,
+dandelion flower,,,NO_MATCH,NO_MATCH,,
+wine yeast,"0,5",,ingredient,YEAST LIQUID*,,Self-mapped
+caramel apple dip,,,NO_MATCH,NO_MATCH,,
+vegetable seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+dried lavender blossom,,,NO_MATCH,NO_MATCH,,
+labneh,"8,93",5253,ingredient,CHEESE,,Self-mapped
+unsweetened instant tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+lavender blossom,,,NO_MATCH,NO_MATCH,,
+handful,"8,93",5253,ingredient,CHEESE,,Self-mapped
+pie crust mix,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+powdered fruit pectin,,,NO_MATCH,NO_MATCH,,
+garlic-flavored non-stick spray,,,NO_MATCH,NO_MATCH,,
+bamboo stick,,,NO_MATCH,NO_MATCH,,
+quick-rising yeast,"3,29",,ingredient,YEAST DRIED*,,Self-mapped
+rooibos tea,"1,18",336,typology,VEGETABLES,,Self-mapped
+sassafras,,,NO_MATCH,NO_MATCH,,
+inch cinnamon stick,"0,84",15526,ingredient,CINNAMON,,Self-mapped
+darjeeling tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+aburage,,,NO_MATCH,NO_MATCH,,
+veal bone,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+tri-tip,,,NO_MATCH,NO_MATCH,,
+pig foot,"3,44",4361,ingredient,PORK MEAT WITH BONE*,,Self-mapped
+part,,,NO_MATCH,NO_MATCH,,
+freshly brewed black tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+reserved liquid,"0,5",,ingredient,YEAST LIQUID*,,Self-mapped
+venison chop,"16,7",4362,ingredient,LAMB MEAT WITH BONE*,,Self-mapped
+beef tri-tip steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+ajinomoto,,,NO_MATCH,NO_MATCH,,
+corn soup,"0,48",1191,ingredient,MAIZE,,Self-mapped
+country-style spareribs,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+spareribs,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+yellow cake batter,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+mini,"0,65",379,ingredient,PEPPER,,Self-mapped
+Smart Start,,,NO_MATCH,NO_MATCH,,
+herb soup mix,"0,84",8280,typology,SPICIES,,Self-mapped
+solid shortening,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+freshly fallen snow,,,NO_MATCH,NO_MATCH,,
+lauki,,,NO_MATCH,NO_MATCH,,
+alum,,,NO_MATCH,NO_MATCH,,
+corn cob,"0,48",1191,ingredient,MAIZE,,Self-mapped
+toasted,"1,38",11264,ingredient,CASHEW NUT,,Self-mapped
+turkey breakfast sausage,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+coconut aminos,"5,33",,ingredient,Amino acids,https://apps.carboncloud.com/climatehub/product-reports/id/3462679691924,Self-mapped
+bottle v-8 spicy vegetable juice,"2,86",267,ingredient,TOMATO JUICE,,Self-mapped
+portion,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+hot-tamale jelly bean,"0,43",5053,ingredient,BEAN,,Self-mapped
+sliced mild pickled pepper,,,NO_MATCH,NO_MATCH,,
+sweet gherkin,"0,21",362,ingredient,GERKIN,,Self-mapped
+yellow pear tomato,"0,45",41,ingredient,TOMATO,,Self-mapped
+tarama,,,NO_MATCH,NO_MATCH,,
+rack of rib,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+paradise,"2,15",748,typology,FRUIT,,Self-mapped
+lamb stock,,,NO_MATCH,NO_MATCH,,
+mushroom gravy,,,NO_MATCH,NO_MATCH,,
+vegie stock cube,,,NO_MATCH,NO_MATCH,,
+vegetarian meatball,"2,27","1724,5",typology,VEGETAL PROTEINS,,Self-mapped
+samphire,,,NO_MATCH,NO_MATCH,,
+panch phoron,,,NO_MATCH,NO_MATCH,,
+ground sumac,,,NO_MATCH,NO_MATCH,,
+lentil soup,"0,52",5874,ingredient,LENTIL,,Self-mapped
+wood skewer,,,NO_MATCH,NO_MATCH,,
+Kashi,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+yellow split peas,"0,45",1979,ingredient,PEA,,Self-mapped
+bay leaves,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+sirloin strip steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+chopped caper,"1,48","806,6",typology,VEGETABLES CANNED,,Self-mapped
+sugared pecan,"0,83",2782,ingredient,PEANUT,,Self-mapped
+tofutti sour cream,"5,45",3838,ingredient,CREAM,,Self-mapped
+tobiko,,,NO_MATCH,NO_MATCH,,
+mirepoix,,,NO_MATCH,NO_MATCH,,
+sirloin tip roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+semi dried tomato,"1,95",,ingredient,Tomatoes (dried),https://livelca.com/products/tomatoes-dried_ddd32840-c02f-46e3-9662-e8fcdc6d75b2,Self-mapped
+cassia bud,,,NO_MATCH,NO_MATCH,,
+mince,,,NO_MATCH,NO_MATCH,,
+beef tenderloin steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+beef-flavor ramen noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+crushed san marzano tomato,"1,47",713,ingredient,TOMATO CHOPPED,,Self-mapped
+konbu,,,NO_MATCH,NO_MATCH,,
+ramen noodle soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+clover honey,"1,74",,ingredient,HONEY*,,Self-mapped
+brown beef gravy mix,,,NO_MATCH,NO_MATCH,,
+well seasoned flour,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+sirloin beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+toasted pecan,"1,11",16095,ingredient,ALMOND SHELLED,,Self-mapped
+kai lan,,,NO_MATCH,NO_MATCH,,
+white port,"0,66",524,typology,WINE,,Self-mapped
+sundried tomato tapenade,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+large bowl,,,NO_MATCH,NO_MATCH,,
+tofu mayonnaise,"2,27",1724,ingredient,TOFU,,Self-mapped
+beef stock granule,"36,8",,ingredient,"VALU TIME, BEEF BOUILLON CUBES",https://apps.carboncloud.com/climatehub/product-reports/011225125584/USA,Self-mapped
+shredded bok choy,"1,18",336,typology,VEGETABLES,,Self-mapped
+fresh lime leaf,"2,15",748,typology,FRUIT,,Self-mapped
+package Morningstar Farms griller,,,NO_MATCH,NO_MATCH,,
+marco polo noodle,,,NO_MATCH,NO_MATCH,,
+sliced,,,NO_MATCH,NO_MATCH,,
+instant dashi stock,,,NO_MATCH,NO_MATCH,,
+dried soba noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+aloe vera,,,NO_MATCH,NO_MATCH,,
+beef rump,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+yellow miso,"0,48",1423,ingredient,BARLEY,,Self-mapped
+sparkling,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+pineapple sage leaf,,,NO_MATCH,NO_MATCH,,
+minced lemongrass,"0,33","750,5",typology,VEGETABLES OPENFIELD,,Self-mapped
+hothouse,,,NO_MATCH,NO_MATCH,,
+Angostura,,,NO_MATCH,NO_MATCH,,
+almond meal flour,"1,88",11264,ingredient,ALMOND,,Self-mapped
+smirnoff,,,NO_MATCH,NO_MATCH,,
+chopped sweet red pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+dried garlic flake,"0,25",589,ingredient,GARLIC,,Self-mapped
+Pimm,,,NO_MATCH,NO_MATCH,,
+advieh,,,NO_MATCH,NO_MATCH,,
+beef round roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+venison loin,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+asti spumanti,,,NO_MATCH,NO_MATCH,,
+liter vegetable stock,"0,54",362,ingredient,VEGETABLES,,Self-mapped
+low calorie sweetener,"0,78","1294,5",typology,SUGAR,,Self-mapped
+vegetable stock powder,"0,54",362,ingredient,VEGETABLES,,Self-mapped
+hungarian yellow bell pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+orange liquor,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+crispy chow mein noodles,,,NO_MATCH,NO_MATCH,,
+dried New Mexico chile,"0,84",8280,typology,SPICIES,,Self-mapped
+romanesco,,,NO_MATCH,NO_MATCH,,
+Pimms,,,NO_MATCH,NO_MATCH,,
+rice noodles,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+Pisco,,,NO_MATCH,NO_MATCH,,
+nuoc mam,,,NO_MATCH,NO_MATCH,,
+tamarind powder,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+ketjap,,,NO_MATCH,NO_MATCH,,
+bottle carbonated water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+replacer powder for 2 egg,"3,2",2562,ingredient,EGGS*,,Self-mapped
+pork loin rib roast,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+root beer extract,,,NO_MATCH,NO_MATCH,,
+alize passion fruit cognac,"4,63",,ingredient,Merlet XO Cognac,https://apps.carboncloud.com/climatehub/product-reports/3443210000892/SWE,Self-mapped
+jar picante sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+balm leaf,"0,34",642,ingredient,LEMON,,Self-mapped
+sweet-and-sour,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+boneless tri-tip steak,,,NO_MATCH,NO_MATCH,,
+box white wave seitan,,,NO_MATCH,NO_MATCH,,
+Chinese wheat noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+highly seasoned flour,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+cooked rice noodle,"2,19",1597,ingredient,RICE*,,Self-mapped
+pate,,,NO_MATCH,NO_MATCH,,
+hing,,,NO_MATCH,NO_MATCH,,
+diet cola,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+amino acid,"5,33",,ingredient,Amino acids,https://apps.carboncloud.com/climatehub/product-reports/id/3462679691924,Self-mapped
+Certo,,,NO_MATCH,NO_MATCH,,
+spicy diced tomatoes,"1,47",713,ingredient,TOMATO CHOPPED,,Self-mapped
+lean sirloin beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+mild salsa,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+sesame paste,"2,78",,ingredient,Tahin ou Pur�e de s�same,https://agribalyse.ademe.fr/app/aliments/15203,Self-mapped
+caribou,"5,45",,ingredient,Wild Venison 50x100g,https://apps.carboncloud.com/climatehub/product-reports/7350118550182/SWE,Self-mapped
+whole bay leaf,,,NO_MATCH,NO_MATCH,,
+beef bullion square,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+aguardiente,,,NO_MATCH,NO_MATCH,,
+low sodium soy,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+premium grade sweet soy,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+jellyfish,"7,04",1974,ingredient,CRUSTACEAN,,Self-mapped
+a&w,,,NO_MATCH,NO_MATCH,,
+red,,,NO_MATCH,NO_MATCH,,
+navy,"0,43",5053,ingredient,BEAN,,Self-mapped
+northern,"0,43",5053,ingredient,BEAN,,Self-mapped
+split,,,NO_MATCH,NO_MATCH,,
+yellow,,,NO_MATCH,NO_MATCH,,
+orange-pekoe tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+cassia chip,,,NO_MATCH,NO_MATCH,,
+calcium,,,NO_MATCH,NO_MATCH,,
+venison steak,"5,45",,ingredient,Wild Venison 50x100g,https://apps.carboncloud.com/climatehub/product-reports/7350118550182/SWE,Self-mapped
+maifun,,,NO_MATCH,NO_MATCH,,
+recipe plain pie pastry,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+twist,,,NO_MATCH,NO_MATCH,,
+deer meat,"5,45",,ingredient,Wild Venison 50x100g,https://apps.carboncloud.com/climatehub/product-reports/7350118550182/SWE,Self-mapped
+panini,"0,86",667,ingredient,BREAD,,Self-mapped
+elk roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+hearts of palm,,,NO_MATCH,NO_MATCH,,
+dried ground thyme,"0,84",8280,typology,SPICIES,,Self-mapped
+powdered egg white,"3,2",2562,ingredient,EGGS*,,Self-mapped
+masala leaf,"0,84",8280,ingredient,CORIANDER,,Self-mapped
+cooked radiatore,,,NO_MATCH,NO_MATCH,,
+wooden popsicle stick,"4,3",1599,typology,ICE CREAM,,Self-mapped
+ground thyme,"0,84",8280,typology,SPICIES,,Self-mapped
+flank,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+fresh tarragon leaf,,,NO_MATCH,NO_MATCH,,
+sweet rice wine,"2,19",1597,ingredient,RICE*,,Self-mapped
+beef chuck steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+walker chicken potato chip,,,NO_MATCH,NO_MATCH,,
+chopped fresh thyme leaves,"0,84",8280,typology,SPICIES,,Self-mapped
+sun dried tomato vinaigrette dressing,"1,46",572,typology,DRESSING,,Self-mapped
+baby bok choy,"1,18",336,typology,VEGETABLES,,Self-mapped
+gai choy,"1,18",336,typology,VEGETABLES,,Self-mapped
+nori sheet,,,NO_MATCH,NO_MATCH,,
+small soft flour tortilla,"0,86","901,8",typology,BREAD,,Self-mapped
+turkey chourico,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+shaoxing rice wine,"0,66",524,typology,WINE,,Self-mapped
+falafel,"1,32",2523,typology,LEGUME FLOUR,,Self-mapped
+scungilli,,,NO_MATCH,NO_MATCH,,
+cube chicken stock,"1,75",,ingredient,"Vegetable Bouillon, cubes",https://apps.carboncloud.com/climatehub/product-reports/id/164865146932,Self-mapped
+veal medallion,"3,44",5677,ingredient,FRESH SHOULDERS WITH BONE,,Self-mapped
+egg replacer,"3,2",2562,ingredient,EGGS*,,Self-mapped
+cranberry muffin mix,,,NO_MATCH,NO_MATCH,,
+choy sum,"1,18",336,typology,VEGETABLES,,Self-mapped
+chilled shortening,,,NO_MATCH,NO_MATCH,,
+formula,"1,46",572,ingredient,MAYONNAISE,,Self-mapped
+threebe,"1,18",336,typology,VEGETABLES,,Self-mapped
+frozen tart shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+chicken salad,"1,18",336,typology,VEGETABLES,,Self-mapped
+minced fresh tarragon,,,NO_MATCH,NO_MATCH,,
+mesquite wood chip,"0,46","1506,5",ingredient,CHERRY,,Self-mapped
+gyoza skin,,,NO_MATCH,NO_MATCH,,
+no-calorie artificial sweetener,"0,78","1294,5",typology,SUGAR,,Self-mapped
+pluot,,,NO_MATCH,NO_MATCH,,
+little smokie cocktail frank,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+lecithin,,,NO_MATCH,NO_MATCH,,
+sour cream and chive Pasta Roni,"1,21",1508,ingredient,PASTA*,,Self-mapped
+beef consomme soup,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+reserved poaching water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+Pillsbury Grands refrigerated cinnamon roll,"0,86","901,8",typology,BREAD,,Self-mapped
+gold tequila,,,NO_MATCH,NO_MATCH,,
+Bacardi Fuzzy Navel mix,"4,63",,ingredient,Chairmans Reserve Rum,https://apps.carboncloud.com/climatehub/product-reports/786992000456/SWE,Self-mapped
+chicken-flavored vegetarian seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+szechuan stir-fry sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+breading,"0,86",667,ingredient,BREAD,,Self-mapped
+green cardamom powder,"0,84",34319,ingredient,CARDAMOM,,Self-mapped
+chicken gravy mix,,,NO_MATCH,NO_MATCH,,
+shiitake,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+Jiffy cornbread mix,"0,87",1167,ingredient,MAIZE FLOUR & MEAL,,Self-mapped
+raspberry-flavored sparkling water,"2,86",1019,ingredient,STRAWBERRY JUICE (I),,Self-mapped
+Jiffy corn muffin mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+sugar-free caramel topping,"6,8",,ingredient,Topping Karamell,https://apps.carboncloud.com/climatehub/product-reports/8720182837752/SWE,Self-mapped
+togarashi,,,NO_MATCH,NO_MATCH,,
+chamomile flower,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+lamington,,,NO_MATCH,NO_MATCH,,
+nama shoyu,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+malibu coconut,"4,63",,ingredient,Chairmans Reserve Rum,https://apps.carboncloud.com/climatehub/product-reports/786992000456/SWE,Self-mapped
+fresh ground red pepper,"0,84",8280,typology,SPICIES,,Self-mapped
+elk rump roast,,,NO_MATCH,NO_MATCH,,
+dried tomato,"0,81","2636,5",typology,DRIED FRUIT,,Self-mapped
+ramp,,,NO_MATCH,NO_MATCH,,
+sorghum molasses,"0,78","1294,5",typology,SUGAR,,Self-mapped
+bullion cube,"1,75",,ingredient,"Vegetable Bouillon, cubes",https://apps.carboncloud.com/climatehub/product-reports/id/164865146932,Self-mapped
+boniato,,,NO_MATCH,NO_MATCH,,
+nutri whip,"1,46",572,ingredient,MAYONNAISE,,Self-mapped
+galangal root,,,NO_MATCH,NO_MATCH,,
+sambal,"0,84",8280,typology,SPICIES,,Self-mapped
+large prepared tart shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+vitamin C powder,,,NO_MATCH,NO_MATCH,,
+peels,"2,15",748,typology,FRUIT,,Self-mapped
+chana masala,"0,84",8280,typology,SPICIES,,Self-mapped
+pandan leaf,,,NO_MATCH,NO_MATCH,,
+Equal sugar substitute,,,NO_MATCH,NO_MATCH,,
+veal fillet,"5,19","2313,5",typology,FISH,,Self-mapped
+fruit dip mix,,,NO_MATCH,NO_MATCH,,
+caramel dip,"0,78","1294,5",typology,SUGAR,,Self-mapped
+barramundi,,,NO_MATCH,NO_MATCH,,
+box white cake mix,,,NO_MATCH,NO_MATCH,,
+drop vegetable oil,"2,11",6792,typology,OIL,,Self-mapped
+Swanson chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+Chex Mix,,,NO_MATCH,NO_MATCH,,
+sponge cake shell,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+farafalle,"1,21",1508,ingredient,PASTA*,,Self-mapped
+moose rump roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+sheet aluminum foil,,,NO_MATCH,NO_MATCH,,
+corn tortillas,"0,57",1081,ingredient,MAIZE GROATS,,Self-mapped
+swiss steak,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+frying,"2,11",6792,typology,OIL,,Self-mapped
+gammon,,,NO_MATCH,NO_MATCH,,
+dried whole thyme,,,NO_MATCH,NO_MATCH,,
+inches unbaked pie shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+noodle soup,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+Willow Run soy margarine,"1,39",1324,ingredient,MARGARINE*,,Self-mapped
+8-inch unbaked pie shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+jigger,,,NO_MATCH,NO_MATCH,,
+sheet nori,,,NO_MATCH,NO_MATCH,,
+chowder,"5,67",1856,typology,SHELLFISH,,Self-mapped
+condensed chicken noodle soup,,,NO_MATCH,NO_MATCH,,
+roughly chopped pine nuts,"1,11",11264,typology,NUTS,,Self-mapped
+deer chop,"5,45",,ingredient,Wild Venison 50x100g,https://apps.carboncloud.com/climatehub/product-reports/7350118550182/SWE,Self-mapped
+bottle ginger ale,"0,84",1657,ingredient,GINGER,,Self-mapped
+nasturtium,,,NO_MATCH,NO_MATCH,,
+pork cube steak,"3,44",4361,ingredient,PORK MEAT WITH BONE*,,Self-mapped
+diced turkey,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+soy vay,"0,56",4615,ingredient,SOYBEAN,,Self-mapped
+partridge,"2,13","3330,3",ingredient,DUCK MEAT WITH BONE*,,Self-mapped
+purslane,,,NO_MATCH,NO_MATCH,,
+saba,,,NO_MATCH,NO_MATCH,,
+apple dip,,,NO_MATCH,NO_MATCH,,
+pad Thai sauce,"1,84",,ingredient,PEANUT BUTTER,,Self-mapped
+barbecue potato chips,"0,24",555,ingredient,POTATO,,Self-mapped
+sweet bean paste,"1,99",2158,typology,SWEETS,,Self-mapped
+boiling chicken stock,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+goya sazon,"0,84",8280,ingredient,CORIANDER,,Self-mapped
+veal steak,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+vermicelli mix,"2,19",1597,ingredient,RICE*,,Self-mapped
+cold vegetable broth,"1,18",336,typology,VEGETABLES,,Self-mapped
+flat mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+fresh chervil,,,NO_MATCH,NO_MATCH,,
+sheet phyllo pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+lemon grass root,"0,34",642,ingredient,LEMON,,Self-mapped
+cooked mashed potatoes,"0,24",555,ingredient,POTATO,,Self-mapped
+pork schnitzel,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+halved cherry tomato,"0,45",41,ingredient,TOMATO,,Self-mapped
+piece bay leaf,,,NO_MATCH,NO_MATCH,,
+diced plum tomato,"1,47",713,ingredient,TOMATO CHOPPED,,Self-mapped
+fresh sweet red pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+sprig fresh dill,"0,33",362,ingredient,FENNEL,,Self-mapped
+fresh bay leaf,"1,18",336,typology,VEGETABLES,,Self-mapped
+real,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+konafah,,,NO_MATCH,NO_MATCH,,
+miniature phyllo cup,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+box lemon cake mix,"0,34",642,ingredient,LEMON,,Self-mapped
+pin,"0,66",524,typology,WINE,,Self-mapped
+miso water,,,NO_MATCH,NO_MATCH,,
+coarsely chopped pecan,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+slider roll,,,NO_MATCH,NO_MATCH,,
+amish batter,"0,86","901,8",typology,BREAD,,Self-mapped
+peep,,,NO_MATCH,NO_MATCH,,
+package lemon cake mix,"0,34",642,ingredient,LEMON,,Self-mapped
+pappadam,,,NO_MATCH,NO_MATCH,,
+whole wheat noodle,,,NO_MATCH,NO_MATCH,,
+sugar beet molasses,"0,78","1294,5",typology,SUGAR,,Self-mapped
+mead,,,NO_MATCH,NO_MATCH,,
+piri-piri,,,NO_MATCH,NO_MATCH,,
+wood chip,"0,46","1506,5",ingredient,CHERRY,,Self-mapped
+bran bud,"0,48",1423,ingredient,BARLEY,,Self-mapped
+refrigerated pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+baloney,,,NO_MATCH,NO_MATCH,,
+cold margarine,"1,39",1324,ingredient,MARGARINE*,,Self-mapped
+tenderizer,,,NO_MATCH,NO_MATCH,,
+chunky salsa,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+onion paste,"0,22",290,ingredient,ONION,,Self-mapped
+gluten free flour mix,"0,87",2429,ingredient,RICE FLOUR & MEAL,,Self-mapped
+grated fresh nutmeg,"0,84",34319,ingredient,NUTMEG,,Self-mapped
+lamb pluck,,,NO_MATCH,NO_MATCH,,
+framboise,,,NO_MATCH,NO_MATCH,,
+nip,"0,27",1523,typology,STARCHY TUBER,,Self-mapped
+japanese rice wine,"2,19",1597,ingredient,RICE*,,Self-mapped
+container apple crumble mix,,,NO_MATCH,NO_MATCH,,
+sugar twin,"0,78","1294,5",typology,SUGAR,,Self-mapped
+powdered sweetened pink lemonade mix,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+white morsels,,,NO_MATCH,NO_MATCH,,
+kumquat puree,"0,64",526,ingredient,GOOSEBERRY,,Self-mapped
+acorn meal,,,NO_MATCH,NO_MATCH,,
+chipits,,,NO_MATCH,NO_MATCH,,
+caramel icing,"4,3",,ingredient,VANILLA,,Self-mapped
+poi,,,NO_MATCH,NO_MATCH,,
+other,,,NO_MATCH,NO_MATCH,,
+smooth applesauce,"0,81",6847,ingredient,APPLES,,Self-mapped
+frog leg,"2,13","3330,3",ingredient,DUCK MEAT WITH BONE*,,Self-mapped
+grape molasses,"0,78","1294,5",typology,SUGAR,,Self-mapped
+adzuki bean paste,"1,46",572,ingredient,SOY PASTE,,Self-mapped
+liquid stevia,,,NO_MATCH,NO_MATCH,,
+sesame seed paste,"0,84",8280,typology,SPICIES,,Self-mapped
+mapleine,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+toasted chopped hazelnut,"1,11",11264,ingredient,HAZELNUT,,Self-mapped
+nonpareil,,,NO_MATCH,NO_MATCH,,
+soy lecithin,"0,56",4615,ingredient,SOYBEAN,,Self-mapped
+bittersweet,"3,16",20717,ingredient,DARK CHOCOLATE,,Self-mapped
+portion hermann batter thats me!,"2,15",,ingredient,BUTTERMILK PANCAKE MIX,https://apps.carboncloud.com/climatehub/product-reports/078716001505/USA,Self-mapped
+dark unsulphured molasses,"0,78","1294,5",typology,SUGAR,,Self-mapped
+sambal powder,"0,84",8280,typology,SPICIES,,Self-mapped
+hickory-flavored liquid smoke,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+finely chopped green tomato,,,NO_MATCH,NO_MATCH,,
+veal chop,"16,7",4362,ingredient,LAMB MEAT WITH BONE*,,Self-mapped
+tap water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+box corn muffin mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+burnet,,,NO_MATCH,NO_MATCH,,
+gingerbread cake mix,"0,84",1657,ingredient,GINGER,,Self-mapped
+sucanat with honey,,,NO_MATCH,NO_MATCH,,
+succotash,,,NO_MATCH,NO_MATCH,,
+orange paste food coloring,,,NO_MATCH,NO_MATCH,,
+raw pecans,"0,83",2782,ingredient,PEANUT,,Self-mapped
+thyme honey,,,NO_MATCH,NO_MATCH,,
+jar mushroom,"1,48","806,6",ingredient,CARROTS CANNED,,Self-mapped
+Milky Way,"3,16",20717,ingredient,MILK CHOCOLATE,,Self-mapped
+fried potato cake,,,NO_MATCH,NO_MATCH,,
+prepared eggnog,,,NO_MATCH,NO_MATCH,,
+slice of spicy salami,"0,84",8280,typology,SPICIES,,Self-mapped
+sliced red pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+canistel,,,NO_MATCH,NO_MATCH,,
+frozen meatball,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+brer rabbit molasses,"0,78","1294,5",typology,SUGAR,,Self-mapped
+beef chuck,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+garlic and herb sauce mix,"0,25",589,ingredient,GARLIC,,Self-mapped
+Salad Supreme dry seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+pineapple cake mix,,,NO_MATCH,NO_MATCH,,
+baby corn cob,,,NO_MATCH,NO_MATCH,,
+grated cucuzza,"0,27",353,ingredient,CUCUMBER,,Self-mapped
+soup powder,"36,8",,ingredient,"BOUILLON CUBES, CHICKEN",https://apps.carboncloud.com/climatehub/product-reports/032251100482/USA,Self-mapped
+kraft sun-dried tomato vinaigrette dressing,"1,46",572,typology,DRESSING,,Self-mapped
+air popped popcorn,"1,48",807,ingredient,CORN CANNED,,Self-mapped
+frozen puff pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+ahi,"3,68","2313,5",ingredient,TUNA,,Self-mapped
+vindaloo masala,,,NO_MATCH,NO_MATCH,,
+corn muffin,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+medium mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+craft stick,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+chow mein,,,NO_MATCH,NO_MATCH,,
+jalapeno sauce,"1,46",534,ingredient,KETCHUP,,Self-mapped
+sprig fresh parsley,"0,84",8280,ingredient,CORIANDER,,Self-mapped
+jar red pepper sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+lid,,,NO_MATCH,NO_MATCH,,
+pastry sheet,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+claws,"7,04",1974,ingredient,CRUSTACEAN,,Self-mapped
+cumquat marmalade,"0,3",654,ingredient,ORANGE,,Self-mapped
+fresh wild rose petal,,,NO_MATCH,NO_MATCH,,
+canela,,,NO_MATCH,NO_MATCH,,
+masago,,,NO_MATCH,NO_MATCH,,
+Turkish Delight,,,NO_MATCH,NO_MATCH,,
+prepared pie pastry,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+seasoned breadcrumbs,"0,86","901,8",typology,BREAD,,Self-mapped
+gold dust,,,NO_MATCH,NO_MATCH,,
+eau-de-vie,,,NO_MATCH,NO_MATCH,,
+coarsley grated orange rind,"0,3",654,ingredient,ORANGE,,Self-mapped
+spiced gumdrop,"0,78","1294,5",typology,SUGAR,,Self-mapped
+Bulgar,"0,57",1639,ingredient,WHEAT,,Self-mapped
+chopped gumdrop,"0,78","1294,5",typology,SUGAR,,Self-mapped
+rosette,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+glitter,,,NO_MATCH,NO_MATCH,,
+finely ground blanched almond meal,"1,88",11264,ingredient,ALMOND,,Self-mapped
+dry-roasted cricket,,,NO_MATCH,NO_MATCH,,
+balls,"1,44",1599,typology,ANIMAL MILK,,Self-mapped
+chopped toasted pecan,"1,11",16095,ingredient,ALMOND SHELLED,,Self-mapped
+cola drink,"1,35",1599,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+peeled,"0,3",654,ingredient,ORANGE,,Self-mapped
+bisquick biscuit mix,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+packaged brownie mix,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+instant Tang orange drink,"0,46",1019,ingredient,ORANGE JUICE,,Self-mapped
+baking cup,,,NO_MATCH,NO_MATCH,,
+apple wood chip,"0,46","1506,5",ingredient,CHERRY,,Self-mapped
+xylitol,"0,78","1294,5",typology,SUGAR,,Self-mapped
+prepared mincemeat,,,NO_MATCH,NO_MATCH,,
+honey comb,"1,74",,ingredient,HONEY*,,Self-mapped
+dried lavender,,,NO_MATCH,NO_MATCH,,
+triple-sec,,,NO_MATCH,NO_MATCH,,
+crushed,"1,47",713,ingredient,TOMATO CHOPPED,,Self-mapped
+hot boiled water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+heath bit,"2,74",,ingredient,Toffees,https://livelca.com/products/toffees_b0dee6db-9d0d-46c2-bcf1-34eeabfbebc5,Self-mapped
+nonfat chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+liquorice allsort,,,NO_MATCH,NO_MATCH,,
+chopped nutmeat,"1,11",11264,typology,NUTS,,Self-mapped
+regular-sized marshmallow,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+fermented bean curd,"0,52","555,5",typology,LEGUMES,,Self-mapped
+wasabi mashed potato,,,NO_MATCH,NO_MATCH,,
+baharat spice mix,"0,84",8280,typology,SPICIES,,Self-mapped
+beefy onion soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+rosehip tea,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+raspberry Jello,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+scotch,"4,43",,ingredient,John Lee Straight Bourbon Whiskey,https://apps.carboncloud.com/climatehub/product-reports/3012993050501/SWE,Self-mapped
+full sized ice cube,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+Twinkies,"1,99",2158,typology,SWEETS,,Self-mapped
+meringue nest,,,NO_MATCH,NO_MATCH,,
+drop red pepper sauce,"0,65",379,ingredient,PEPPER,,Self-mapped
+grand marnier,,,NO_MATCH,NO_MATCH,,
+stalk fresh oregano,"0,84",8280,typology,SPICIES,,Self-mapped
+chamomile,"0,4",,ingredient,Tea,https://livelca.com/products/tea_3d049a81-4234-481c-8aba-74d0297e8e7c,Self-mapped
+finely chopped lemongrass,"0,34",642,ingredient,LEMON,,Self-mapped
+boiling,"1,44",1599,typology,ANIMAL MILK,,Self-mapped
+posole,,,NO_MATCH,NO_MATCH,,
+jar bushs chili,"0,65",379,ingredient,PEPPER,,Self-mapped
+waffle cone,"4,52",1599,ingredient,"CARAMEL CONE ICE CREAM, CARAMEL CONE",https://apps.carboncloud.com/climatehub/product-reports/073214005390/USA,Self-mapped
+ReaLemon,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+venison heart,"0,33",818,ingredient,ARTICHOKE,,Self-mapped
+squirrel,"4,31",,ingredient,RABBIT MEAT WITH BONE*,,Self-mapped
+fresh rosemary leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+white cream-style corn,"0,81","750,5",typology,VEGETABLES FROZEN,,Self-mapped
+aspic,,,NO_MATCH,NO_MATCH,,
+hot pepper sesame oil,"0,84",8280,typology,SPICIES,,Self-mapped
+aspen mulling spice,"0,84",8280,typology,SPICIES,,Self-mapped
+golden cream of mushroom soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+Heath Bar,"9,63",,ingredient,"SNICKERS, CANDY BAR",https://apps.carboncloud.com/climatehub/product-reports/040000499039/USA,Self-mapped
+packaged puff pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+cooked mashed potato,"0,24",555,ingredient,POTATO,,Self-mapped
+beef stock powder,"36,8",,ingredient,"VALU TIME, BEEF BOUILLON CUBES",https://apps.carboncloud.com/climatehub/product-reports/011225125584/USA,Self-mapped
+walnut meal,"1,11",11264,typology,NUTS,,Self-mapped
+Rotel,"0,45",41,ingredient,TOMATO,,Self-mapped
+packet Splenda sugar substitute,,,NO_MATCH,NO_MATCH,,
+butterbean,"0,43",5053,ingredient,BEAN,,Self-mapped
+phyllo tart shell,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+salted caramel sauce,,,NO_MATCH,NO_MATCH,,
+slivered brazil nut,"1,11",11264,typology,NUTS,,Self-mapped
+european-style artisan bread flour,"0,87","1889,5",typology,GRAIN FLOUR,,Self-mapped
+pork skin,"3,44",4361,ingredient,PORK MEAT WITH BONE*,,Self-mapped
+crystals,,,NO_MATCH,NO_MATCH,,
+chopped toasted pecans,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+Weet-Bix,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+foil liner,,,NO_MATCH,NO_MATCH,,
+burnt end,,,NO_MATCH,NO_MATCH,,
+crunchy chow mein noodle,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+sour cream pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+buttered bread crumb,"0,86",667,ingredient,BREAD,,Self-mapped
+caster,"0,78","1294,5",typology,SUGAR,,Self-mapped
+cold cut,,,NO_MATCH,NO_MATCH,,
+chow mein noodles,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+home fry,"0,24",555,ingredient,POTATO,,Self-mapped
+grappa,,,NO_MATCH,NO_MATCH,,
+crab cake seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+stollen,,,NO_MATCH,NO_MATCH,,
+fresh edible flower,,,NO_MATCH,NO_MATCH,,
+smash seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+filo pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+andouille,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+nog,"0,84",34319,ingredient,NUTMEG,,Self-mapped
+nib,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+sodium-free chicken stock,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+cornbread muffin mix,"0,87",1167,ingredient,MAIZE FLOUR & MEAL,,Self-mapped
+sweet pickle juice,"0,32",1604,ingredient,CHERRY SWEET,,Self-mapped
+fresh salsa,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+dried oregano leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+side,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+pork gravy mix,"0,22",290,ingredient,ONION,,Self-mapped
+turkey giblets,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+vanilla sponge cake,"2,14",1640,ingredient,CAKES AND CROISSANT**,,Self-mapped
+pie dough,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+ice cubes,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+mahlepi,,,NO_MATCH,NO_MATCH,,
+rava,,,NO_MATCH,NO_MATCH,,
+heavy,"5,45",3838,ingredient,CREAM,,Self-mapped
+ground rose petal,,,NO_MATCH,NO_MATCH,,
+bok,"1,18",336,typology,VEGETABLES,,Self-mapped
+grilling rack,,,NO_MATCH,NO_MATCH,,
+threads,"0,84",731000,ingredient,SAFFRON,,Self-mapped
+topside roast,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+rose essence,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+milk gravy,"0,65",379,ingredient,PEPPER,,Self-mapped
+jar chocolate fudge topping,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+rump,,,NO_MATCH,NO_MATCH,,
+mesquite wood chips,"0,46","1506,5",ingredient,CHERRY,,Self-mapped
+cold carbonated water,"0,49",,ingredient,MINERAL WATER*,,Self-mapped
+khoya,,,NO_MATCH,NO_MATCH,,
+roux,"0,84",8280,typology,SPICIES,,Self-mapped
+leftover,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+leftover prepared stuffing,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+Pepperidge Farm stuffing,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+chopped mixed candied fruit,"0,81","2636,5",typology,DRIED FRUIT,,Self-mapped
+wedges,"0,34",642,ingredient,LEMON,,Self-mapped
+menthe,,,NO_MATCH,NO_MATCH,,
+tomato jam,,,NO_MATCH,NO_MATCH,,
+Italian style breadcrumbs,,,NO_MATCH,NO_MATCH,,
+nest,,,NO_MATCH,NO_MATCH,,
+box vanilla cake mix,,,NO_MATCH,NO_MATCH,,
+vanilla custard powder,"0,84",8280,typology,SPICIES,,Self-mapped
+hpnotiq,"3,39",,ingredient,Liquer,https://livelca.com/products/liquer_57a03a36-b224-4cfc-89a1-8dcaae696e75,Self-mapped
+herb seasoned stuffing mix,"0,84",8280,typology,SPICIES,,Self-mapped
+large bay leaf,,,NO_MATCH,NO_MATCH,,
+macadamias,"1,11",11264,typology,NUTS,,Self-mapped
+rioja,"0,87",524,ingredient,WINE RED,,Self-mapped
+dried rice noodle,"2,19",1597,ingredient,RICE*,,Self-mapped
+herb de provence,"0,84",8280,typology,SPICIES,,Self-mapped
+charoli,,,NO_MATCH,NO_MATCH,,
+seasoned stuffing mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+chicken consomme,"36,8",,ingredient,"BOUILLON CUBES, CHICKEN",https://apps.carboncloud.com/climatehub/product-reports/032251100482/USA,Self-mapped
+farl,,,NO_MATCH,NO_MATCH,,
+beef stock cube,"36,8",,ingredient,"VALU TIME, BEEF BOUILLON CUBES",https://apps.carboncloud.com/climatehub/product-reports/011225125584/USA,Self-mapped
+annatto water,"2,11",6792,typology,OIL,,Self-mapped
+whole wheat ziti,"1,21",1508,ingredient,PASTA*,,Self-mapped
+box Sure-Jell,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+box sure-gel fruit pectin,,,NO_MATCH,NO_MATCH,,
+beef marrow,"1,18",336,typology,VEGETABLES,,Self-mapped
+buttercake mix,,,NO_MATCH,NO_MATCH,,
+fat-free fat-free liquid egg product,"3,6",,ingredient,CAGE-FREE BETTER'N EGGS SUBSTITUTE,https://apps.carboncloud.com/climatehub/product-reports/075900299960/USA,Self-mapped
+box powder,"0,78","1294,5",typology,SUGAR,,Self-mapped
+butterscotch extract,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+crackling,,,NO_MATCH,NO_MATCH,,
+manchego,"8,93",5253,ingredient,CHEESE,,Self-mapped
+frozen phyllo dough,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+ramen,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+brickle chip,"1,88",11264,ingredient,ALMOND,,Self-mapped
+dried rosemary leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+bottled caesar salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+tomato base seafood sauce,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+french cornichon,"1,18",336,typology,VEGETABLES,,Self-mapped
+spinach noodle,"0,34",292,ingredient,SPINACH,,Self-mapped
+kataifi pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+wakame,,,NO_MATCH,NO_MATCH,,
+arame,,,NO_MATCH,NO_MATCH,,
+mushroom soup mix,"0,22",290,ingredient,ONION,,Self-mapped
+log,,,NO_MATCH,NO_MATCH,,
+parsley sprig,"0,84",8280,ingredient,CORIANDER,,Self-mapped
+isolate,,,NO_MATCH,NO_MATCH,,
+salad blend,"0,41",237,ingredient,LETTUCE,,Self-mapped
+lavash,"0,86",667,ingredient,BREAD,,Self-mapped
+protector,,,NO_MATCH,NO_MATCH,,
+blade pot roast,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+spirulina powder,,,NO_MATCH,NO_MATCH,,
+reduced-sodium chicken broth,"1,75",,ingredient,"Vegetable Bouillon, cubes",https://apps.carboncloud.com/climatehub/product-reports/id/164865146932,Self-mapped
+boneless beef top sirloin steak,,,NO_MATCH,NO_MATCH,,
+black caraway,"0,88","3087,5",typology,SEEDS,,Self-mapped
+galanga powder,"0,84",8280,typology,SPICIES,,Self-mapped
+steamed long-grain white rice,"2,19",1597,ingredient,RICE*,,Self-mapped
+primadona Italian dressing,"1,46",572,typology,DRESSING,,Self-mapped
+whole wheat couscous,"0,57",2133,typology,"PROCESSED GRAINS (grouts, malt)",,Self-mapped
+cooked,,,NO_MATCH,NO_MATCH,,
+Pickapeppa Sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+lavender bud,,,NO_MATCH,NO_MATCH,,
+prepared refrigerated polenta,,,NO_MATCH,NO_MATCH,,
+Mexican-style tomato,,,NO_MATCH,NO_MATCH,,
+packet dry enchilada mix,"0,84",8280,typology,SPICIES,,Self-mapped
+chocolate chip bread,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+crumb crust,"0,98",1258,typology,CRACKERS,,Self-mapped
+herb stock,"0,54",362,ingredient,VEGETABLES,,Self-mapped
+mini pita pocket,"0,86",667,ingredient,BREAD,,Self-mapped
+template5,,,NO_MATCH,NO_MATCH,,
+Skor chips,,,NO_MATCH,NO_MATCH,,
+korma paste,"0,84",8280,typology,SPICIES,,Self-mapped
+bottled Italian salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+beef hot dog,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+cut,"0,81","2636,5",ingredient,DATE,,Self-mapped
+deli roast beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+mini meringue,,,NO_MATCH,NO_MATCH,,
+creamed honey,"1,74",,ingredient,HONEY*,,Self-mapped
+pre-baked pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+hot carbonated lemon-lime beverage,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+cold carbonated lemon-lime beverage,"1,35",,ingredient,"Carbonated soft drink, aluminium can",https://apps.carboncloud.com/climatehub/product-reports/id/332704005785,Self-mapped
+low-sodium tamari,"1,46",613,ingredient,SOY SAUCE,,Self-mapped
+lecithin granules,,,NO_MATCH,NO_MATCH,,
+crisco butter flavor shortening,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+nettle,,,NO_MATCH,NO_MATCH,,
+cinnamon spread,,,NO_MATCH,NO_MATCH,,
+cucumber ranch dressing,"1,46",572,typology,DRESSING,,Self-mapped
+caesar salad dressing mix,,,NO_MATCH,NO_MATCH,,
+yellow grape tomato,"0,45",41,ingredient,TOMATO,,Self-mapped
+rapini,,,NO_MATCH,NO_MATCH,,
+funghi,,,NO_MATCH,NO_MATCH,,
+continental hot dog,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+acini di pepe,"0,84",7611,ingredient,PEPPER (PIPER SPP.),,Self-mapped
+kalamata,"0,64",3015,ingredient,OLIVES,,Self-mapped
+reserved pasta cooking liquid,,,NO_MATCH,NO_MATCH,,
+cold mashed potatoes,"0,24",555,ingredient,POTATO,,Self-mapped
+finely chopped young pecans,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+rennet,"9,59",5253,ingredient,GRANA PADANO,,Self-mapped
+quorn mince,"2,27",1724,ingredient,QUORNE,,Self-mapped
+gravy granule,,,NO_MATCH,NO_MATCH,,
+boxes,,,NO_MATCH,NO_MATCH,,
+Milk Dud,"1,31","1260,5",ingredient,COW MILK,,Self-mapped
+bubble,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+M&M bits,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+jelly powder,"1,74",,ingredient,"G�latine, s�che",https://agribalyse.ademe.fr/app/aliments?search=G%C3%A9latine,Self-mapped
+stars,"0,84",8280,ingredient,ANISE,,Self-mapped
+Frito corn chips,"0,57",1081,ingredient,MAIZE GROATS,,Self-mapped
+italian salami,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+medium,,,NO_MATCH,NO_MATCH,,
+huy fong sriracha garlic sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+canned low sodium chicken broth,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+package Hidden Valley Original Ranch Dips Mix,"0,22",290,ingredient,ONION,,Self-mapped
+envelope country gravy mix,"0,65",379,ingredient,PEPPER,,Self-mapped
+ammonia,"1,14",,ingredient,BAKING SODA,https://apps.carboncloud.com/climatehub/product-reports/039978033918/USA,Self-mapped
+taco,,,NO_MATCH,NO_MATCH,,
+souffer,"0,34",292,ingredient,SPINACH,,Self-mapped
+bottle smuckers fat-free butterscotch ice cream topping,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+pink lemonade powdered drink mix,"2,86",1019,typology,FRUIT JUICE,,Self-mapped
+wash,"3,2",2562,ingredient,EGGS*,,Self-mapped
+sprig fresh tarragon,"0,84",8280,typology,SPICIES,,Self-mapped
+I Cant Believe Its Not Butter Fat Free,"1,39",1324,ingredient,MARGARINE*,,Self-mapped
+package poundcake mix,,,NO_MATCH,NO_MATCH,,
+Bisquick mix,"1,14",,ingredient,DOUBLE ACTING BAKING POWDER,https://apps.carboncloud.com/climatehub/product-reports/039978003928/USA,Self-mapped
+thick apple butter,"1,89",,ingredient,Jam,https://livelca.com/products/jam_3c8262e5-0d2e-4973-a039-ffcb35172cb9,Self-mapped
+muscat,"0,66",524,ingredient,WINE*,,Self-mapped
+unsalted vegan butter,,,NO_MATCH,NO_MATCH,,
+herb breadcrumb,"0,86",667,ingredient,BREAD,,Self-mapped
+1/3 lb,,,NO_MATCH,NO_MATCH,,
+regular pie crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+package Lipton Onion Soup Mix,"0,22",290,ingredient,ONION,,Self-mapped
+kefalotyri,"8,93",5253,ingredient,CHEESE,,Self-mapped
+verbena leaf,"0,03",,ingredient,"Th� infus�, non sucr�",https://agribalyse.ademe.fr/app/aliments/18020,Self-mapped
+minced jalapeno pepper,"0,84",8280,typology,SPICIES,,Self-mapped
+dulce de leche,"4,3",1599,typology,ICE CREAM,,Self-mapped
+canned ingredient,,,NO_MATCH,NO_MATCH,,
+coffee ice cube,,,NO_MATCH,NO_MATCH,,
+sweet ground sausage,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+fresh rhubarb,"0,25",272,ingredient,RADISH,,Self-mapped
+fettucine,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+orange sprinkles,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+flav-r-bite,,,NO_MATCH,NO_MATCH,,
+tart crust,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+spanish chorizo,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+parsley sauce,,,NO_MATCH,NO_MATCH,,
+porcini,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+blue food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+mornay sauce,"8,93",5253,ingredient,CHEESE,,Self-mapped
+chopped peeled tart apple,"0,81",6847,ingredient,APPLES,,Self-mapped
+packet hollandaise sauce,"1,46",572,ingredient,MAYONNAISE,,Self-mapped
+frozen oven chip,,,NO_MATCH,NO_MATCH,,
+savoiardi,,,NO_MATCH,NO_MATCH,,
+muffin tin,,,NO_MATCH,NO_MATCH,,
+parmesan flavored breadcrumb,,,NO_MATCH,NO_MATCH,,
+Jack Daniels Black Label Mix,"4,43",,ingredient,John Lee Straight Bourbon Whiskey,https://apps.carboncloud.com/climatehub/product-reports/3012993050501/SWE,Self-mapped
+sweet corn relish,"0,48",1191,ingredient,MAIZE,,Self-mapped
+dried mixed herb,,,NO_MATCH,NO_MATCH,,
+glaze extract,,,NO_MATCH,NO_MATCH,,
+chopped escarole,,,NO_MATCH,NO_MATCH,,
+chopped fresh parsley leaf,"1,18",336,typology,VEGETABLES,,Self-mapped
+dry chopped mint,"0,84",288,ingredient,PEPPERMINT,,Self-mapped
+Pillsbury sugar cookie dough,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+mache,,,NO_MATCH,NO_MATCH,,
+roast chicken seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+corn on the cob,"0,48",1191,ingredient,MAIZE,,Self-mapped
+sheets nori,,,NO_MATCH,NO_MATCH,,
+dry vegetable soup mix,,,NO_MATCH,NO_MATCH,,
+hot fudge sauce,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+drops red gel food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+tarhana,,,NO_MATCH,NO_MATCH,,
+licorice string,"2,404",,ingredient,Licorice,https://livelca.com/products/licorice_1f6c12ee-67d2-4231-a385-abc07647ee53,Self-mapped
+wasa,"0,86",667,ingredient,BREAD,,Self-mapped
+veal scallop,,,NO_MATCH,NO_MATCH,,
+cervelat,,,NO_MATCH,NO_MATCH,,
+veal stock,,,NO_MATCH,NO_MATCH,,
+hundreds and thousands,,,NO_MATCH,NO_MATCH,,
+za\atar,"0,84",8280,typology,SPICIES,,Self-mapped
+assorted baby green,"1,18",336,typology,VEGETABLES,,Self-mapped
+decorating icing,"4,3",,ingredient,VANILLA,,Self-mapped
+reserved pasta water,"1,21",1508,ingredient,PASTA*,,Self-mapped
+liquid sugar substitute,,,NO_MATCH,NO_MATCH,,
+ground veal,,,NO_MATCH,NO_MATCH,,
+steak-um,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+fresh fettuccine,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+shell macaroni,"1,21",1508,ingredient,PASTA*,,Self-mapped
+mixed herbs,"0,26",,ingredient,"Herbs, open field, fresh",https://apps.carboncloud.com/climatehub/product-reports/id/482093060569,Self-mapped
+crushed pork rind,,,NO_MATCH,NO_MATCH,,
+garlic rice and vermicelli mix,"2,19",1597,ingredient,RICE*,,Self-mapped
+grated peel,,,NO_MATCH,NO_MATCH,,
+topping mix,"2,42",,ingredient,"Cr�me de lait, 15 � 20% MG, l�g�re, semi-�paisse, UHT",https://agribalyse.ademe.fr/app/aliments/19430,Self-mapped
+strawberry drink mix,"0,61",413,ingredient,STRAWBERRY,,Self-mapped
+sheet phyllo dough,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+caciocavallo,,,NO_MATCH,NO_MATCH,,
+raspberry junket danish dessert mix,,,NO_MATCH,NO_MATCH,,
+miniature M&M baking bits,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+Jagermeister,"0,69",155,ingredient,BEER*,,Self-mapped
+duck fat,"5,99",6116,ingredient,BACON,,Self-mapped
+chopped fresh thyme,"0,84",8280,typology,SPICIES,,Self-mapped
+pumpkin pie mix,"0,24",336,ingredient,PUMPKIN,,Self-mapped
+aji yellow paste,,,NO_MATCH,NO_MATCH,,
+dried sweet basil leaf,"0,3",,ingredient,BASIL FRESH,https://livelca.com/products/basil-fresh_f6a4ddbe-1c2c-44e8-886e-4d5388d33bb1,Self-mapped
+casarecce,"1,21",1508,ingredient,PASTA*,,Self-mapped
+miniature tart shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+scallop squash,"0,33",336,ingredient,SQUASH,,Self-mapped
+hot chicken stock,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+hot verde sauce,,,NO_MATCH,NO_MATCH,,
+cheese dressing,"9,59",5060,ingredient,CHEESE BLUE-VEINED,,Self-mapped
+bottled caramel topping,"6,8",,ingredient,Topping Karamell,https://apps.carboncloud.com/climatehub/product-reports/8720182837752/SWE,Self-mapped
+grill-mate,,,NO_MATCH,NO_MATCH,,
+portabella,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+macadamia nuts,"1,11",11264,ingredient,HAZELNUT,,Self-mapped
+gluten free flour,,,NO_MATCH,NO_MATCH,,
+sbrinz,,,NO_MATCH,NO_MATCH,,
+veal mince,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+fideos,,,NO_MATCH,NO_MATCH,,
+pioneer biscuit mix,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+vol-au-vent,,,NO_MATCH,NO_MATCH,,
+meat stock,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+chia,"0,88","3087,5",typology,SEEDS,,Self-mapped
+Skor chip,,,NO_MATCH,NO_MATCH,,
+calcium powder,,,NO_MATCH,NO_MATCH,,
+dry cider,"2,86",1140,ingredient,APPLE JUICE (I),,Self-mapped
+Kraft caramel,"1,84",,ingredient,CANDY,https://apps.carboncloud.com/climatehub/product-reports/073621012219/USA,Self-mapped
+crushed pecans,"1,11",9063,ingredient,MIXED NUTS,,Self-mapped
+topping flour,"0,87","1889,5",typology,GRAIN FLOUR,,Self-mapped
+charcoal,"4,19",,ingredient,PINE NUTS,https://apps.carboncloud.com/climatehub/product-reports/034952148596/USA,Self-mapped
+small corn tortilla,,,NO_MATCH,NO_MATCH,,
+gravy browner,,,NO_MATCH,NO_MATCH,,
+southern comfort,"4,43",,ingredient,John Lee Straight Bourbon Whiskey,https://apps.carboncloud.com/climatehub/product-reports/3012993050501/SWE,Self-mapped
+rich,,,NO_MATCH,NO_MATCH,,
+hard roll,"0,86",667,ingredient,BREAD,,Self-mapped
+false cardamom powder,"0,84",34319,ingredient,CARDAMOM,,Self-mapped
+butterscotch topping,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+dash yellow food coloring,,,NO_MATCH,NO_MATCH,,
+low-sugar apple butter,"1,89",,ingredient,Jam,https://livelca.com/products/jam_3c8262e5-0d2e-4973-a039-ffcb35172cb9,Self-mapped
+Nutrasweet,,,NO_MATCH,NO_MATCH,,
+package almond brickle chip,"1,88",11264,ingredient,ALMOND,,Self-mapped
+fat-free chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+fat-free cream of chicken soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+hash,"0,24",555,ingredient,POTATO,,Self-mapped
+cloth,,,NO_MATCH,NO_MATCH,,
+sour cream with chives,"5,45",3838,ingredient,CREAM,,Self-mapped
+large clove,"0,25",589,ingredient,GARLIC,,Self-mapped
+packet asian home gourmet butter chicken paste,"0,84",8280,typology,SPICIES,,Self-mapped
+bitter orange marmalade,"0,3",654,ingredient,ORANGE,,Self-mapped
+turkey giblet,"3,88",4325,typology,POULTRY BONE FREE MEAT,,Self-mapped
+reserved chicken broth,"5,04",,ingredient,CHICKEN BROTH,https://apps.carboncloud.com/climatehub/product-reports/072700102278/USA,Self-mapped
+shortbread pie crust,"1,53",2902,ingredient,CHOCOLATE OR CREAM FILLED COOKIES**,,Self-mapped
+fresh linguine,"1,21",1508,ingredient,PASTA*,,Self-mapped
+taquito,,,NO_MATCH,NO_MATCH,,
+ground rosemary,"0,84",8280,typology,SPICIES,,Self-mapped
+large sweet banana pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+gluten-free breadcrumbs,,,NO_MATCH,NO_MATCH,,
+marshmallow fluff,"5,45",3838,ingredient,CREAM,,Self-mapped
+mushroom stock cube,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+fudge sauce,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+wiener,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+large sage leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+glutamate,,,NO_MATCH,NO_MATCH,,
+envelope dry vegetable soup mix,,,NO_MATCH,NO_MATCH,,
+aji limo chile,,,NO_MATCH,NO_MATCH,,
+dry enchilada mix,"0,84",8280,typology,SPICIES,,Self-mapped
+package corn tortilla,,,NO_MATCH,NO_MATCH,,
+Snackwells cinnamon snack,"0,98",1258,typology,CRACKERS,,Self-mapped
+canned cherry pie filling,"0,46","1506,5",ingredient,CHERRY,,Self-mapped
+box chicken rice-a-roni,"2,19",1597,ingredient,RICE*,,Self-mapped
+box of fried rice w/ almonds Rice-A-Roni,"2,19",1597,ingredient,RICE*,,Self-mapped
+origanum,,,NO_MATCH,NO_MATCH,,
+v- 8 vegetable juice,"2,86",267,ingredient,TOMATO JUICE,,Self-mapped
+prepared caramel ice cream topping,"6,8",,ingredient,Topping Karamell,https://apps.carboncloud.com/climatehub/product-reports/8720182837752/SWE,Self-mapped
+lady savoiardi,"1,99",2158,typology,SWEETS,,Self-mapped
+huy fong chili-garlic sauce,"0,25",589,ingredient,GARLIC,,Self-mapped
+garlic-flavored crouton,"0,98",1258,typology,CRACKERS,,Self-mapped
+thick salsa,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+sweet whole kernel corn,"0,48",1191,ingredient,MAIZE,,Self-mapped
+dry minced chive,"0,84",8280,typology,SPICIES,,Self-mapped
+reduced-fat half-and-half,"1,44",1599,typology,ANIMAL MILK,,Self-mapped
+I Cant Believe Its Not Butter! Spray,,,NO_MATCH,NO_MATCH,,
+tangy dill relish,,,NO_MATCH,NO_MATCH,,
+chopped fresh dill weed,"1,18",336,typology,VEGETABLES,,Self-mapped
+bunches watercress,"1,18",336,typology,VEGETABLES,,Self-mapped
+quartered cherry tomato,"0,45",41,ingredient,TOMATO,,Self-mapped
+cooked couscous,"0,57",2133,typology,"PROCESSED GRAINS (grouts, malt)",,Self-mapped
+blue corn tortilla,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+mixed Italian herbs,,,NO_MATCH,NO_MATCH,,
+cream corn,"0,81","750,5",typology,VEGETABLES FROZEN,,Self-mapped
+party,,,NO_MATCH,NO_MATCH,,
+g,"0,21",362,ingredient,GERKIN,,Self-mapped
+bouquet,,,NO_MATCH,NO_MATCH,,
+chilled vegetable shortening,,,NO_MATCH,NO_MATCH,,
+spears,"0,83",2150,ingredient,ASPARAGUS,,Self-mapped
+oyster liquor,,,NO_MATCH,NO_MATCH,,
+jar dried beef,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+fruit roll-up,,,NO_MATCH,NO_MATCH,,
+crushed ripple potato chip,,,NO_MATCH,NO_MATCH,,
+coloured mini marshmallow,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+grated paraffin wax,,,NO_MATCH,NO_MATCH,,
+colored miniature marshmallow,,,NO_MATCH,NO_MATCH,,
+custard mix,"0,84",8280,typology,SPICIES,,Self-mapped
+bean thread,,,NO_MATCH,NO_MATCH,,
+Essence,"4,3",,ingredient,VANILLA,,Self-mapped
+pierogie,"0,24",555,ingredient,POTATO,,Self-mapped
+reserved cake mix,,,NO_MATCH,NO_MATCH,,
+milk dud,"1,31","1260,5",ingredient,COW MILK,,Self-mapped
+masoor dal,,,NO_MATCH,NO_MATCH,,
+mac,"1,11",11264,typology,NUTS,,Self-mapped
+Truvia,,,NO_MATCH,NO_MATCH,,
+pasty shell,"1,47","1870,3",typology,BISCUITS,,Self-mapped
+zesty Italian salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+quart chicken stock,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+chopped Italian parsley,"1,18",336,typology,VEGETABLES,,Self-mapped
+sundae sauce,"0,93",,ingredient,Syrup,https://livelca.com/products/syrup_6929f55c-b391-4961-b016-730f8e7ec77c,Self-mapped
+buttermilk ranch dressing,"1,46",572,typology,DRESSING,,Self-mapped
+salsa ranch dressing,"1,46",572,typology,DRESSING,,Self-mapped
+spicy tomato sauce,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+bottled kraft Italian salad dressing,"1,46",572,typology,DRESSING,,Self-mapped
+dipper,,,NO_MATCH,NO_MATCH,,
+pico,,,NO_MATCH,NO_MATCH,,
+shaved deli roast beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+finely chopped red pepper,"0,65",379,ingredient,PEPPER,,Self-mapped
+half and half,"5,45",3838,ingredient,CREAM,,Self-mapped
+ground oregano,"0,84",8280,typology,SPICIES,,Self-mapped
+red velvet cake mix,"3,16",20717,typology,CHOCOLATE,,Self-mapped
+fresh spinach rotini pasta,"1,21",1508,ingredient,PASTA*,,Self-mapped
+casserole mince,,,NO_MATCH,NO_MATCH,,
+birds custard powder,"0,84",8280,typology,SPICIES,,Self-mapped
+cake batter,,,NO_MATCH,NO_MATCH,,
+box package yellow cake mix,,,NO_MATCH,NO_MATCH,,
+crushed allspice berry,"2,15",748,typology,FRUIT,,Self-mapped
+packet corn chips,"0,57",1081,ingredient,MAIZE GROATS,,Self-mapped
+meringue powder,,,NO_MATCH,NO_MATCH,,
+box butter recipe cake mix,,,NO_MATCH,NO_MATCH,,
+package sliced pepperoni,"0,84",8280,typology,SPICIES,,Self-mapped
+yellow butter recipe cake mix,"0,34",642,ingredient,LEMON,,Self-mapped
+sambuca romana,,,NO_MATCH,NO_MATCH,,
+chicken stuffing mix,"0,87","1889,5",ingredient,MAIZE FLOUR,,Self-mapped
+prune butter,,,NO_MATCH,NO_MATCH,,
+envelope white sauce mix,"0,22",290,ingredient,ONION,,Self-mapped
+mini-white marshmallow,"1,84",,ingredient,"MARSHMALLOW BUNNIES, MARSHMALLOW",https://apps.carboncloud.com/climatehub/product-reports/070970570827/USA,Self-mapped
+veal cutlet,"3,44",5798,ingredient,PORK CUTS WITH BONE,,Self-mapped
+italian,,,NO_MATCH,NO_MATCH,,
+fresh oregano leaf,"0,84",8280,typology,SPICIES,,Self-mapped
+drummette,"2,82",3330,ingredient,CHICKEN MEAT WITH BONE,,Self-mapped
+kefalograviera,"8,93",5253,ingredient,CHEESE,,Self-mapped
+lekvar,,,NO_MATCH,NO_MATCH,,
+Mexican-style corn,"0,48",1191,ingredient,MAIZE,,Self-mapped
+box Knorr Leek mix,"1,18",336,typology,VEGETABLES,,Self-mapped
+miniature marshmallows,,,NO_MATCH,NO_MATCH,,
+potato topper,"0,27",1523,typology,STARCHY TUBER,,Self-mapped
+dry ranch dressing mix,"1,46",572,typology,DRESSING,,Self-mapped
+niblet,"0,48",1191,ingredient,MAIZE,,Self-mapped
+canned pineapple chunk,"0,55",255,ingredient,PINEAPPLE (I),,Self-mapped
+prepared polenta,,,NO_MATCH,NO_MATCH,,
+artificial bacon bit,"5,99",6116,ingredient,BACON,,Self-mapped
+tomato cream sauce,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+imitation coconut extract,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+canned cream of coconut,"0,54",2030,ingredient,COCONUT MILK,,Self-mapped
+white shortening,25,,ingredient,"Synthetic food flavoring, generic",https://apps.carboncloud.com/climatehub/product-reports/id/3218899265196,Self-mapped
+toasted macadamia,"1,11",11264,typology,NUTS,,Self-mapped
+unsalted macadamia,"1,11",11264,typology,NUTS,,Self-mapped
+package nacho cheese flavored tortilla chips,"0,98",1258,typology,CRACKERS,,Self-mapped
+mild picante sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+dried fine herb,,,NO_MATCH,NO_MATCH,,
+seafood sauce,"1,46",572,ingredient,MAYONNAISE,,Self-mapped
+cream of wild mushroom soup,,,NO_MATCH,NO_MATCH,,
+instant Oxo,,,NO_MATCH,NO_MATCH,,
+hidden valley salad dressing mix,"1,46",572,typology,DRESSING,,Self-mapped
+Nutter Butter,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+veal stew meat,"25,23",10412,ingredient,LAMB BONE FREE MEAT*,,Self-mapped
+Smart Balance butter spread,"8,48",5659,ingredient,BUTTER*,,Self-mapped
+bottle red food coloring,"1,07",,ingredient,E150a caramel coloring,https://apps.carboncloud.com/climatehub/product-reports/id/328930908939,Self-mapped
+baking chips,,,NO_MATCH,NO_MATCH,,
+franks redhot buffalo wing sauce,"0,84",8280,typology,SPICIES,,Self-mapped
+hot Italian turkey sausage,"5,99",6177,ingredient,PORK SAUSAGES,,Self-mapped
+bleu cheese dressing,"9,59",5060,ingredient,CHEESE BLUE-VEINED,,Self-mapped
+jars,,,NO_MATCH,NO_MATCH,,
+montasio,"9,59",5253,ingredient,PECORINO,,Self-mapped
+pinch ground nutmeg,"0,84",34319,ingredient,NUTMEG,,Self-mapped
+dried cannelloni tube,,,NO_MATCH,NO_MATCH,,
+precooked meatball,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+jar spaghetti sauce with meat,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+prepared raw phyllo pastry,"1,35","1423,3",typology,CRISPBREAD,,Self-mapped
+crushed tortilla chips,"0,57",1081,ingredient,MAIZE GROATS,,Self-mapped
+wonton wrappers,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+whole wheat lasagna noodle,"1,21",1508,ingredient,PASTA*,,Self-mapped
+garlic-flavored croutons,"0,98",1258,typology,CRACKERS,,Self-mapped
+Italian-style tomatoes,"1,3",713,typology,"TOMATO PUREE,PEELED, CHOPPED",,Self-mapped
+genoa,"5,99",6177,typology,PORK CURED MEAT,,Self-mapped
+meatless spaghetti sauce,"1,3",855,ingredient,TOMATO PASTE,,Self-mapped
+bel paese,"8,93",5253,ingredient,CHEESE,,Self-mapped
+spinach lasagna noodle,"0,34",292,ingredient,SPINACH,,Self-mapped
+sopressata,,,NO_MATCH,NO_MATCH,,
+crumbled gorgonzola,"9,59",5060,ingredient,CHEESE BLUE-VEINED,,Self-mapped
+soppressata,,,NO_MATCH,NO_MATCH,,
+lasagne,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+fresh flat-leaf Italian parsley,"1,18",336,typology,VEGETABLES,,Self-mapped
+eye of round roast,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+condensed beef broth,"1,48","806,6",typology,VEGETABLES CANNED,,Self-mapped
+meat broth,"7,04",1856,ingredient,PRAWNS/SHRIMPS,,Self-mapped
+French dry rub,"0,84",8280,typology,SPICIES,,Self-mapped
+whale meat,,,NO_MATCH,NO_MATCH,,
+bear meat,"78,8",,ingredient,BUFFALO BONE FREE MEAT*,,Self-mapped
+pack,"0,24",336,ingredient,PUMPKIN,,Self-mapped
+envelope sazon goya (con achiote),"0,84",8280,ingredient,CORIANDER,,Self-mapped
+ground dried chile,"0,84",8280,typology,SPICIES,,Self-mapped
+mushroom beef gravy,"0,22",290,ingredient,ONION,,Self-mapped
+beef sirloin tip,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+jar beef gravy,,,NO_MATCH,NO_MATCH,,
+sliced fresh mushroom,"2,06",,ingredient,MUSHROOM*,,Self-mapped
+marrow bone,"3,44",5677,ingredient,FRESH HAM WITH BONE,,Self-mapped
+Campbells French onion soup,"0,22",290,ingredient,ONION,,Self-mapped
+sweet Italian sausage link,"5,99",6177,ingredient,SAUSAGES,,Self-mapped
+pepperoncini pepper juice,"0,84",8280,typology,SPICIES,,Self-mapped
+penne macaroni,"1,21",1508,ingredient,PASTA*,,Self-mapped
+marinated beef,,,NO_MATCH,NO_MATCH,,
+smen,,,NO_MATCH,NO_MATCH,,
+liquid smoke seasoning,"0,84",8280,typology,SPICIES,,Self-mapped
+italian seasoning mix,"0,84",8280,typology,SPICIES,,Self-mapped
+roll wrappers,"3,15",4637,ingredient,EGG PASTA*,,Self-mapped
+puff,"2,64","2196,5",typology,BREAKFAST CEREALS,,Self-mapped
+cream of tomato soup,"5,45",3838,ingredient,CREAM,,Self-mapped
+cooked rice or noodles,"2,19",1597,ingredient,RICE*,,Self-mapped
+berry red wine,"0,66",524,typology,WINE,,Self-mapped
+dashida,,,NO_MATCH,NO_MATCH,,
+casing,,,TOO_GENERIC,TOO_GENERIC,,Self-mapped
+chipped beef,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+deli meat,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+manwich,,,NO_MATCH,NO_MATCH,,
+taco meat,,,NO_MATCH,NO_MATCH,,
+vegetable beef soup mix,"1,48","806,6",typology,VEGETABLES CANNED,,Self-mapped
+enchilada mix,"0,84",8280,typology,SPICIES,,Self-mapped
+potato roll,"0,22",290,ingredient,ONION,,Self-mapped
+cooked beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+chopped beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+piccalilli relish,,,NO_MATCH,NO_MATCH,,
+shake-in-bake,,,NO_MATCH,NO_MATCH,,
+vegetable cooking spray,"2,11",6792,typology,OIL,,Self-mapped
+cooked ground beef,"25,75",15139,ingredient,BEEF BONE FREE MEAT*,,Self-mapped
+dorito,"0,93",1378,ingredient,FLAVORED CRACKERS**,,Self-mapped
+sliced cooked meat,"7,95",6177,ingredient,PORK HAM,,Self-mapped
+condensed beef consomme,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+bolognese sauce,"1,19","151,3",typology,TOMATO SAUCE,,Self-mapped
+Oxo,"5,99",6177,ingredient,NECK,,Self-mapped
+pepperoncini juice,"0,65",379,ingredient,PEPPER,,Self-mapped
+dry parsley flake,"0,84",8280,typology,SPICIES,,Self-mapped
+duck sauce,,,NO_MATCH,NO_MATCH,,
+crisp chow mein noodles,,,NO_MATCH,NO_MATCH,,
+Italian-style diced tomatoes,"1,3",267,ingredient,TOMATO PEELED,,Self-mapped
+chopped meat,"17,96",10943,ingredient,BEEF MEAT WITH BONE*,,Self-mapped
+Lou Prices Cajun Seasoning,"0,84",8280,typology,SPICIES,,Self-mapped

@@ -1,0 +1,40 @@
+from pymongo import MongoClient
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+import os
+
+system_prompt = """You are a food expert with the aim of identifying allergens in food ingredients.
+Given the following list of 14 allergens: [gluten, crustacean, egg, fish, peanuts, soy, dairy, nuts, celery, mustard, sesame, sulphites, lupin, molluscs]
+Write a list of allergens that are present in the following ingredient: INGREDIENT (assume that the ingredient is raw, unprocessed in the simplest form).
+If no allergens are present, write "no allergens".
+The list must be written in the following format: [allergen1, allergen2, allergen3]
+Write a small explation (max 20 words) of why the allergen is present in the ingredient BEFORE the list of allergens.
+"""
+
+def execute_chain(input_prompt, input_query, temperature):
+    llm.temperature = temperature
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", input_prompt),
+            ("human", "{query}"),
+        ]
+    )
+    output_parser = StrOutputParser()
+    chain = prompt | llm | output_parser
+    answer = chain.invoke({ "query": input_query })
+    return answer
+
+
+openai_api_key = os.getenv("OPENAI_API_KEY")
+llm = ChatOpenAI(api_key=openai_api_key, model="gpt-4o-mini")
+
+client = MongoClient('localhost', 27017)
+db = client['emealio_food_db']
+collection = db['ingredients']
+
+#loop over the first 20 ingredients
+for ingredient in collection.find().limit(100):
+    prompt = system_prompt.replace("INGREDIENT", ingredient['ingredient'])
+    allergenes = execute_chain(prompt, ingredient['ingredient'], 0.1)
+    print(ingredient['ingredient'] +': '+allergenes)

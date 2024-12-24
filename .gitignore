@@ -30,3 +30,6 @@ chatbotDemo/service/__pycache__/userDataService.cpython-311.pyc
 chatbotDemo/service/__pycache__/langChainService.cpython-311.pyc
 /chatbotDemo/service/__pycache__
 *.pyc
+*.pyc
+chatbotDemo/dto/__pycache__/responseClass.cpython-311.pyc
+chatbotDemo/service/__pycache__/langChainService.cpython-311.pyc
