@@ -3,6 +3,7 @@ import jsonpickle
 from pymongo import MongoClient
 import numpy as np
 import dto.recipe as recipe
+import service.foodHistoryService as foodHistory
 
 def remove_additional_info(ingredient):
     #given a string like "water _ 2 __ cups"
@@ -56,15 +57,18 @@ def getRecipeSuggestion(mealDataJson, userData):
         {TAGS_RESTRICTIONS},
         {ALLERGENES},
         {TAGS_MEAL_TYPE},
+        {TAGS_USER_HISTORY},
         {TAGS_HEALTHINESS},
         {TAGS_MEAL_DURATION}
         ] }"""
 
+    
     tagsRestrictions = ""   
     allergenes = ""
     tagsMealType = ""
-    tagsMealDuration = ""
+    tagsUserHistory = ""
     tagsHealthiness = ""
+    tagsMealDuration = ""
 
     mealData = jsonpickle.decode(mealDataJson)
     
@@ -73,8 +77,7 @@ def getRecipeSuggestion(mealDataJson, userData):
     db = client['emealio_food_db']
     recipes = db['recipes']
 
-
-    #filrter for the restrictions
+    #filter for the restrictions
     restrictions = userData.restrictions
     if(restrictions != None and restrictions != ''):
         tagsRestrictions = """ "$and": [ """
@@ -108,6 +111,17 @@ def getRecipeSuggestion(mealDataJson, userData):
     elif(mealType == "Snack"):
         tagsMealType = """ "tags": { "$regex": "snack" } """
 
+    #obtain the user history
+    userHistory = foodHistory.get_user_history_of_week(userData.id, False)
+    if userHistory != None:
+        #filter for not being in the user history
+        userHistory = jsonpickle.decode(userHistory)
+        tagsUserHistory = """"recipe_id": {"$nin": ["""
+        for history in userHistory:
+            tagsUserHistory +=  str(history['recipeId']) + ","
+        tagsUserHistory = tagsUserHistory[:-1]
+        tagsUserHistory += "] }"
+
     #filter for the healthiness
     healthiness = mealData['healthiness']
     if(healthiness == "yes"):
@@ -122,10 +136,10 @@ def getRecipeSuggestion(mealDataJson, userData):
 
     #replace the tags in the query template
     mandatoryReplacement = [["TAGS_RESTRICTIONS",tagsRestrictions],["ALLERGENES",allergenes],["TAGS_MEAL_TYPE",tagsMealType]]
-    notMadatoryReplacement = [["TAGS_MEAL_DURATION",tagsMealDuration],["TAGS_HEALTHINESS",tagsHealthiness]]
+    notMadatoryReplacement = [["TAGS_USER_HISTORY",tagsUserHistory],["TAGS_HEALTHINESS",tagsHealthiness],["TAGS_MEAL_DURATION",tagsMealDuration]]
 
     numberOfFoundRecipes = 0
-    numReplacement = 2
+    numReplacement = len(notMadatoryReplacement)
 
     removedConstraints = []
 

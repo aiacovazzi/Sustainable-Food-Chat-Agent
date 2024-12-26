@@ -1,13 +1,14 @@
 import jsonpickle
 
 class User:
-    def __init__(self, username, id, name, surname, dateOfBirth, allergies, restrictions):
+    def __init__(self, username, id, name, surname, dateOfBirth, nation, allergies, restrictions):
         """
         username: the username of the user. Mandatory.
         id: the id of the user. Mandatory.
         name: the name of the user. Mandatory.
         surname: the surname of the user. Mandatory.
         dateOfBirth: the date of birth of the user in the format DD/MM/YYYY. Mandatory.
+        nation: the nation of the user. Mandatory.
         allergies: a list of food that the user cannot eat. Optional.
         restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "islam", "hinduism", "ebraic"]. Optional.
         """
@@ -16,6 +17,7 @@ class User:
         self.name = name
         self.surname = surname
         self.dateOfBirth = dateOfBirth
+        self.nation = nation
         self.allergies = allergies
         self.restrictions = restrictions
 
@@ -26,8 +28,32 @@ class User:
         self.name = json_obj['name']
         self.surname = json_obj['surname']
         self.dateOfBirth = json_obj['dateOfBirth']
+        self.nation = json_obj['nation']
         self.allergies = json_obj['allergies']
         self.restrictions = json_obj['restrictions']
+        #those fields are loaded only when bulding a user object from the database
+        if('username' in json_obj):
+            self.username = json_obj['username']
+        if('id' in json_obj):
+            self.id = json_obj['id']
+        
+        return self
+    
+    def update_from_json(self, jsonString):
+        #convert the string to a json object
+        json_obj = jsonpickle.decode(jsonString)
+        if('name' in json_obj):
+            self.name = json_obj['name']
+        if('surname' in json_obj):
+            self.surname = json_obj['surname']
+        if('dateOfBirth' in json_obj):
+            self.dateOfBirth = json_obj['dateOfBirth']
+        if('nation' in json_obj):
+            self.nation = json_obj['nation']
+        if('allergies' in json_obj):
+            self.allergies = json_obj['allergies']
+        if('restrictions' in json_obj):
+            self.restrictions = json_obj['restrictions']        
         return self
     
     def to_json(self):

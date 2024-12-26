@@ -11,6 +11,7 @@ from telegram import *
 from telegram.ext import *
 from dotenv import load_dotenv, find_dotenv
 from functools import wraps
+import service.foodHistoryService as foodHistory
 
 
 load_dotenv(find_dotenv())
@@ -51,12 +52,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     #if the user data is empty the start a "get data", conversation
     if(context.user_data['userData'] == None):
-        context.user_data['userData'] = user.User(telegramUser['username'],telegramUser['id'],None,None,None,None,None)
+        context.user_data['userData'] = user.User(telegramUser['username'],telegramUser['id'],None,None,None,None,None,None)
         response = cc.answer_question(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,"",None)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
     else:
         response = cc.answer_question(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"",None)
+        foodHistory.clean_temporary_declined_suggestions(context.user_data['userData'].id)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
     return INTERACTION

@@ -10,8 +10,7 @@ import dto.recipe as recipe
 import jsonpickle
 import utils
 from datetime import datetime
-import persistence.UserPersistence as userDB
-import persistence.UserHistoryPersistence as userHistoryDB
+import service.foodHistoryService as fhService
 
 def aswer_router(userData,userPrompt,token,memory):
     response = rc.Response('','','','','')
@@ -26,7 +25,7 @@ def aswer_router(userData,userPrompt,token,memory):
     return response   
 
 def answer_question(userData,userPrompt,token,info,memory):
-#0 USER DATA RETRIEVAL####################################################################
+#0 USER DATA RETRIEVAL##################################################################
     if(token == p.TASK_0_HOOK):
         print("PRESENTING_USER_DATA_RETRIEVAL" )
         response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0, userPrompt, 0.6)
@@ -47,20 +46,22 @@ def answer_question(userData,userPrompt,token,info,memory):
         print("PERSISTING_USER_DATA" )
         #persist user data calling MongoDB...
         response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3, "User data: " + userData.to_json(), 0.4)
-        userDB.saveUser(userData.to_plain_json())
+        user.save_user(userData)
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
-##########################################################################################
+########################################################################################
 
-#1 MAIN HUB / GREETINGS###################################################################
+#1 MAIN HUB / GREETINGS#################################################################
     elif(token == p.TASK_1_HOOK):
         print("GRETINGS")
+        #passing though the main hub imply starting a new conversation so I can reset the memory
+        memory = None
         response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.6)
         return response
-##########################################################################################
+########################################################################################
 
-#FOOD SUGGESTION##########################################################################
+#FOOD SUGGESTION########################################################################
     elif(token == p.TASK_2_HOOK):
         print("FOOD_SUGGESTION_INTERACTION" )
         response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt, 0.2)
@@ -89,8 +90,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         if(suggestedRecipe != None):
             response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=info, userData=userDataStr), userPrompt, 0.6, memory, True)
         else:
-            response = lcs.execute_chain(p.TASK_2_101_PROMPT.format( mealInfo=info, userData=userDataStr), userPrompt, 0.6, memory, False)
-        
+            response = lcs.execute_chain(p.TASK_2_101_PROMPT.format( mealInfo=info, userData=userDataStr), userPrompt, 0.6, memory, False)        
         #produce suggestion
         return response
     elif(token == p.TASK_2_20_HOOK):
@@ -100,30 +100,21 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_2_30_HOOK):
         print("SUGGESTION_ACCEPTED")
         manage_suggestion(userData,memory,"accepted")
+        fhService.clean_temporary_declined_suggestions(userData.id)
         response = rc.Response('I''m glad you accepted my suggestion! If I can help you with other food sustainability questions, I''m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_40_HOOK):
         print("SUGGESTION_DECLINED")
         manage_suggestion(userData,memory,"declined")
-        response = rc.Response('I''m sorry you didn''t accepepet my suggestion. I hope you will find something for you next time! If i can help you with other food sustainability answer, I''m here to help!',"TOKEN 1",'',None,'')
+        fhService.clean_temporary_declined_suggestions(userData.id)
+        response = rc.Response('I''m sorry you didn''t accepepet my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I''m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_50_HOOK):
         print("REQUIRED_ANOTHER_SUGGESTION")
         manage_suggestion(userData,memory,"temporary_declined")
-
-        #retireve the suggestion from the memory
-        #retrieve the original question of the user
-        #save the suggestion in the user history as temporary declined
-
-        #mocked response before implementing the saving of the suggestion
-
         originalUserPrompt = memory.messages[1].content
-
-        #reset the memory in order to start a new suggestion and talk about that one
-        memory = None
         response = rc.Response('',"TOKEN 1",'',None,originalUserPrompt)
         return response
-
 ########################################################################################
 
 
@@ -132,9 +123,9 @@ def answer_question(userData,userPrompt,token,info,memory):
         print("RECIPE_EXPERT" )
         response = lcs.execute_chain(p.TASK_3_PROMPT, userPrompt, 0.1)
         return response
+########################################################################################
 
-
-#RECIPE IMPROVEMENT####################################################################
+#RECIPE IMPROVEMENT#####################################################################
     elif(token == p.TASK_3_10_HOOK):
         print("RECIPE_IMPROVEMENT_EXECUTION" )
         recipes = imp.getRecipeSuggestion(info)
@@ -142,7 +133,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         return response
 ########################################################################################
 
-#PROFILE MANAGEMENT####################################################################
+#PROFILE MANAGEMENT#####################################################################
     elif(token == p.TASK_4_HOOK):
         print("PROFILE_SUMMARY" )
         userPrompt = p.USER_PROMPT.format(user_data=userData.to_json())
@@ -153,32 +144,42 @@ def answer_question(userData,userPrompt,token,info,memory):
         response = lcs.execute_chain(p.TASK_4_10_PROMPT, userPrompt, 0.1)
         return response
     elif(token == p.TASK_4_20_HOOK):
-        print("PROFILE_UPDATE" )
-        #profile update loop
+        print("PRESENTING_PROFILE_UPDATE" )
+        response = lcs.execute_chain(p.TASK_4_20_PROMPT, userPrompt, 0.1)
+        return response
+    elif(token == p.TASK_4_30_HOOK):
+        print("PERFORMING_PROFILE_UPDATE" )
+        response = lcs.execute_chain(p.TASK_4_30_PROMPT, "User data: "+ userPrompt, 0.1)
+        return response
+    elif(token == p.TASK_4_40_HOOK):
+        print("EVALUATING_PROFILE_UPDATE" )
+        userData.update_from_json(info)
+        response = lcs.execute_chain(p.TASK_4_40_PROMPT, "User data: " + userData.to_json() + " "+ userPrompt, 0.1)
+        return response
+    elif(token == p.TASK_4_50_HOOK):
+        print("PERSISTING_PROFILE_UPDATE" )
+        #persist user data calling MongoDB...
+        response = lcs.execute_chain(p.TASK_4_50_PROMPT, "User data: " + userData.to_json(), 0.1)
+        user.update_user(userData)
         return response
 ########################################################################################
 
-#HISTORY RETRIEVAL####################################################################
+#HISTORY RETRIEVAL######################################################################
     elif(token == p.TASK_5_HOOK):
         print("FOOD_HISTORY" )
         userName = "Jhon Doe"
-        foodHistory = history.getFoodHistory(userName)
+        foodHistory = utils.escape_curly_braces(history.get_user_history_of_week(userData.id))
         response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6)
         return response
 ########################################################################################
 
-#SUSTAINABILITY EXPERT####################################################################
+#SUSTAINABILITY EXPERT##################################################################
     elif(token == p.TASK_6_HOOK):
         print("SUSTAINABILITY_EXPERT" )
         response = lcs.execute_chain(p.TASK_6_PROMPT, userPrompt, 0.8)
         return response
-################################################################################
+########################################################################################
 
-def resetMemory(token):
-    #here we list the tokens that will not reset the memory
-    if(token != p.TASK_2_HOOK):
-        return None
-    
 def manage_suggestion(userData,memory,status):
     originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)
     jsonRecipe = utils.extract_json(originalPrompt, 0)
@@ -187,4 +188,4 @@ def manage_suggestion(userData,memory,status):
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     userHistory = uh.UserHistory(userData.id, suggestedRecipe.id, suggestedRecipe, sysdate, status)
     #save the suggestion in the user history
-    userHistoryDB.saveUserHistory(userHistory.to_plain_json())
+    fhService.save_user_history(userHistory.to_plain_json())
