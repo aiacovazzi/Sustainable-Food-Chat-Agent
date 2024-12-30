@@ -4,6 +4,8 @@ from pymongo import MongoClient
 import numpy as np
 import dto.recipe as recipe
 import service.foodHistoryService as foodHistory
+import service.embedderService as embedder
+import pandas as pd
 
 def remove_additional_info(ingredient):
     #given a string like "water _ 2 __ cups"
@@ -70,7 +72,19 @@ def getRecipeSuggestion(mealDataJson, userData):
     tagsHealthiness = ""
     tagsMealDuration = ""
 
+    #initializa as empty numpy array
+    desiredIngredientsEmbedding = np.array([])
+    notDesiredIngredientsEmbedding = np.array([])
+
     mealData = jsonpickle.decode(mealDataJson)
+
+    if(mealData['ingredients_desired'] != None and mealData['ingredients_desired']  != ''):
+        desiredIngredientsEmbeddingString = ', '.join(mealData['ingredients_desired'])
+        desiredIngredientsEmbedding = embedder.embed_list(desiredIngredientsEmbeddingString, False)
+    
+    if(mealData['ingredients_not_desired'] != None and mealData['ingredients_not_desired']  != ''):
+        notDesiredIngredientsEmbeddingString = ', '.join(mealData['ingredients_not_desired'])
+        notDesiredIngredientsEmbedding = embedder.embed_list(notDesiredIngredientsEmbeddingString, False)
     
     #connect to mongodb
     client = MongoClient('localhost', 27017)
@@ -113,7 +127,7 @@ def getRecipeSuggestion(mealDataJson, userData):
 
     #obtain the user history
     userHistory = foodHistory.get_user_history_of_week(userData.id, False)
-    if userHistory != None:
+    if userHistory != None and userHistory != '[]':
         #filter for not being in the user history
         userHistory = jsonpickle.decode(userHistory)
         tagsUserHistory = """"recipe_id": {"$nin": ["""
@@ -147,9 +161,7 @@ def getRecipeSuggestion(mealDataJson, userData):
         query = queryTemplateReplacement(mandatoryReplacement, notMadatoryReplacement,numReplacement,queryTemplate)
         #convert query in a dict
         query = jsonpickle.decode(query)
-        #query the database
         suggestedRecipes = recipes.find(query)
-        #count the number of suggested recipes
         numberOfFoundRecipes = recipes.count_documents(query)
         numReplacement -= 1
 
@@ -160,12 +172,15 @@ def getRecipeSuggestion(mealDataJson, userData):
     if(numberOfFoundRecipes == 0):
         #no recipe found
         return None
+    
+    #oreder the suggested recipes by the sustainability score (the lower the better)
+    suggestedRecipes = suggestedRecipes.sort("sustainability_score")
 
     #loop through the suggested recipes
     suggestedRecipes = list(suggestedRecipes)
 
     #take one random recipe // for now take the first one // later we will implement a scoring system
-    suggestedRecipe = suggestedRecipes[0]
+    suggestedRecipe = getPreferableRecipeByTaste(suggestedRecipes,desiredIngredientsEmbedding,notDesiredIngredientsEmbedding)
 
     #convert the recipe to a Recipe object
     suggestedRecipe = convertInEmealioRecipe(suggestedRecipe,removedConstraints)
@@ -216,3 +231,43 @@ def getIngredientInfo(ingredients):
         ingredientObjList.append(recipe.Food(ingredient,cfp,wfp))
     
     return ingredientObjList
+
+def getPreferableRecipeByTaste(recipeList, desiredIgredientsEmbeddings, notDesiredIgredientsEmbeddings):
+    #if both desiredIgredientsEmbeddings and notDesiredIgredientsEmbeddings are None then return the first recipe
+    if(len(desiredIgredientsEmbeddings) == 0 and len(notDesiredIgredientsEmbeddings) == 0):
+        return recipeList[0]
+
+    #take only the columns ingredients_embedding and recipe_id
+    list = [{"ingredients_embedding": np.array(obj["ingredients_embedding"]), "recipe_id": obj["recipe_id"]} for obj in recipeList]
+
+    # convert the list to a pandas DataFrame
+    list = pd.DataFrame(list)
+
+
+
+    if(len(desiredIgredientsEmbeddings) != 0):
+        #calculate the cosine similarity between the desired ingredients and the ingredients of the recipe
+        list['cosine_similarity_desired'] = list.apply(lambda row: np.dot(row['ingredients_embedding'], desiredIgredientsEmbeddings)/(np.linalg.norm(row['ingredients_embedding'])*np.linalg.norm(desiredIgredientsEmbeddings)), axis=1)
+
+    if(len(notDesiredIgredientsEmbeddings) != 0):
+        #calculate the cosine similarity between the not desired ingredients and the ingredients of the recipe
+        list['cosine_similarity_not_desired'] = list.apply(lambda row: np.dot(row['ingredients_embedding'], notDesiredIgredientsEmbeddings)/(np.linalg.norm(row['ingredients_embedding'])*np.linalg.norm(notDesiredIgredientsEmbeddings)), axis=1)
+
+    #take the recipe who maximizes the cosine similarity with the desired ingredients and minimizes the cosine similarity with the not desired ingredients
+    if(len(desiredIgredientsEmbeddings) != 0 and len(notDesiredIgredientsEmbeddings) != 0):
+        list['taste_score'] = list['cosine_similarity_desired'] - list['cosine_similarity_not_desired']
+    elif(len(desiredIgredientsEmbeddings) != 0 ):
+        list['taste_score'] = list['cosine_similarity_desired']
+    elif(len(notDesiredIgredientsEmbeddings) != 0):
+        list['taste_score'] = -list['cosine_similarity_not_desired']
+    
+    #sort the list by the taste score
+    list = list.sort_values(by='taste_score',ascending=False)
+
+    #select the recipe with the highest taste score
+    highestTasteScoreRecipe = list.iloc[0]['recipe_id']
+
+    #take from recipeList the recipe with the highest taste score
+    recipe = next(item for item in recipeList if item["recipe_id"] == highestTasteScoreRecipe)
+
+    return recipe

@@ -30,6 +30,7 @@ INTERACTION = range(1)
 def update_context(context: ContextTypes.DEFAULT_TYPE, response):
         context.user_data['action'] = response.action
         context.user_data['memory'] = response.memory
+        context.user_data['info'] = response.info
         return context
 
 def send_action(action):
@@ -48,6 +49,7 @@ def send_action(action):
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Starts the conversation."""
     telegramUser = update.message.from_user
+    context.user_data['info'] = ''
     context.user_data['userData'] =  us.getUserData(telegramUser['id'])
 
     #if the user data is empty the start a "get data", conversation
@@ -67,7 +69,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Manage the conversation loop between the user and the chatbot."""
     userMessage = update.message.text
-    response = cc.aswer_router(context.user_data['userData'],userMessage,context.user_data['action'],context.user_data['memory'])
+    response = cc.aswer_router(context.user_data['userData'],userMessage,context.user_data['action'],context.user_data['memory'],context.user_data['info'])
     await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
     context = update_context(context,response)
     return None

@@ -5,16 +5,13 @@ import service.userDataService as user
 import service.suggestRecipeService as food
 import service.improveRecipeService as imp
 import dto.responseClass as rc
-import dto.userHistory as uh
-import dto.recipe as recipe
 import jsonpickle
 import utils
 from datetime import datetime
 import service.foodHistoryService as fhService
 
-def aswer_router(userData,userPrompt,token,memory):
+def aswer_router(userData,userPrompt,token,memory,info):
     response = rc.Response('','','','','')
-    info = ''
     while(response.answer==''):
         response = answer_question(userData,userPrompt,token,info,memory)
         token = response.action
@@ -39,7 +36,7 @@ def answer_question(userData,userPrompt,token,info,memory):
 
         #update user data using the information so far retrieved
         userData.from_json(info)
-        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + info, 0.4)
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + info, 0.2)
 
         return response;
     elif(token == p.TASK_0_3_HOOK):
@@ -101,13 +98,13 @@ def answer_question(userData,userPrompt,token,info,memory):
         print("SUGGESTION_ACCEPTED")
         manage_suggestion(userData,memory,"accepted")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I''m glad you accepted my suggestion! If I can help you with other food sustainability questions, I''m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m glad you accepted my suggestion! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_40_HOOK):
         print("SUGGESTION_DECLINED")
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I''m sorry you didn''t accepepet my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I''m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m sorry you didn\'t accepepet my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_50_HOOK):
         print("REQUIRED_ANOTHER_SUGGESTION")
@@ -180,12 +177,25 @@ def answer_question(userData,userPrompt,token,info,memory):
         return response
 ########################################################################################
 
+#RECIPE CONSUPTION DIARY################################################################
+    elif(token == p.TASK_7_HOOK):
+        print("RECIPE_CONSUPTION_DIARY" )
+        response = lcs.execute_chain(p.TASK_7_PROMPT, "Meal data: " + info +" "+userPrompt, 0.2)
+        return response
+    elif(token == p.TASK_7_10_HOOK):
+        print("RECIPE_CONSUPTION_DIARY_DATA_VERIFICATION" )
+        response = lcs.execute_chain(p.TASK_7_10_PROMPT, "Meal data: " + info, 0.3)
+        return response
+    elif(token == p.TASK_7_20_HOOK):
+        print("RECIPE_CONSUPTION_DIARY_DATA_SAVING" )
+        #calling the proper service to save the meal data computing the sustainability
+        jsonRecipeAssertion = utils.extract_json(info, 0)
+        fhService.build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion)
+        response = lcs.execute_chain(p.TASK_7_20_PROMPT, "Meal data: " + info, 0.1)
+        return response
+########################################################################################
+
 def manage_suggestion(userData,memory,status):
     originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)
     jsonRecipe = utils.extract_json(originalPrompt, 0)
-    suggestedRecipe = recipe.Recipe(None,None,None,None,None,None,None)
-    suggestedRecipe.from_json(jsonRecipe)
-    sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-    userHistory = uh.UserHistory(userData.id, suggestedRecipe.id, suggestedRecipe, sysdate, status)
-    #save the suggestion in the user history
-    fhService.save_user_history(userHistory.to_plain_json())
+    fhService.build_and_save_user_history(userData, jsonRecipe, status)

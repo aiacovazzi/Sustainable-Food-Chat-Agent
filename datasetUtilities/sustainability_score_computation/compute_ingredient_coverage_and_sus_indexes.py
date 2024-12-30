@@ -3,6 +3,8 @@ import math
 import numpy as np
 import sys
 from pymongo import MongoClient
+from sentence_transformers import SentenceTransformer
+import pandas as pd
 
 def remove_additional_info(ingredient):
     #given a string like "water _ 2 __ cups"
@@ -311,7 +313,7 @@ def define_recipe_cluster():
 
     print("Done")
 
-def add_original_ingredietn_list():
+def add_original_ingredient_list():
     #connect to the database
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
@@ -333,6 +335,102 @@ def add_original_ingredietn_list():
 
     print("Done")       
 
+def compute_simplified_ingredient_list():
+    client = MongoClient('localhost', 27017)
+    db = client['emealio_food_db']
+    recipes_db = db['recipes']
+
+    #loop over the recipes
+    recipes_cursor = recipes_db.find()
+
+    for recipe in recipes_cursor:
+        #get the ingredients
+        ingredients = recipe['ingredients']
+        ingredients_list = get_ingredients(ingredients)
+        #convert list into a string
+        ingredients_list = '['+', '.join(ingredients_list)+']'
+
+        recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"simplified_ingredients": ingredients_list}})
+
+#first version of the function
+def compute_title_and_ingredient_embedding():
+    client = MongoClient('localhost', 27017)
+    db = client['emealio_food_db']
+    recipes_db = db['recipes']
+
+    #load the sentence transformer model
+    model = SentenceTransformer('Alibaba-NLP/gte-large-en-v1.5', trust_remote_code=True)
+
+    #loop over the recipes
+    recipes_cursor = recipes_db.find()
+
+    for recipe in recipes_cursor:
+        #get the title and the ingredients
+        title = recipe['title']
+        ingredients = recipe['simplified_ingredients']
+        title_embedding = model.encode(title)
+        ingredients_embedding = model.encode(ingredients)
+        recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"title_embedding": pd.Series(title_embedding).to_list()}})
+        recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"ingredients_embedding": pd.Series(ingredients_embedding).to_list()}})
+        #get the embeddings
+
+    print("Done")
+
+def compute_embedding_of_ingredients():
+    client = MongoClient('localhost', 27017)
+    db = client['emealio_food_db']
+    ingredients_db = db['ingredients']
+
+    #load the sentence transformer model
+    model = SentenceTransformer('Alibaba-NLP/gte-large-en-v1.5', trust_remote_code=True)
+
+    #loop over the ingredients
+    ingredients_cursor = ingredients_db.find()
+
+    for ingredient in ingredients_cursor:
+        #get the title and the ingredients
+        title = ingredient['ingredient']
+        title_embedding = model.encode(title)
+        ingredients_db.update_one({"_id": ingredient['_id']}, {"$set": {"ingredient_embedding": pd.Series(title_embedding).to_list()}})
+        #get the embeddings
+
+    print("Done")
+
+#second version of the function where the recipe embedding is computed as the sum of the ingredient embeddings
+def compute_recipe_ingredient_embedding():
+    client = MongoClient('localhost', 27017)
+    db = client['emealio_food_db']
+    recipes_db = db['recipes']
+    ingredients_db = db['ingredients']
+
+    #loop over the recipes
+    recipes_cursor = recipes_db.find()
+    j = 0
+    for recipe in recipes_cursor:
+        #get the title and the ingredients
+        title = recipe['title']
+        ingredients = recipe['simplified_ingredients']
+        #remove the brackets
+        ingredients = ingredients[1:-1]
+        ingredientsArray = ingredients.split(", ")
+
+        #recipe_embeddind as a blank 1024 array
+        recipe_embeddind = np.zeros(1024)
+        for i in range(len(ingredientsArray)):
+            ingredient = ingredients_db.find_one({'ingredient': ingredientsArray[i]})
+            if ingredient is not None:
+                ingredient_embedding = ingredient['ingredient_embedding']
+                recipe_embeddind += np.array(ingredient_embedding)
+
+        recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"ingredients_embedding": pd.Series(recipe_embeddind).to_list()}})
+        #get the embeddings
+        if j % 100 == 0:
+            print("Done ", j)
+        j += 1
+
+    print("Done")
+
+
 ###### MAIN ######### 
 '''  
 compute_coverage()
@@ -343,6 +441,14 @@ compute_normalized_sustainability_scores()
 #produce_new_db_report()
 #produce_old_db_report()
 
-define_recipe_cluster()
+#define_recipe_cluster()
 
-#add_original_ingredietn_list()
+#add_original_ingredient_list()
+
+#compute_simplified_ingredient_list()
+
+#compute_title_and_ingredient_embedding()
+
+#compute_embedding_of_ingredients()
+
+compute_recipe_ingredient_embedding()
