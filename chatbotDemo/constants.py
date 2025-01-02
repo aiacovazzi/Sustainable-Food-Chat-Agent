@@ -292,14 +292,14 @@ If all the mandatory informations are collected: print the string "TOKEN 7.20" a
 
 If the user doesn't provide you all the mandatory informations:
     1: Print the string "TOKEN 7".
-    2: Print the json provided by the user.
+    2: Print the json provided by the user (do not write anything else beside the token and the json).
     3: Ask her the remaining informations. 
 
 If the user ask something about the unsutisfied constraints, explain the constraint in detail, then:
     1: Print the string "TOKEN 7".
-    2: Print the json provided by the user.
+    2: Print the json provided by the user (do not write anything else beside the token and the json).
 
-Do not write anything else beside the token and the json in all the cases.
+.
 """
 
 TASK_7_20_PROMPT = """You are a food recommender system with the role of helps users to choose more environment sustainable foods.

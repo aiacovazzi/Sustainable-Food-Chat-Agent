@@ -4,6 +4,7 @@ import jsonpickle
 import dto.userHistory as uh
 import dto.recipe as recipe
 import persistence.IngredientPersistence as ingredientDB
+import service.recipeService as recipeService
 
 def get_user_history_of_week(userId, onlyAccepted = True):
     #get the user history of the week
@@ -53,5 +54,6 @@ def build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertio
     sustanaibilityScore = None
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     assertedRecipe = recipe.Recipe(recipeAssertion["name"],None,ingredients,sustanaibilityScore,None,None,None)
+    recipeService.compute_recipe_sustainability_score(assertedRecipe)
     userHistory = uh.UserHistory(userData.id, None, assertedRecipe, sysdate, 'asserted')
     save_user_history(userHistory.to_plain_json())

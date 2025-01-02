@@ -7,7 +7,6 @@ import numpy as np
 client = MongoClient('localhost', 27017)
 db = client['emealio_food_db']
 collection = db['recipes']
-
 recipe_list = None
 
 #treat the recipe list as a singleton in order to avoid to load it every time
@@ -32,6 +31,7 @@ def get_recipe_by_title(recipeTitle):
     return jsonpickle.encode(first)
 
 def get_most_similar_recipe(recipeTitle):
+
     recipe_list = get_recipe_list()
     #embed recipeTitle
     recipeTitleEmbedding = embedder.embed_sentence(recipeTitle)
