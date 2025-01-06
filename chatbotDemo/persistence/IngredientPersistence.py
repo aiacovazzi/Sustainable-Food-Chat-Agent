@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 import jsonpickle
-import service.embedderService as embedder
+import service.bot.EmbedderService as embedder
 import pandas as pd
 import numpy as np
 

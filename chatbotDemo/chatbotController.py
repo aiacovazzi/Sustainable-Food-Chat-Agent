@@ -1,14 +1,13 @@
-import service.langChainService as lcs
-import constants as p
-import service.foodHistoryService as history
-import service.userDataService as user
-import service.suggestRecipeService as food
-import service.improveRecipeService as imp
-import dto.responseClass as rc
+import service.bot.LangChainService as lcs
+import Constants as p
+import service.domain.FoodHistoryService as history
+import service.domain.UserDataService as user
+import service.SuggestRecipeService as food
+import service.ImproveRecipeService as imp
+import dto.Response as rc
 import jsonpickle
-import utils
-from datetime import datetime
-import service.foodHistoryService as fhService
+import Utils as utils
+import service.domain.FoodHistoryService as fhService
 
 def aswer_router(userData,userPrompt,token,memory,info):
     response = rc.Response('','','','','')
@@ -80,7 +79,7 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_2_10_HOOK):
         print("PROVIDING_FOOD_SUGGESTION" )
         #call recommender system
-        suggestedRecipe = food.getRecipeSuggestion(info,userData)
+        suggestedRecipe = food.get_recipe_suggestion(info,userData)
         info = utils.escape_curly_braces(info)
         userDataStr = utils.escape_curly_braces(userData.to_json())
         userPrompt = "Suggest me a recipe given the following constraints " + info
@@ -104,7 +103,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         print("SUGGESTION_DECLINED")
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m sorry you didn\'t accepepet my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m sorry you didn\'t accepted my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_50_HOOK):
         print("REQUIRED_ANOTHER_SUGGESTION")
@@ -117,16 +116,46 @@ def answer_question(userData,userPrompt,token,info,memory):
 
 #RECIPE SUSTAINABILITY EXPERT###########################################################
     elif(token == p.TASK_3_HOOK):
-        print("RECIPE_EXPERT" )
+        print("RECIPE_EXPERT")
         response = lcs.execute_chain(p.TASK_3_PROMPT, userPrompt, 0.1)
         return response
 ########################################################################################
 
 #RECIPE IMPROVEMENT#####################################################################
     elif(token == p.TASK_3_10_HOOK):
-        print("RECIPE_IMPROVEMENT_EXECUTION" )
-        recipes = imp.getRecipeSuggestion(info)
-        response = lcs.execute_chain(p.TASK_3_10_PROMPT.format(baseRecipe=recipes[0], improvedRecipe=recipes[1]), userPrompt, 0.6)
+        print("RECIPE_IMPROVEMENT")
+        response = lcs.execute_chain(p.TASK_3_10_PROMPT, userPrompt, 0.1)
+        return response
+    elif(token == p.TASK_3_20_HOOK):
+        print("RECIPE_IMPROVEMENT_EXECUTION")
+        #call the recipe improvement service
+        baseRecipe = imp.get_base_recipe(info)
+        improvedRecipe = imp.get_recipe_improved(info,userData)
+        response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=baseRecipe, improvedRecipe=improvedRecipe), userPrompt, 0.1, memory, True)
+        return response
+    elif(token == p.TASK_3_30_HOOK):
+        print("RECIPE_IMPROVEMENT_CHAT_LOOP" )
+        response = lcs.execute_chain(p.TASK_3_30_PROMPT, userPrompt, 0.6, memory, True)
+        return response
+    elif(token == p.TASK_3_40_HOOK):
+        print("RECIPE_IMPROVEMENT_ACCEPTED")
+        #save the improved recipe as consumed by the user since she will have to eat it
+        manage_suggestion(userData,memory,"accepted",1)
+        fhService.clean_temporary_declined_suggestions(userData.id)
+        response = rc.Response('I\'m glad you accepted my improved version of the recipe! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,'')
+        return response
+    elif(token == p.TASK_3_50_HOOK):
+        print("RECIPE_IMPROVEMENT_DECLINED")
+        #don't save the rejected recipe, this because this don't have to be considered as a suggestion? i'm thinking about it
+        #manage_suggestion(userData,memory,"declined")
+        fhService.clean_temporary_declined_suggestions(userData.id)
+        response = rc.Response('I\'m sorry you didn\'t accepted my improved version of the recipe. If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
+        return response
+    elif(token == p.TASK_3_60_HOOK):
+        print("REQUIRED_ANOTHER_RECIPE_IMPROVEMENT")
+        manage_suggestion(userData,memory,"temporary_declined",1)
+        originalUserPrompt = memory.messages[1].content
+        response = rc.Response('',"TOKEN 1",'',None,originalUserPrompt)
         return response
 ########################################################################################
 
@@ -195,7 +224,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         return response
 ########################################################################################
 
-def manage_suggestion(userData,memory,status):
+def manage_suggestion(userData,memory,status,whichJson=0):
     originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)
-    jsonRecipe = utils.extract_json(originalPrompt, 0)
+    jsonRecipe = utils.extract_json(originalPrompt, whichJson)
     fhService.build_and_save_user_history(userData, jsonRecipe, status)

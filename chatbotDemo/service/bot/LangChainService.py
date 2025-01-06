@@ -1,12 +1,12 @@
 import os
 import re
-import dto.responseClass as rc
+import dto.Response as resp
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv, find_dotenv
 from langchain.memory import ChatMessageHistory
-from langchain_core.messages import HumanMessage, AIMessage
+import Utils
 MODEL = 'openai'
 TOKEN_REGEX = r"TOKEN -?\d+(\.\d+)?"
 INFO_REGEX_ANGULAR = r"<(.*?)>"
@@ -69,7 +69,7 @@ def execute_chain(input_prompt, input_query, temperature, memory = None, memory_
         memory.add_user_message(input_query)
         memory.add_ai_message(answer)
         
-    response = rc.Response(answer,action,info,memory,'')
+    response = resp.Response(answer,action,info,memory,'')
     return response
 
 def get_token(answer):
@@ -96,6 +96,7 @@ def clean_answer_from_token_and_info(answer, info):
     answer = re.sub(TOKEN_REGEX, "", answer)
     answer = re.sub(INFO_REGEX_ANGULAR, "", answer)
     answer = re.sub(INFO_REGEX_CURLY, "", answer)
+    answer = Utils.clean_json_string(answer)
 
     # Remove leading and trailing whitespace when info is not empty
     # this because in this situation the answer will be empty, so must ensure that there are no leading or trailing whitespaces

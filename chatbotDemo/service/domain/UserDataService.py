@@ -1,5 +1,5 @@
 # This file is used to get user data from the database
-import dto.user as user
+import dto.User as user
 import persistence.UserPersistence as userDB
 import jsonpickle
 def getUserData(userId):

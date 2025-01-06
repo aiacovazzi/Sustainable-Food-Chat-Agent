@@ -1,10 +1,12 @@
 import persistence.UserHistoryPersistence as userHistoryDB
 from datetime import datetime, timedelta
 import jsonpickle
-import dto.userHistory as uh
-import dto.recipe as recipe
+import dto.UserHistory as uh
+import dto.Recipe as recipe
 import persistence.IngredientPersistence as ingredientDB
-import service.recipeService as recipeService
+import service.domain.RecipeService as recipeService
+import dto.Ingredient as ingDto
+import service.domain.IngredientService as ingService
 
 def get_user_history_of_week(userId, onlyAccepted = True):
     #get the user history of the week
@@ -27,6 +29,9 @@ def get_user_history_of_week(userId, onlyAccepted = True):
 def clean_temporary_declined_suggestions(userId):
     userHistoryDB.clean_temporary_declined_suggestions(userId)
 
+def get_temporary_declined_suggestions(userId):
+    return userHistoryDB.get_temporary_declined_suggestions(userId)
+
 def save_user_history(userHistoryJson):
     userHistoryDB.save_user_history(userHistoryJson)
 
@@ -40,17 +45,7 @@ def build_and_save_user_history(userData, jsonRecipe, status):
 
 def build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion):
     recipeAssertion = jsonpickle.decode(jsonRecipeAssertion)
-
-    ingredients = []
-
-    for ingredient in recipeAssertion['listOfFoods']:
-        foodFromDB= ingredientDB.get_ingredient_by_name(ingredient)
-        if foodFromDB == None or foodFromDB == 'null':
-            foodFromDB = ingredientDB.get_most_similar_ingredient(ingredient)
-        foodFromDB = jsonpickle.decode(foodFromDB)
-        food = recipe.Food(ingredient, foodFromDB['cfp'], foodFromDB['wfp'])
-        ingredients.append(food)
-
+    ingredients = ingService.get_ingredient_list_from_generic_string(recipeAssertion['ingredients'])
     sustanaibilityScore = None
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     assertedRecipe = recipe.Recipe(recipeAssertion["name"],None,ingredients,sustanaibilityScore,None,None,None)

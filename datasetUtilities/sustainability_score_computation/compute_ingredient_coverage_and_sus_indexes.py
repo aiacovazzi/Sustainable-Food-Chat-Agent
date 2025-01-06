@@ -299,8 +299,8 @@ def define_recipe_cluster():
     recipes_cursor = recipes_db.find()
 
     for recipe in recipes_cursor:
-        #if the sustainability score is in ]0, 0.04] then the recipe belongs to cluster 0
-        if recipe['sustainability_score'] > 0 and recipe['sustainability_score'] <= 0.04:
+        #if the sustainability score is in [0, 0.04] then the recipe belongs to cluster 0
+        if recipe['sustainability_score'] >= 0 and recipe['sustainability_score'] <= 0.04:
             recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"sustainability_label": 0}})
 
         #if the sustainability score is in ]0.04, 0.15] then the recipe belongs to cluster 1
@@ -441,7 +441,7 @@ compute_normalized_sustainability_scores()
 #produce_new_db_report()
 #produce_old_db_report()
 
-#define_recipe_cluster()
+define_recipe_cluster()
 
 #add_original_ingredient_list()
 
@@ -451,4 +451,4 @@ compute_normalized_sustainability_scores()
 
 #compute_embedding_of_ingredients()
 
-compute_recipe_ingredient_embedding()
+#compute_recipe_ingredient_embedding()

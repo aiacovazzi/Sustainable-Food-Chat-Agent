@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-import service.embedderService as embedder
+import service.bot.EmbedderService as embedder
 import pandas as pd
 import jsonpickle
 import numpy as np
@@ -8,6 +8,7 @@ client = MongoClient('localhost', 27017)
 db = client['emealio_food_db']
 collection = db['recipes']
 recipe_list = None
+sustainable_recipe_list = None
 
 #treat the recipe list as a singleton in order to avoid to load it every time
 def get_recipe_list():
@@ -15,6 +16,29 @@ def get_recipe_list():
     if recipe_list is None:
         recipe_list = list(collection.find())
     return recipe_list
+
+def get_sustainable_recipe(sustanabilityScoreTreshold, temporaryDeclinedSuggestions):
+    global sustainable_recipe_list
+    query = """{ "$and": [ 
+        { "sustainability_label": { "$in": [0, 1] } }, 
+        { "percentage_covered_cfp": { "$gte": 70 } }, 
+        { "percentage_covered_wfp": { "$gte": 70 } }
+        ] }"""
+    query = jsonpickle.decode(query)
+    if sustainable_recipe_list is None:
+        sustainable_recipe_list = list(collection.find(query))
+
+    if sustanabilityScoreTreshold is not None:
+        resultList = [recipe for recipe in sustainable_recipe_list if recipe["sustainability_score"] < sustanabilityScoreTreshold]
+    else:
+        resultList = sustainable_recipe_list
+
+    if temporaryDeclinedSuggestions is not None and temporaryDeclinedSuggestions != []:
+        # from temporaryDeclinedSuggestions extract only the column recipeId
+        temporaryDeclinedSuggestions = pd.DataFrame(temporaryDeclinedSuggestions)
+        resultList = [recipe for recipe in resultList if recipe["recipe_id"] not in list(temporaryDeclinedSuggestions["recipeId"])]
+    
+    return resultList
 
 def get_recipe_by_id(recipeId):
     recipe = collection.find_one({"id": recipeId})
@@ -31,7 +55,7 @@ def get_recipe_by_title(recipeTitle):
     return jsonpickle.encode(first)
 
 def get_most_similar_recipe(recipeTitle):
-
+    
     recipe_list = get_recipe_list()
     #embed recipeTitle
     recipeTitleEmbedding = embedder.embed_sentence(recipeTitle)
@@ -47,3 +71,4 @@ def get_most_similar_recipe(recipeTitle):
 
     #convert the recipe to a plain json
     return jsonpickle.encode(top_recipe)
+

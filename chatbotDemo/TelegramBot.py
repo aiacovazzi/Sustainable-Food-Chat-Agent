@@ -1,9 +1,9 @@
 import logging
 import os
-import chatbotController as cc
-import constants as con
-import dto.user as user
-import service.userDataService as us
+import ChatbotController as cc
+import Constants as con
+import dto.User as user
+import service.domain.UserDataService as us
 from time import sleep
 from random import random
 from telegram.constants import ChatAction
@@ -11,15 +11,13 @@ from telegram import *
 from telegram.ext import *
 from dotenv import load_dotenv, find_dotenv
 from functools import wraps
-import service.foodHistoryService as foodHistory
-
+import service.domain.FoodHistoryService as foodHistory
 
 load_dotenv(find_dotenv())
 token = os.getenv("TELEGRAM_BOT_TOKEN")
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 
 userData = ''
 userMessage = ''
@@ -99,4 +97,3 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
-
