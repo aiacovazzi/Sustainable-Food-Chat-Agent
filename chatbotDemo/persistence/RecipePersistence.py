@@ -14,34 +14,12 @@ sustainable_recipe_list = None
 def get_recipe_list():
     global recipe_list
     if recipe_list is None:
-        recipe_list = list(collection.find())
+        projection = {"_id": 1, "recipe_id": 1, "title_embedding": 1, "ingredient_embedding": 1} 
+        recipe_list = list(collection.find({},projection))
     return recipe_list
 
-def get_sustainable_recipe(sustanabilityScoreTreshold, temporaryDeclinedSuggestions):
-    global sustainable_recipe_list
-    query = """{ "$and": [ 
-        { "sustainability_label": { "$in": [0, 1] } }, 
-        { "percentage_covered_cfp": { "$gte": 70 } }, 
-        { "percentage_covered_wfp": { "$gte": 70 } }
-        ] }"""
-    query = jsonpickle.decode(query)
-    if sustainable_recipe_list is None:
-        sustainable_recipe_list = list(collection.find(query))
-
-    if sustanabilityScoreTreshold is not None:
-        resultList = [recipe for recipe in sustainable_recipe_list if recipe["sustainability_score"] < sustanabilityScoreTreshold]
-    else:
-        resultList = sustainable_recipe_list
-
-    if temporaryDeclinedSuggestions is not None and temporaryDeclinedSuggestions != []:
-        # from temporaryDeclinedSuggestions extract only the column recipeId
-        temporaryDeclinedSuggestions = pd.DataFrame(temporaryDeclinedSuggestions)
-        resultList = [recipe for recipe in resultList if recipe["recipe_id"] not in list(temporaryDeclinedSuggestions["recipeId"])]
-    
-    return resultList
-
 def get_recipe_by_id(recipeId):
-    recipe = collection.find_one({"id": recipeId})
+    recipe = collection.find_one({"recipe_id": recipeId})
     return jsonpickle.encode(recipe)
 
 def get_recipe_by_title(recipeTitle):
@@ -55,7 +33,6 @@ def get_recipe_by_title(recipeTitle):
     return jsonpickle.encode(first)
 
 def get_most_similar_recipe(recipeTitle):
-    
     recipe_list = get_recipe_list()
     #embed recipeTitle
     recipeTitleEmbedding = embedder.embed_sentence(recipeTitle)
@@ -65,10 +42,5 @@ def get_most_similar_recipe(recipeTitle):
     recipe_df['similarity'] = recipe_df.apply(lambda row: np.dot(row['title_embedding'], recipeTitleEmbedding)/(np.linalg.norm(row['title_embedding'])*np.linalg.norm(recipeTitleEmbedding)), axis=1)
     #sort the recipes by similarity
     recipe_df = recipe_df.sort_values(by='similarity', ascending=False)
-    top_recipe_title = recipe_df.head(1)["title"].values[0]
-    #get the top recipe from the recipe_list
-    top_recipe = next(item for item in recipe_list if item["title"] == top_recipe_title)
-
-    #convert the recipe to a plain json
-    return jsonpickle.encode(top_recipe)
-
+    top_recipe_id= int(recipe_df.head(1)["recipe_id"].values[0])
+    return get_recipe_by_id(top_recipe_id)

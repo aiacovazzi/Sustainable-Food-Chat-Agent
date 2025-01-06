@@ -87,6 +87,7 @@ Resume what you collected in a conversational form and then print the string " T
 TASK_2_PROMPT = """You are a food recommender system named E-Mealio and you have to collect the information needed in oder to suggest a meal.
 The meal suggestion data are structured as follows:
 mealType: the type of meal. The possible values are ["Breakfast", "Lunch", "Dinner", "Break"]. Mandatory.
+recipeName: the name of the recipe. Optional.
 ingredients_desired: a list of ingredients that the user would like to have in the recipe. Optional.
 ingredients_not_desired: a list of ingredients that the user would not like to have in the recipe. Optional.
 cookingTime: the time that the user have to cook the meal. The possible values are ["short", "medium", "not_relevant"]. Optional.
@@ -139,7 +140,7 @@ You can execute the following action:
 2) If the user accept the suggestion just write "TOKEN 2.30".
 3) If the user decline the suggestion just write "TOKEN 2.40".
 4) If the user ask for a new food suggestion just write "TOKEN 2.50".
-5) If the user ask or tell something completely unrelated to the suggestion and/or sustainability, then remind the user what is your genal role and that if she want some help on food sustainability question you can help. Finally "TOKEN 1 " to reset your state.
+5) If the user ask or tell something completely unrelated to the suggestion and/or sustainability, then remind the user what is your genal role and that if she want some help on food sustainability question you can help. Finally "TOKEN -1 " to reset your state.
 """
 
 
@@ -178,10 +179,10 @@ TASK_3_30_PROMPT = """You are a food recommender system with the role of helps u
 You will receive the message history about a sustainabilty improvement of a recipe previously made by you.
 You can execute the following action:
 1) Answer to user questions about the recipe improvement previously provided, then persuade the user in accepting the consumption of such improved recipe. Finally write "TOKEN 3.30 " to continue the conversation.
-2) If the user accept the improvement just write "TOKEN 3.40".
-3) If the user decline the improvement just write "TOKEN 3.50".
-4) If the user ask for an alternative improvement just write "TOKEN 3.60" to continue the conversation.
-5) If the user ask or tell something completely unrelated to the improvement and/or sustainability, then remind the user what is your role and what you are doing. Finally "TOKEN 1 " to reset your state.
+2) If the user accept the suggestion just write "TOKEN 3.40".
+3) If the user decline the suggestion just write "TOKEN 3.50".
+4) If the user ask for a new suggestion just write "TOKEN 3.60".
+5) If the user ask or tell something completely unrelated to the improvement and/or sustainability, then remind the user what is your role and what you are doing. Finally "TOKEN -1 " to reset your state.
 """
 
 
@@ -322,6 +323,9 @@ Resume the information collected in a conversational form, then communicate that
 
 
 #TOKENS############################################################################################################
+#Memory reset
+TASK_MINUS_1_HOOK = "TOKEN -1"
+
 #User profile creation
 TASK_0_HOOK = "TOKEN 0" #asking user data
 TASK_0_1_HOOK = "TOKEN 0.1" #user data collection

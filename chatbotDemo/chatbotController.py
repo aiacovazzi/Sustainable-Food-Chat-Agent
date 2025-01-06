@@ -47,7 +47,12 @@ def answer_question(userData,userPrompt,token,info,memory):
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
 ########################################################################################
-
+#-1 MEMORY CLEANING#####################################################################
+    elif(token == p.TASK_MINUS_1_HOOK):
+        print("MEMORY_CLEANING" )
+        memory = None
+        fhService.clean_temporary_declined_suggestions(userData.id)
+        return rc.Response('',"TOKEN 1",'',None,'')
 #1 MAIN HUB / GREETINGS#################################################################
     elif(token == p.TASK_1_HOOK):
         print("GRETINGS")
@@ -130,7 +135,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         print("RECIPE_IMPROVEMENT_EXECUTION")
         #call the recipe improvement service
         baseRecipe = imp.get_base_recipe(info)
-        improvedRecipe = imp.get_recipe_improved(info,userData)
+        improvedRecipe = imp.get_recipe_improved(baseRecipe,userData)
         response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=baseRecipe, improvedRecipe=improvedRecipe), userPrompt, 0.1, memory, True)
         return response
     elif(token == p.TASK_3_30_HOOK):
@@ -147,7 +152,7 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_3_50_HOOK):
         print("RECIPE_IMPROVEMENT_DECLINED")
         #don't save the rejected recipe, this because this don't have to be considered as a suggestion? i'm thinking about it
-        #manage_suggestion(userData,memory,"declined")
+        manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
         response = rc.Response('I\'m sorry you didn\'t accepted my improved version of the recipe. If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
