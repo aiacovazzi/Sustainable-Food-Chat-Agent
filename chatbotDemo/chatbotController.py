@@ -4,8 +4,10 @@ import service.domain.FoodHistoryService as history
 import service.domain.UserDataService as user
 import service.SuggestRecipeService as food
 import service.ImproveRecipeService as imp
+import service.domain.IngredientService as ingService
 import dto.Response as rc
 import jsonpickle
+import service.ExpertRecipe as er
 import Utils as utils
 import service.domain.FoodHistoryService as fhService
 
@@ -121,7 +123,7 @@ def answer_question(userData,userPrompt,token,info,memory):
 
 #RECIPE SUSTAINABILITY EXPERT###########################################################
     elif(token == p.TASK_3_HOOK):
-        print("RECIPE_EXPERT")
+        print("EXPERT_HUB" )
         response = lcs.execute_chain(p.TASK_3_PROMPT, userPrompt, 0.1)
         return response
 ########################################################################################
@@ -208,6 +210,28 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_6_HOOK):
         print("SUSTAINABILITY_EXPERT" )
         response = lcs.execute_chain(p.TASK_6_PROMPT, userPrompt, 0.8)
+        return response
+    elif(token == p.TASK_6_10_HOOK):
+        print("SUSTAINABILITY_CONCEPT_EXPERT_INTERACTION" )
+        conceptData = jsonpickle.decode(info)
+        concept = conceptData['concept']
+        response = lcs.execute_chain(p.TASK_6_10_PROMPT.format(concept = concept), userPrompt, 0.1, memory, True)
+        return response
+    elif(token == p.TASK_6_20_HOOK):
+        print("SUSTAINABILITY_INGREDIENTS_EXPERT_INTERACTION" )
+        ingredientsData = jsonpickle.decode(info)
+        ingredientsData = utils.escape_curly_braces(jsonpickle.encode(ingService.get_ingredient_list_from_generic_list_of_string(ingredientsData['ingredients'])))
+        response = lcs.execute_chain(p.TASK_6_20_PROMPT.format(ingredients = ingredientsData), userPrompt, 0.6, memory, True)
+        return response
+    elif(token == p.TASK_6_30_HOOK):
+        print("SUSTAINABILITY_RECIPE_EXPERT_INTERACTION" )
+        recipesData = jsonpickle.decode(info)
+        recipes = er.extractRecipes(recipesData)
+        response = lcs.execute_chain(p.TASK_6_30_PROMPT.format(recipes = recipes), userPrompt, 0.6, memory, True)
+        return response
+    elif(token == p.TASK_6_40_HOOK):
+        print("SUSTAINABILITY_EXPERT_LOOP" )
+        response = lcs.execute_chain(p.TASK_6_40_PROMPT, userPrompt, 0.6, memory, True)
         return response
 ########################################################################################
 

@@ -21,6 +21,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         { "sustainability_label": { "$in": [0, 1] } }, 
         { "percentage_covered_cfp": { "$gte": 70 } }, 
         { "percentage_covered_wfp": { "$gte": 70 } },
+        {TAGS_SUSTAINABILITY},
         {TAGS_RESTRICTIONS},
         {ALLERGENES},
         {TAGS_MEAL_TYPE},
@@ -29,7 +30,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         {TAGS_MEAL_DURATION}
         ] }"""
 
-    
+    tagsSustainability = ""
     tagsRestrictions = ""   
     allergenes = ""
     tagsMealType = ""
@@ -60,6 +61,11 @@ def get_recipe_suggestion(mealDataJson, userData):
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
     recipes = db['recipes']
+
+    #filter for the sustainability score
+    if(mealData['sustainabilityScore'] != ""):
+        tagsSustainability = """ "sustainability_score": { "$lt": SUSTAINABILITY_VALUE } """
+        tagsSustainability = tagsSustainability.replace("SUSTAINABILITY_VALUE",str(mealData['sustainabilityScore']))
 
     #filter for the restrictions
     restrictions = userData.restrictions
@@ -126,7 +132,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         tagsMealDuration = """ "tags": { "$regex": "30-minutes-or-less" } """
 
     #replace the tags in the query template
-    mandatoryReplacement = [["TAGS_RESTRICTIONS",tagsRestrictions],["ALLERGENES",allergenes],["TAGS_MEAL_TYPE",tagsMealType]]
+    mandatoryReplacement = [["TAGS_SUSTAINABILITY",tagsSustainability],["TAGS_RESTRICTIONS",tagsRestrictions],["ALLERGENES",allergenes],["TAGS_MEAL_TYPE",tagsMealType]]
     notMadatoryReplacement = [["TAGS_USER_HISTORY",tagsUserHistory],["TAGS_HEALTHINESS",tagsHealthiness],["TAGS_MEAL_DURATION",tagsMealDuration]]
 
     numberOfFoundRecipes = 0

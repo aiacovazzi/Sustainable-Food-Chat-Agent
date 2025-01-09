@@ -14,7 +14,7 @@ sustainable_recipe_list = None
 def get_recipe_list():
     global recipe_list
     if recipe_list is None:
-        projection = {"_id": 1, "recipe_id": 1, "title_embedding": 1, "ingredient_embedding": 1} 
+        projection = {"_id": 1, "recipe_id": 1, "title_embedding": 1} 
         recipe_list = list(collection.find({},projection))
     return recipe_list
 

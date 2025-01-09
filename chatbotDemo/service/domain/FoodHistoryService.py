@@ -45,7 +45,7 @@ def build_and_save_user_history(userData, jsonRecipe, status):
 
 def build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion):
     recipeAssertion = jsonpickle.decode(jsonRecipeAssertion)
-    ingredients = ingService.get_ingredient_list_from_generic_string(recipeAssertion['ingredients'])
+    ingredients = ingService.get_ingredient_list_from_generic_list_of_string(recipeAssertion['ingredients'])
     sustanaibilityScore = None
     sysdate = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     assertedRecipe = recipe.Recipe(recipeAssertion["name"],None,ingredients,sustanaibilityScore,None,None,None)

@@ -28,9 +28,9 @@ def get_ingredient_list_from_full_ingredient_string(ingredients):
     return get_ingredient_list(ingredients)
 
 
-def get_ingredient_list_from_generic_string(ingredientsString):
+def get_ingredient_list_from_generic_list_of_string(ingredientsListOfString):
     ingredients = []
-    for ingredient in ingredientsString:
+    for ingredient in ingredientsListOfString:
         foodFromDB= jsonpickle.decode(ip.get_ingredient_by_name(ingredient))
         if foodFromDB == None or foodFromDB == 'null':
             foodFromDB = jsonpickle.decode(ip.get_most_similar_ingredient(ingredient))
