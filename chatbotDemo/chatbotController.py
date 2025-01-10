@@ -200,8 +200,7 @@ def answer_question(userData,userPrompt,token,info,memory):
 #HISTORY RETRIEVAL######################################################################
     elif(token == p.TASK_5_HOOK):
         print("FOOD_HISTORY" )
-        userName = "Jhon Doe"
-        foodHistory = utils.escape_curly_braces(history.get_user_history_of_week(userData.id))
+        foodHistory = history.get_user_history_of_week(userData.id)
         response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6)
         return response
 ########################################################################################

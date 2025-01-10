@@ -7,14 +7,11 @@ import persistence.IngredientPersistence as ingredientDB
 import service.domain.RecipeService as recipeService
 import dto.Ingredient as ingDto
 import service.domain.IngredientService as ingService
+import Utils
 
 def get_user_history_of_week(userId, onlyAccepted = True):
     #get the user history of the week
     fullUserHistory = userHistoryDB.get_user_history(userId)
-
-    if fullUserHistory == None:
-        return None
-
     fullUserHistory = jsonpickle.decode(fullUserHistory)
     #filter the user history of the week
     sysdate = datetime.today()
@@ -24,7 +21,11 @@ def get_user_history_of_week(userId, onlyAccepted = True):
         date = datetime.strptime(history['date'], '%Y-%m-%d %H:%M:%S')
         if date >= previousWeek and date <= sysdate and (not onlyAccepted or history['status'] == 'accepted'or history['status'] == 'asserted'):
             userHistory.append(history)
-    return jsonpickle.encode(userHistory)
+
+    if len(userHistory) == 0:
+        return None
+    
+    return Utils.escape_curly_braces(jsonpickle.encode(userHistory))
 
 def clean_temporary_declined_suggestions(userId):
     userHistoryDB.clean_temporary_declined_suggestions(userId)
