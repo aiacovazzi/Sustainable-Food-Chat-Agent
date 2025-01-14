@@ -16,9 +16,10 @@ def get_base_recipe(mealDataJson):
     if(mealData['ingredients'] != [] and mealData['ingredients'] != None):
         ingredients = ingService.get_ingredient_list_from_generic_list_of_string(mealData['ingredients'])
     else:
-        dBrecipe = jsonpickle.decode(recipePersistence.get_recipe_by_title(mealData['name']))
+        dBrecipe = recipePersistence.get_recipe_by_title(mealData['name'])
         if(dBrecipe == None or dBrecipe == 'null'):
-            dBrecipe = jsonpickle.decode(recipePersistence.get_most_similar_recipe(mealData['name']))
+            dBrecipe = recipePersistence.get_most_similar_recipe(mealData['name'])
+        dBrecipe = jsonpickle.decode(dBrecipe)
         ingredients = ingService.get_ingredient_list_from_full_ingredient_string(dBrecipe['ingredients'])
 
     baseRecipe = recipe.Recipe(mealData["name"],None,ingredients,None,None,None,None)

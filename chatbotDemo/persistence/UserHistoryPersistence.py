@@ -1,8 +1,7 @@
-from pymongo import MongoClient
 import jsonpickle
+import persistence.MongoConnectionManager as mongo
 
-client = MongoClient('localhost', 27017)
-db = client['emealio_food_db']
+db = mongo.get_connection()
 collection = db['users_food_history']
 
 def save_user_history(userHistoryJson):

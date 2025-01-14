@@ -1,12 +1,10 @@
-from pymongo import MongoClient
 import jsonpickle
 import service.bot.EmbedderService as embedder
 import pandas as pd
 import numpy as np
+import persistence.MongoConnectionManager as mongo
 
-
-client = MongoClient('localhost', 27017)
-db = client['emealio_food_db']
+db = mongo.get_connection()
 collection = db['ingredients']
 
 def get_ingredient_by_name(ingredientName):

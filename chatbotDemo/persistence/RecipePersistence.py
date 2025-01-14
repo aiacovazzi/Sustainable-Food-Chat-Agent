@@ -1,11 +1,10 @@
-from pymongo import MongoClient
 import service.bot.EmbedderService as embedder
 import pandas as pd
 import jsonpickle
 import numpy as np
+import persistence.MongoConnectionManager as mongo
 
-client = MongoClient('localhost', 27017)
-db = client['emealio_food_db']
+db = mongo.get_connection()
 collection = db['recipes']
 recipe_list = None
 sustainable_recipe_list = None
@@ -28,6 +27,8 @@ def get_recipe_by_title(recipeTitle):
     query = jsonpickle.decode(query)
     recipe = collection.find(query)
     found = list(recipe)
+    if found is None or len(found) == 0:
+        return None
     found.sort(key=lambda x: len(x["title"]))
     first = found[0]
     return jsonpickle.encode(first)

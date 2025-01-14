@@ -10,11 +10,24 @@ import jsonpickle
 import service.ExpertRecipe as er
 import Utils as utils
 import service.domain.FoodHistoryService as fhService
+import service.bot.LogService as log
+import datetime
+import traceback
+
+PRINT_LOG = True
 
 def aswer_router(userData,userPrompt,token,memory,info):
     response = rc.Response('','','','','')
     while(response.answer==''):
-        response = answer_question(userData,userPrompt,token,info,memory)
+        try:
+            response = answer_question(userData,userPrompt,token,info,memory)
+        except Exception as e:
+            error = "An error occurred: " + str(e)
+            log.save_log(error, datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+            stacktarce = "Stacktrace: " + str(traceback.format_exc())
+            log.save_log(stacktarce, datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+            response = rc.Response("I\'m sorry, I was not able to process your request. Please send an email to a.iacovazzi6@studenti.uniba.it", "TOKEN 1", '', None, '')
+            raise e
         token = response.action
         info = response.info
         memory = response.memory
@@ -25,25 +38,23 @@ def aswer_router(userData,userPrompt,token,memory,info):
 def answer_question(userData,userPrompt,token,info,memory):
 #0 USER DATA RETRIEVAL##################################################################
     if(token == p.TASK_0_HOOK):
-        print("PRESENTING_USER_DATA_RETRIEVAL" )
-        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0, userPrompt, 0.6)
+        log.save_log("PRESENTING_USER_DATA_RETRIEVAL", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0, userPrompt, 0.6, userData)
         return response
     elif(token == p.TASK_0_1_HOOK):
-        print("PERFORMING_USER_DATA_RETRIEVAL" )
-        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_1, "User data: " + userData.to_json() + " "+ userPrompt, 0.2)
+        log.save_log("PERFORMING_USER_DATA_RETRIEVAL", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_1, "User data: " + userData.to_json() + " "+ userPrompt, 0.2, userData)
         return response
     elif(token == p.TASK_0_2_HOOK):
-        print("PERFORMING_USER_DATA_EVALUATION" )
-
+        log.save_log("PERFORMING_USER_DATA_EVALUATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #update user data using the information so far retrieved
         userData.from_json(info)
-        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + info, 0.2)
-
-        return response;
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + info, 0.2, userData)
+        return response
     elif(token == p.TASK_0_3_HOOK):
-        print("PERSISTING_USER_DATA" )
+        log.save_log("PERSISTING_USER_DATA", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #persist user data calling MongoDB...
-        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3, "User data: " + userData.to_json(), 0.4)
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3, "User data: " + userData.to_json(), 0.4, userData)
         user.save_user(userData)
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
@@ -51,27 +62,26 @@ def answer_question(userData,userPrompt,token,info,memory):
 ########################################################################################
 #-1 MEMORY CLEANING#####################################################################
     elif(token == p.TASK_MINUS_1_HOOK):
-        print("MEMORY_CLEANING" )
+        log.save_log("MEMORY_CLEANING", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         memory = None
         fhService.clean_temporary_declined_suggestions(userData.id)
         return rc.Response('',"TOKEN 1",'',None,'')
 #1 MAIN HUB / GREETINGS#################################################################
     elif(token == p.TASK_1_HOOK):
-        print("GRETINGS")
+        log.save_log("GRETINGS", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #passing though the main hub imply starting a new conversation so I can reset the memory
         memory = None
-        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.6)
+        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.6, userData)
         return response
 ########################################################################################
 
 #FOOD SUGGESTION########################################################################
     elif(token == p.TASK_2_HOOK):
-        print("FOOD_SUGGESTION_INTERACTION" )
-        response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt, 0.2)
+        log.save_log("FOOD_SUGGESTION_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt, 0.2, userData)
         return response
     elif(token == p.TASK_2_05_HOOK):
-        print("FOOD_SUGGESTION_DATA_VERIFICATION" )
-        #response = lcs.execute_chain(p.TASK_2_05_PROMPT, userPrompt, 0.1)
+        log.save_log("FOOD_SUGGESTION_DATA_VERIFICATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         json_mealdata_obj = jsonpickle.decode(info)
 
         #Meal type check and answer not managed by LLMS since it is straightforward
@@ -84,36 +94,36 @@ def answer_question(userData,userPrompt,token,info,memory):
             response = rc.Response('',action,info,None,'')
         return response
     elif(token == p.TASK_2_10_HOOK):
-        print("PROVIDING_FOOD_SUGGESTION" )
+        log.save_log("PROVIDING_FOOD_SUGGESTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #call recommender system
         suggestedRecipe = food.get_recipe_suggestion(info,userData)
         info = utils.escape_curly_braces(info)
         userDataStr = utils.escape_curly_braces(userData.to_json())
         userPrompt = "Suggest me a recipe given the following constraints " + info
         if(suggestedRecipe != None):
-            response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=info, userData=userDataStr), userPrompt, 0.6, memory, True)
+            response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, True)
         else:
-            response = lcs.execute_chain(p.TASK_2_101_PROMPT.format( mealInfo=info, userData=userDataStr), userPrompt, 0.6, memory, False)        
+            response = lcs.execute_chain(p.TASK_2_101_PROMPT.format( mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, False)        
         #produce suggestion
         return response
     elif(token == p.TASK_2_20_HOOK):
-        print("SUGGESTION_CHAT_LOOP" )
-        response = lcs.execute_chain(p.TASK_2_20_PROMPT, userPrompt, 0.6, memory, True)
+        log.save_log("SUGGESTION_CHAT_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_2_20_PROMPT, userPrompt, 0.6, userData, memory, True)
         return response
     elif(token == p.TASK_2_30_HOOK):
-        print("SUGGESTION_ACCEPTED")
+        log.save_log("SUGGESTION_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"accepted")
         fhService.clean_temporary_declined_suggestions(userData.id)
         response = rc.Response('I\'m glad you accepted my suggestion! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_40_HOOK):
-        print("SUGGESTION_DECLINED")
+        log.save_log("SUGGESTION_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
         response = rc.Response('I\'m sorry you didn\'t accepted my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_2_50_HOOK):
-        print("REQUIRED_ANOTHER_SUGGESTION")
+        log.save_log("REQUIRED_ANOTHER_SUGGESTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"temporary_declined")
         originalUserPrompt = memory.messages[1].content
         response = rc.Response('',"TOKEN 1",'',None,originalUserPrompt)
@@ -123,43 +133,43 @@ def answer_question(userData,userPrompt,token,info,memory):
 
 #RECIPE SUSTAINABILITY EXPERT###########################################################
     elif(token == p.TASK_3_HOOK):
-        print("EXPERT_HUB" )
-        response = lcs.execute_chain(p.TASK_3_PROMPT, userPrompt, 0.1)
+        log.save_log("EXPERT_HUB", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_3_PROMPT, userPrompt, 0.1, userData)
         return response
 ########################################################################################
 
 #RECIPE IMPROVEMENT#####################################################################
     elif(token == p.TASK_3_10_HOOK):
-        print("RECIPE_IMPROVEMENT")
-        response = lcs.execute_chain(p.TASK_3_10_PROMPT, userPrompt, 0.1)
+        log.save_log("RECIPE_IMPROVEMENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_3_10_PROMPT, userPrompt, 0.3, userData)
         return response
     elif(token == p.TASK_3_20_HOOK):
-        print("RECIPE_IMPROVEMENT_EXECUTION")
+        log.save_log("RECIPE_IMPROVEMENT_EXECUTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #call the recipe improvement service
         baseRecipe = imp.get_base_recipe(info)
         improvedRecipe = imp.get_recipe_improved(baseRecipe,userData)
-        response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=baseRecipe, improvedRecipe=improvedRecipe), userPrompt, 0.1, memory, True)
+        response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=baseRecipe, improvedRecipe=improvedRecipe), userPrompt, 0.1, userData, memory, True)
         return response
     elif(token == p.TASK_3_30_HOOK):
-        print("RECIPE_IMPROVEMENT_CHAT_LOOP" )
-        response = lcs.execute_chain(p.TASK_3_30_PROMPT, userPrompt, 0.6, memory, True)
+        log.save_log("RECIPE_IMPROVEMENT_CHAT_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_3_30_PROMPT, userPrompt, 0.6, userData, memory, True)
         return response
     elif(token == p.TASK_3_40_HOOK):
-        print("RECIPE_IMPROVEMENT_ACCEPTED")
+        log.save_log("RECIPE_IMPROVEMENT_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #save the improved recipe as consumed by the user since she will have to eat it
         manage_suggestion(userData,memory,"accepted",1)
         fhService.clean_temporary_declined_suggestions(userData.id)
         response = rc.Response('I\'m glad you accepted my improved version of the recipe! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_3_50_HOOK):
-        print("RECIPE_IMPROVEMENT_DECLINED")
+        log.save_log("RECIPE_IMPROVEMENT_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #don't save the rejected recipe, this because this don't have to be considered as a suggestion? i'm thinking about it
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
         response = rc.Response('I\'m sorry you didn\'t accepted my improved version of the recipe. If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
         return response
     elif(token == p.TASK_3_60_HOOK):
-        print("REQUIRED_ANOTHER_RECIPE_IMPROVEMENT")
+        log.save_log("REQUIRED_ANOTHER_RECIPE_IMPROVEMENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"temporary_declined",1)
         originalUserPrompt = memory.messages[1].content
         response = rc.Response('',"TOKEN 1",'',None,originalUserPrompt)
@@ -168,87 +178,87 @@ def answer_question(userData,userPrompt,token,info,memory):
 
 #PROFILE MANAGEMENT#####################################################################
     elif(token == p.TASK_4_HOOK):
-        print("PROFILE_SUMMARY" )
+        log.save_log("PROFILE_SUMMARY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         userPrompt = p.USER_PROMPT.format(user_data=userData.to_json())
-        response = lcs.execute_chain(p.TASK_4_PROMPT, userPrompt, 0.8)
+        response = lcs.execute_chain(p.TASK_4_PROMPT, userPrompt, 0.8, userData)
         return response
     elif(token == p.TASK_4_10_HOOK):
-        print("ASKING_PROFILE_UPDATE" )
-        response = lcs.execute_chain(p.TASK_4_10_PROMPT, userPrompt, 0.1)
+        log.save_log("ASKING_PROFILE_UPDATE", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_4_10_PROMPT, userPrompt, 0.1, userData)
         return response
     elif(token == p.TASK_4_20_HOOK):
-        print("PRESENTING_PROFILE_UPDATE" )
-        response = lcs.execute_chain(p.TASK_4_20_PROMPT, userPrompt, 0.1)
+        log.save_log("PRESENTING_PROFILE_UPDATE", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_4_20_PROMPT, userPrompt, 0.1, userData)
         return response
     elif(token == p.TASK_4_30_HOOK):
-        print("PERFORMING_PROFILE_UPDATE" )
-        response = lcs.execute_chain(p.TASK_4_30_PROMPT, "User data: "+ userPrompt, 0.1)
+        log.save_log("PERFORMING_PROFILE_UPDATE", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_4_30_PROMPT, "User data: "+ userPrompt, 0.1, userData)
         return response
     elif(token == p.TASK_4_40_HOOK):
-        print("EVALUATING_PROFILE_UPDATE" )
+        log.save_log("EVALUATING_PROFILE_UPDATE", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         userData.update_from_json(info)
-        response = lcs.execute_chain(p.TASK_4_40_PROMPT, "User data: " + userData.to_json() + " "+ userPrompt, 0.1)
+        response = lcs.execute_chain(p.TASK_4_40_PROMPT, "User data: " + userData.to_json() + " "+ userPrompt, 0.1, userData)
         return response
     elif(token == p.TASK_4_50_HOOK):
-        print("PERSISTING_PROFILE_UPDATE" )
+        log.save_log("PERSISTING_PROFILE_UPDATE", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #persist user data calling MongoDB...
-        response = lcs.execute_chain(p.TASK_4_50_PROMPT, "User data: " + userData.to_json(), 0.1)
+        response = lcs.execute_chain(p.TASK_4_50_PROMPT, "User data: " + userData.to_json(), 0.1, userData)
         user.update_user(userData)
         return response
 ########################################################################################
 
 #HISTORY RETRIEVAL######################################################################
     elif(token == p.TASK_5_HOOK):
-        print("FOOD_HISTORY" )
+        log.save_log("FOOD_HISTORY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         foodHistory = history.get_user_history_of_week(userData.id)
-        response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6)
+        response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6, userData)
         return response
 ########################################################################################
 
 #SUSTAINABILITY EXPERT##################################################################
     elif(token == p.TASK_6_HOOK):
-        print("SUSTAINABILITY_EXPERT" )
-        response = lcs.execute_chain(p.TASK_6_PROMPT, userPrompt, 0.8)
+        log.save_log("SUSTAINABILITY_EXPERT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_6_PROMPT, userPrompt, 0.8, userData)
         return response
     elif(token == p.TASK_6_10_HOOK):
-        print("SUSTAINABILITY_CONCEPT_EXPERT_INTERACTION" )
+        log.save_log("SUSTAINABILITY_CONCEPT_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         conceptData = jsonpickle.decode(info)
         concept = conceptData['concept']
-        response = lcs.execute_chain(p.TASK_6_10_PROMPT.format(concept = concept), userPrompt, 0.1, memory, True)
+        response = lcs.execute_chain(p.TASK_6_10_PROMPT.format(concept = concept), userPrompt, 0.1, userData, memory, True)
         return response
     elif(token == p.TASK_6_20_HOOK):
-        print("SUSTAINABILITY_INGREDIENTS_EXPERT_INTERACTION" )
+        log.save_log("SUSTAINABILITY_INGREDIENTS_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         ingredientsData = jsonpickle.decode(info)
         ingredientsData = utils.escape_curly_braces(jsonpickle.encode(ingService.get_ingredient_list_from_generic_list_of_string(ingredientsData['ingredients'])))
-        response = lcs.execute_chain(p.TASK_6_20_PROMPT.format(ingredients = ingredientsData), userPrompt, 0.6, memory, True)
+        response = lcs.execute_chain(p.TASK_6_20_PROMPT.format(ingredients = ingredientsData), userPrompt, 0.6, userData, memory, True)
         return response
     elif(token == p.TASK_6_30_HOOK):
-        print("SUSTAINABILITY_RECIPE_EXPERT_INTERACTION" )
+        log.save_log("SUSTAINABILITY_RECIPE_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         recipesData = jsonpickle.decode(info)
         recipes = er.extractRecipes(recipesData)
-        response = lcs.execute_chain(p.TASK_6_30_PROMPT.format(recipes = recipes), userPrompt, 0.6, memory, True)
+        response = lcs.execute_chain(p.TASK_6_30_PROMPT.format(recipes = recipes), userPrompt, 0.6, userData, memory, True)
         return response
     elif(token == p.TASK_6_40_HOOK):
-        print("SUSTAINABILITY_EXPERT_LOOP" )
-        response = lcs.execute_chain(p.TASK_6_40_PROMPT, userPrompt, 0.6, memory, True)
+        log.save_log("SUSTAINABILITY_EXPERT_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_6_40_PROMPT, userPrompt, 0.6, userData, memory, True)
         return response
 ########################################################################################
 
 #RECIPE CONSUPTION DIARY################################################################
     elif(token == p.TASK_7_HOOK):
-        print("RECIPE_CONSUPTION_DIARY" )
-        response = lcs.execute_chain(p.TASK_7_PROMPT, "Meal data: " + info +" "+userPrompt, 0.2)
+        log.save_log("RECIPE_CONSUPTION_DIARY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_7_PROMPT, "Meal data: " + info +" "+userPrompt, 0.2, userData)
         return response
     elif(token == p.TASK_7_10_HOOK):
-        print("RECIPE_CONSUPTION_DIARY_DATA_VERIFICATION" )
-        response = lcs.execute_chain(p.TASK_7_10_PROMPT, "Meal data: " + info, 0.3)
+        log.save_log("RECIPE_CONSUPTION_DIARY_DATA_VERIFICATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_7_10_PROMPT, "Meal data: " + info, 0.3, userData)
         return response
     elif(token == p.TASK_7_20_HOOK):
-        print("RECIPE_CONSUPTION_DIARY_DATA_SAVING" )
+        log.save_log("RECIPE_CONSUPTION_DIARY_DATA_SAVING", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #calling the proper service to save the meal data computing the sustainability
         jsonRecipeAssertion = utils.extract_json(info, 0)
         fhService.build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion)
-        response = lcs.execute_chain(p.TASK_7_20_PROMPT, "Meal data: " + info, 0.1)
+        response = lcs.execute_chain(p.TASK_7_20_PROMPT, "Meal data: " + info, 0.1, userData)
         return response
 ########################################################################################
 

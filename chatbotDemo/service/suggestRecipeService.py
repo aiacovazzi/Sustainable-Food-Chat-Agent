@@ -1,15 +1,14 @@
 import Utils
 import jsonpickle
-from pymongo import MongoClient
 import numpy as np
-import dto.Recipe as recipe
 import service.domain.FoodHistoryService as foodHistory
 import service.domain.RecipeService as recipeService
 import service.bot.EmbedderService as embedder
 import persistence.RecipePersistence as recipePersistence
 import pandas as pd
+import persistence.MongoConnectionManager as mongo
 
-
+db = mongo.get_connection()
     
 def get_recipe_suggestion(mealDataJson, userData):
 
@@ -57,9 +56,6 @@ def get_recipe_suggestion(mealDataJson, userData):
         notDesiredIngredientsEmbeddingString = ', '.join(mealData['ingredients_not_desired'])
         notDesiredIngredientsEmbedding = embedder.embed_list(notDesiredIngredientsEmbeddingString, False)
     
-    #connect to mongodb
-    client = MongoClient('localhost', 27017)
-    db = client['emealio_food_db']
     recipes = db['recipes']
 
     #filter for the sustainability score
@@ -69,7 +65,7 @@ def get_recipe_suggestion(mealDataJson, userData):
 
     #filter for the restrictions
     restrictions = userData.restrictions
-    if(restrictions != None and restrictions != ''):
+    if(restrictions != None and restrictions != '' and restrictions != []):
         tagsRestrictions = """ "$and": [ """
         for restriction in restrictions:
             tagsRestrictions += """ {"tags": { "$regex": "%s" }}, """ % restriction
@@ -78,7 +74,7 @@ def get_recipe_suggestion(mealDataJson, userData):
 
     #filter for the allergies 
     allergies = userData.allergies
-    if(allergies != None and allergies != ''):
+    if(allergies != None and allergies != '' and restrictions != []):
         allergenes = """ "$and": [ """
         for allergen in allergies:
             allergenes += """ {"allergies": { "$regex": "%s" }}, """ % allergen
@@ -100,19 +96,19 @@ def get_recipe_suggestion(mealDataJson, userData):
     elif(mealType == "Snack"):
         tagsMealType = """ "tags": { "$regex": "snack" } """
     #no meal type specified, take all the meal types as filter
-    #else:
-    #    tagsMealType = """ "$or": [
-    #    "$and": [{ "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "dinner" } }],
-    #    "$and": [{ "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } }],
-    #    "tags": { "$regex": "breakfast" },
-    #    "tags": { "$regex": "snack" }
-    #    ] """
+    else:
+        tagsMealType = """ "$or": [
+        "$and": [{ "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "dinner" } }],
+        "$and": [{ "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } }],
+        "tags": { "$regex": "breakfast" },
+        "tags": { "$regex": "snack" }
+        ] """
 
     #obtain the user history
     userHistory = foodHistory.get_user_history_of_week(userData.id, False)
     if userHistory != None and userHistory != '[]':
         #filter for not being in the user history
-        userHistory = jsonpickle.decode(userHistory)
+        userHistory = jsonpickle.decode(Utils.de_escape_curly_braces(userHistory))
         tagsUserHistory = """"recipe_id": {"$nin": ["""
         for history in userHistory:
             tagsUserHistory +=  str(history['recipeId']) + ","

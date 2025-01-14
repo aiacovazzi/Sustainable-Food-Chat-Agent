@@ -7,6 +7,10 @@ from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv, find_dotenv
 from langchain.memory import ChatMessageHistory
 import Utils
+import service.bot.LogService as log
+import datetime
+
+PRINT_LOG = False
 MODEL = 'openai'
 TOKEN_REGEX = r"TOKEN -?\d+(\.\d+)?"
 INFO_REGEX_ANGULAR = r"<(.*?)>"
@@ -44,7 +48,9 @@ def get_prompt(input_prompt,memory):
             ]
         )
     
-def execute_chain(input_prompt, input_query, temperature, memory = None, memory_enabled = False):
+def execute_chain(input_prompt, input_query, temperature, userData, memory = None, memory_enabled = False):
+    log.save_log(input_query, datetime.datetime.now(), "User", userData.id, PRINT_LOG)
+    log.save_log(input_prompt, datetime.datetime.now(), "System: input_prompt", userData.id, PRINT_LOG)
     llm.temperature = temperature
 
     # Initialize memory if it is not provided and required
@@ -58,6 +64,7 @@ def execute_chain(input_prompt, input_query, temperature, memory = None, memory_
     chain = prompt | llm | output_parser
 
     if(memory != None):
+        log.save_log(memory, datetime.datetime.now(), "System: memory", userData.id, PRINT_LOG)
         answer = chain.invoke({ "query": input_query, "memory": memory.messages })
     else:
         answer = chain.invoke({ "query": input_query })
@@ -70,6 +77,7 @@ def execute_chain(input_prompt, input_query, temperature, memory = None, memory_
         memory.add_ai_message(answer)
         
     response = resp.Response(answer,action,info,memory,'')
+    log.save_log(response, datetime.datetime.now(), "Agent", userData.id, PRINT_LOG)
     return response
 
 def get_token(answer):
