@@ -87,3 +87,6 @@ https://colab.research.google.com/drive/1qqw8YJ7CLkD4RBIXnSMM-p1r_2NqwY-w#scroll
 https://huggingface.co/Alibaba-NLP/gte-large-en-v1.5
 
 the actual list of allergenes should be explicit in recipe
+
+________
+fix pepperoni

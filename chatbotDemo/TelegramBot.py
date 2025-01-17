@@ -57,7 +57,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
     else:
-        response = cc.answer_question(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"",None)
+        response = cc.aswer_router(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"",None)
         foodHistory.clean_temporary_declined_suggestions(context.user_data['userData'].id)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)

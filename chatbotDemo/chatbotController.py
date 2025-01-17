@@ -71,14 +71,14 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("GRETINGS", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #passing though the main hub imply starting a new conversation so I can reset the memory
         memory = None
-        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.6, userData)
+        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.2, userData)
         return response
 ########################################################################################
 
 #FOOD SUGGESTION########################################################################
     elif(token == p.TASK_2_HOOK):
         log.save_log("FOOD_SUGGESTION_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt, 0.2, userData)
+        response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt, 0.1, userData)
         return response
     elif(token == p.TASK_2_05_HOOK):
         log.save_log("FOOD_SUGGESTION_DATA_VERIFICATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -261,6 +261,12 @@ def answer_question(userData,userPrompt,token,info,memory):
         response = lcs.execute_chain(p.TASK_7_20_PROMPT, "Meal data: " + info, 0.1, userData)
         return response
 ########################################################################################
+
+#BOT PRESENTATION#######################################################################
+    elif(token == p.TASK_8_HOOK):
+        log.save_log("BOT_PRESENTATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_8_PROMPT, userPrompt, 0.3, userData)
+        return response
 
 def manage_suggestion(userData,memory,status,whichJson=0):
     originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)

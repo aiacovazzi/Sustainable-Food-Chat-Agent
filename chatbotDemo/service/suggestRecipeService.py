@@ -7,6 +7,10 @@ import service.bot.EmbedderService as embedder
 import persistence.RecipePersistence as recipePersistence
 import pandas as pd
 import persistence.MongoConnectionManager as mongo
+import service.bot.LogService as log
+import datetime
+
+PRINT_LOG = True
 
 db = mongo.get_connection()
     
@@ -137,10 +141,12 @@ def get_recipe_suggestion(mealDataJson, userData):
     removedConstraints = []
 
     while(numberOfFoundRecipes == 0 and numReplacement > 0):
-        query = query_template_replacement(mandatoryReplacement, notMadatoryReplacement,numReplacement,queryTemplate)
+        queryText = query_template_replacement(mandatoryReplacement, notMadatoryReplacement,numReplacement,queryTemplate)
         #convert query in a dict
-        query = jsonpickle.decode(query)
+        query = jsonpickle.decode(queryText)
         suggestedRecipes = recipes.find(query,projection)
+        log.save_log("Executed query" + queryText, datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        
         numberOfFoundRecipes = recipes.count_documents(query)
         numReplacement -= 1
 
@@ -156,8 +162,10 @@ def get_recipe_suggestion(mealDataJson, userData):
     suggestedRecipes = suggestedRecipes.sort("sustainability_score")
 
     suggestedRecipes = list(suggestedRecipes)
+    log.save_log("Retrieved " + str(numberOfFoundRecipes) + " and converted in list", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        
 
-    suggestedRecipe = get_preferable_recipe_by_taste(suggestedRecipes,desiredIngredientsEmbedding,notDesiredIngredientsEmbedding,recipeNameEmbedding)
+    suggestedRecipe = get_preferable_recipe_by_taste(suggestedRecipes,desiredIngredientsEmbedding,notDesiredIngredientsEmbedding,recipeNameEmbedding,userData)
 
     #get the full recipe from the database
     suggestedRecipe = jsonpickle.decode(recipePersistence.get_recipe_by_id(int(suggestedRecipe["recipe_id"])))
@@ -186,7 +194,8 @@ def query_template_replacement (mandatoryRepalcement, notMandatoryReplacement, n
 
     return queryTemplate
 
-def get_preferable_recipe_by_taste(recipeList, desiredIgredientsEmbeddings, notDesiredIgredientsEmbeddings,recipeNameEmbedding):
+def get_preferable_recipe_by_taste(recipeList, desiredIgredientsEmbeddings, notDesiredIgredientsEmbeddings,recipeNameEmbedding, userData):
+    log.save_log("Start similarity searching ", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
     #if both desiredIgredientsEmbeddings and notDesiredIgredientsEmbeddings are None then return the first recipe
     if(len(desiredIgredientsEmbeddings) == 0 and len(notDesiredIgredientsEmbeddings) == 0):
         return recipeList[0]
@@ -225,5 +234,6 @@ def get_preferable_recipe_by_taste(recipeList, desiredIgredientsEmbeddings, notD
 
     #select the recipe with the highest taste score
     highestTasteScoreRecipe = list.iloc[0]
+    log.save_log("End similarity searching ", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
 
     return highestTasteScoreRecipe
