@@ -133,7 +133,7 @@ You can execute the following action:
 2) If the user accept the suggestion just write "TOKEN 2.30".
 3) If the user decline the suggestion just write "TOKEN 2.40".
 4) If the user ask for a new food suggestion just write "TOKEN 2.50".
-5) If the user ask or tell something completely unrelated to the suggestion and/or sustainability, then remind the user what is your genal role and that if she want some help on food sustainability question you can help. Finally "TOKEN -1 " to reset your state.
+5) If the user ask or tell something completely unrelated to the current suggestion, sustainability, or ask something about a different recipe, then remind the user what is your genal role and that if she want some help on food sustainability question you can help. Finally "TOKEN -1 " to reset your state.
 """
 
 

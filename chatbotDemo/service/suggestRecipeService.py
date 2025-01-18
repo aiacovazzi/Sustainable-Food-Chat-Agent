@@ -9,6 +9,7 @@ import pandas as pd
 import persistence.MongoConnectionManager as mongo
 import service.bot.LogService as log
 import datetime
+from sklearn.metrics.pairwise import cosine_similarity
 
 PRINT_LOG = True
 
@@ -196,44 +197,44 @@ def query_template_replacement (mandatoryRepalcement, notMandatoryReplacement, n
 
 def get_preferable_recipe_by_taste(recipeList, desiredIgredientsEmbeddings, notDesiredIgredientsEmbeddings,recipeNameEmbedding, userData):
     log.save_log("Start similarity searching ", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+    
     #if both desiredIgredientsEmbeddings and notDesiredIgredientsEmbeddings are None then return the first recipe
     if(len(desiredIgredientsEmbeddings) == 0 and len(notDesiredIgredientsEmbeddings) == 0):
         return recipeList[0]
-
-    #take only the columns ingredients_embedding and recipe_id
-    #list = [{"ingredients_embedding": np.array(obj["ingredients_embedding"]), "title_embedding": np.array(obj["title_embedding"]), "recipe_id": obj["recipe_id"]} for obj in recipeList]
-
-    # convert the list to a pandas DataFrame
-    list = pd.DataFrame(recipeList)
-
-    if(len(desiredIgredientsEmbeddings) != 0):
-        #calculate the cosine similarity between the desired ingredients and the ingredients of the recipe
-        list['cosine_similarity_desired'] = list.apply(lambda row: np.dot(row['ingredients_embedding'], desiredIgredientsEmbeddings)/(np.linalg.norm(row['ingredients_embedding'])*np.linalg.norm(desiredIgredientsEmbeddings)), axis=1)
-
-    if(len(notDesiredIgredientsEmbeddings) != 0):
-        #calculate the cosine similarity between the not desired ingredients and the ingredients of the recipe
-        list['cosine_similarity_not_desired'] = list.apply(lambda row: np.dot(row['ingredients_embedding'], notDesiredIgredientsEmbeddings)/(np.linalg.norm(row['ingredients_embedding'])*np.linalg.norm(notDesiredIgredientsEmbeddings)), axis=1)
-
-    if(len(recipeNameEmbedding) != 0):
-        #calculate the cosine similarity between the recipe name of the base recipe and the recipe name of the target recipe
-        list['cosine_similarity_recipe_name'] = list.apply(lambda row: np.dot(row['title_embedding'], recipeNameEmbedding)/(np.linalg.norm(row['title_embedding'])*np.linalg.norm(recipeNameEmbedding)), axis=1)
-
-    #take the recipe who maximizes the cosine similarity with the desired ingredients and minimizes the cosine similarity with the not desired ingredients
-    if(len(desiredIgredientsEmbeddings) != 0 and len(notDesiredIgredientsEmbeddings) != 0):
-        list['taste_score'] = list['cosine_similarity_desired'] - list['cosine_similarity_not_desired']
-    #take the recipe who maximizes the cosine similarity with the desired ingredients and the recipe name // this in order to guide the recipe improver to suggest a recipe that is similar to the base recipe
-    elif(len(desiredIgredientsEmbeddings) != 0 and len(recipeNameEmbedding) != 0):
-        list['taste_score'] = list['cosine_similarity_desired'] + list['cosine_similarity_recipe_name']
-    elif(len(desiredIgredientsEmbeddings) != 0 ):
-        list['taste_score'] = list['cosine_similarity_desired']
-    elif(len(notDesiredIgredientsEmbeddings) != 0):
-        list['taste_score'] = -list['cosine_similarity_not_desired']
     
-    #sort the list by the taste score
-    list = list.sort_values(by='taste_score',ascending=False)
+    # Convert recipeList to DataFrame
+    recipes_df = pd.DataFrame(recipeList)
 
-    #select the recipe with the highest taste score
-    highestTasteScoreRecipe = list.iloc[0]
+    # Initialize taste_score
+    recipes_df['taste_score'] = 0.0
+
+    # Compute cosine similarity for desired ingredients
+    if len(desiredIgredientsEmbeddings) > 0:
+        recipes_df['cosine_similarity_desired'] = cosine_similarity(
+            np.vstack(recipes_df['ingredients_embedding']),
+            desiredIgredientsEmbeddings.reshape(1, -1)
+        ).flatten()
+        recipes_df['taste_score'] += recipes_df['cosine_similarity_desired']
+    
+    # Compute cosine similarity for not desired ingredients
+    if len(notDesiredIgredientsEmbeddings) > 0:
+        recipes_df['cosine_similarity_not_desired'] = cosine_similarity(
+            np.vstack(recipes_df['ingredients_embedding'], dtype=np.float32),
+            notDesiredIgredientsEmbeddings.reshape(1, -1)
+        ).flatten()
+        recipes_df['taste_score'] -= recipes_df['cosine_similarity_not_desired']
+    
+    # Compute cosine similarity for recipe names
+    if len(recipeNameEmbedding) > 0:
+        recipes_df['cosine_similarity_recipe_name'] = cosine_similarity(
+            np.vstack(recipes_df['title_embedding']),
+            recipeNameEmbedding.reshape(1, -1)
+        ).flatten()
+        recipes_df['taste_score'] += recipes_df['cosine_similarity_recipe_name']  # Adjust weighting as needed
+    
+    # Sort recipes by taste_score in descending order
+    preferred_recipes = recipes_df.sort_values(by='taste_score', ascending=False)
+    highestTasteScoreRecipe = preferred_recipes.iloc[0].to_dict()
     log.save_log("End similarity searching ", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-
+    
     return highestTasteScoreRecipe
