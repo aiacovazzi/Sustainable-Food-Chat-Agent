@@ -24,7 +24,9 @@ INFO_REGEX_CURLY = r'\{[^{}]*\}(?:,\s*\{[^{}]*\})*'
 # gpt-4o-mini
 # gpt-4o-2024-08-06
 # gpt-4
-
+# chatgpt-4o-latest
+# gpt-4o
+# o3-mini
 load_dotenv(find_dotenv())
 
 if(MODEL == 'openai'):

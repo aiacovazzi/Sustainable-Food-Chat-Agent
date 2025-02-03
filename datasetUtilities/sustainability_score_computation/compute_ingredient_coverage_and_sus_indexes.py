@@ -57,6 +57,7 @@ def count_covered_cfp(ingredients_connection, ingredient_list):
     return covered
 
 def compute_coverage():
+    print("Coverage Started")
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
     recipes_db = db['recipes']
@@ -64,7 +65,12 @@ def compute_coverage():
     recipes_cursor = recipes_db.find()
 
     #loop over the recipes
+    i = 0
     for recipe in recipes_cursor:
+        #print the progress
+        if i % 1000 == 0:
+            print("Done ", i)
+        i += 1
         #get the ingredients
         ingredients = recipe['ingredients']
         ingredients_list = get_ingredients(ingredients)
@@ -79,7 +85,7 @@ def compute_coverage():
         recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"percentage_covered_cfp": percentage_covered_cfp}})
         recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"percentage_covered_wfp": percentage_covered_wfp}})
 
-    print("Done")
+    print("Coverage Done")
 
 def compute_cfp_sustainability(ingredients_list, ingredients_db):
     cfps = []
@@ -114,13 +120,18 @@ def compute_wfp_sustainability(ingredients_list, ingredients_db):
     return wfp_score
 
 def compute_sustainability_scores():
+    print
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
     recipes_db = db['recipes']
     ingredients_db = db['ingredients']
     recipes_cursor = recipes_db.find()
 
+    i = 0
     for recipe in recipes_cursor:
+        if i % 1000 == 0:
+            print("Done ", i)
+        i += 1
         ingredients = recipe['ingredients']
         ingredients_list = get_ingredients(ingredients)
 
@@ -135,9 +146,10 @@ def compute_sustainability_scores():
         recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"cfp_sustainability": cfp_score}})
         recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"wfp_sustainability": wfp_score}})
 
-    print("Done")
+    print("sustainability_scores Done")
 
 def compute_overall_sustainability_scores():
+    print("overall_sustainability_scores Started")
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
     recipes_db = db['recipes']
@@ -145,7 +157,11 @@ def compute_overall_sustainability_scores():
     alpha = 0.8
     beta = 0.2
 
+    i = 0
     for recipe in recipes_cursor:
+        if i % 1000 == 0:
+            print("Done ", i)
+        i += 1
         cfp_sustainability = recipe['cfp_sustainability']
         wfp_sustainability = recipe['wfp_sustainability']
 
@@ -154,9 +170,10 @@ def compute_overall_sustainability_scores():
         overall_sustainability = alpha * cfp_sustainability + beta * wfp_sustainability
         recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"overall_sustainability": overall_sustainability}})
 
-    print("Done")
+    print("overall_sustainability_scores Done")
 
 def compute_normalized_sustainability_scores():
+    print("compute_normalized_sustainability_scores Started")
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
     recipes_db = db['recipes']
@@ -167,13 +184,17 @@ def compute_normalized_sustainability_scores():
     max_overall = recipes_db.find_one(sort=[("overall_sustainability", -1)])['overall_sustainability']
     min_overall = recipes_db.find_one(sort=[("overall_sustainability", 1)])['overall_sustainability']
 
+    i = 0
     for recipe in recipes_cursor:
+        if i % 1000 == 0:
+            print("Done ", i)
+        i += 1
         overall_sustainability = recipe['overall_sustainability']
         print("Recipe: ", recipe['title'])
         normalized_overall = (overall_sustainability - min_overall) / (max_overall - min_overall)
         recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"sustainability_score": normalized_overall}})
 
-    print("Done")
+    print("compute_normalized_sustainability_scores Done")
 
 def produce_new_db_report():
     #Take the top 10 recipes from the cfp_sustainability perspective where the cfp_coverage is greater than 70%
@@ -256,6 +277,8 @@ def produce_new_db_report():
         print(recipe['title'],';', recipe['sustainability_score'],';', recipe['recipe_url'])
 
     sys.stdout.close()
+    sys.stdout = sys.__stdout__
+    print("Doc Done")
 
 def produce_old_db_report():
     client = MongoClient('localhost', 27017)
@@ -290,6 +313,7 @@ def produce_old_db_report():
     sys.stdout.close()
 
 def define_recipe_cluster():
+    print("Cluster Started")
     #connect to the database
     client = MongoClient('localhost', 27017)
     db = client['emealio_food_db']
@@ -298,7 +322,11 @@ def define_recipe_cluster():
     #loop over the recipes
     recipes_cursor = recipes_db.find()
 
+    i = 0
     for recipe in recipes_cursor:
+        if i % 1000 == 0:
+            print("Done ", i)
+        i += 1
         #if the sustainability score is in [0, 0.04] then the recipe belongs to cluster 0
         if recipe['sustainability_score'] >= 0 and recipe['sustainability_score'] <= 0.04:
             recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"sustainability_label": 0}})
@@ -311,7 +339,7 @@ def define_recipe_cluster():
         if recipe['sustainability_score'] > 0.15 and recipe['sustainability_score'] <= 1:
             recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"sustainability_label": 2}})
 
-    print("Done")
+    print("Cluster Done")
 
 def add_original_ingredient_list():
     #connect to the database
@@ -432,23 +460,21 @@ def compute_recipe_ingredient_embedding():
 
 
 ###### MAIN ######### 
-'''  
-compute_coverage()
-compute_sustainability_scores()
-compute_overall_sustainability_scores()
-compute_normalized_sustainability_scores()
-'''
-#produce_new_db_report()
-#produce_old_db_report()
-
+#scoring functions
+#compute_coverage()
+#compute_sustainability_scores()
+#compute_overall_sustainability_scores()
+#compute_normalized_sustainability_scores()
 define_recipe_cluster()
 
+#report functions
+produce_new_db_report()
+#produce_old_db_report()
+
+
+##Text utilities and embeddings
 #add_original_ingredient_list()
-
 #compute_simplified_ingredient_list()
-
 #compute_title_and_ingredient_embedding()
-
 #compute_embedding_of_ingredients()
-
 #compute_recipe_ingredient_embedding()

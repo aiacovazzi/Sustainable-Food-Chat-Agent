@@ -90,3 +90,4 @@ the actual list of allergenes should be explicit in recipe
 
 ________
 fix pepperoni
+recompute everything (coverage and sus)

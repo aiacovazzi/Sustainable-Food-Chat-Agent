@@ -13,6 +13,9 @@ def update_user(userJson):
     user = jsonpickle.decode(userJson)
     collection.update_one({"id":user['id']}, {"$set": user}, upsert=False)
 
-def getUserByUserId(userId):
+def get_user_by_user_id(userId):
     user = collection.find_one({"id":userId})
     return user
+
+def update_user_last_interaction(userId, lastInteraction):
+    collection.update_one({"id":userId}, {"$set": {"lastInteraction": lastInteraction}}, upsert=False)

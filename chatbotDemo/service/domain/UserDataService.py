@@ -7,11 +7,11 @@ def getUserData(userId):
         print("User data is empty")
         return None
     else:
-        userDbData = userDB.getUserByUserId(userId)
+        userDbData = userDB.get_user_by_user_id(userId)
         if(userDbData == None):
             return None
         userJson = jsonpickle.encode(userDbData)
-        userData = user.User(None,None,None,None,None,None,None,None)
+        userData = user.User(None,None,None,None,None,None,None,None,None,None)
         userData.from_json(userJson)
         return userData
     
@@ -20,3 +20,9 @@ def save_user(userData):
 
 def update_user(userData):
     userDB.update_user(userData.to_plain_json())
+
+def update_user_last_interaction(userId, lastInteraction):
+    userData = getUserData(userId)
+    if(userData != None):
+        userData.lastInteraction = lastInteraction
+        update_user(userData)

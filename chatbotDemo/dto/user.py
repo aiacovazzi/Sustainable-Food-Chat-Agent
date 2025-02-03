@@ -1,7 +1,7 @@
 import jsonpickle
 
 class User:
-    def __init__(self, username, id, name, surname, dateOfBirth, nation, allergies, restrictions):
+    def __init__(self, username, id, name, surname, dateOfBirth, nation, allergies, restrictions, reminder, lastInteraction):
         """
         username: the username of the user. Mandatory.
         id: the id of the user. Mandatory.
@@ -11,6 +11,8 @@ class User:
         nation: the nation of the user. Mandatory.
         allergies: a list of food that the user cannot eat. Optional.
         restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "islam", "hinduism", "ebraic"]. Optional.
+        reminder: a boolean value that indicates if the user wants to receive reminders. Optional.
+        lastInteraction: the last time the user interacted with the chatbot. Mandatory.
         """
         self.username = username
         self.id = id
@@ -20,6 +22,8 @@ class User:
         self.nation = nation
         self.allergies = allergies
         self.restrictions = restrictions
+        self.reminder = reminder
+        self.lastInteraction = lastInteraction
 
     #populate fields from a json
     def from_json(self, jsonString):
@@ -31,6 +35,10 @@ class User:
         self.nation = json_obj['nation']
         self.allergies = json_obj['allergies']
         self.restrictions = json_obj['restrictions']
+        if('reminder' in json_obj):
+            self.reminder = json_obj['reminder']
+        if('lastInteraction' in json_obj):
+            self.lastInteraction = json_obj['lastInteraction']
         #those fields are loaded only when bulding a user object from the database
         if('username' in json_obj):
             self.username = json_obj['username']
@@ -53,7 +61,11 @@ class User:
         if('allergies' in json_obj):
             self.allergies = json_obj['allergies']
         if('restrictions' in json_obj):
-            self.restrictions = json_obj['restrictions']        
+            self.restrictions = json_obj['restrictions']  
+        if('reminder' in json_obj):
+            self.reminder = json_obj['reminder']
+        if('lastInteraction' in json_obj):
+            self.lastInteraction = json_obj['lastInteraction']
         return self
     
     def to_json(self):

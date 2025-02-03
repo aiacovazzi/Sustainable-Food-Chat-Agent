@@ -33,6 +33,7 @@ def aswer_router(userData,userPrompt,token,memory,info):
         memory = response.memory
         if(response.modifiedPrompt != None and response.modifiedPrompt != ''):
             userPrompt = response.modifiedPrompt
+    manage_last_interaction(userData)
     return response   
 
 def answer_question(userData,userPrompt,token,info,memory):
@@ -55,7 +56,24 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("PERSISTING_USER_DATA", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #persist user data calling MongoDB...
         response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3, "User data: " + userData.to_json(), 0.4, userData)
+        userData.reminder = False
         user.save_user(userData)
+        return response
+    elif(token == p.TASK_0_4_HOOK):
+         log.save_log("ASKING_PERMISSION_FOR_RIMENDER", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+         response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_4, userPrompt, 0.4, userData)
+         return response
+    elif(token == p.TASK_0_5_HOOK):
+        log.save_log("REMINDER_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        userData.reminder = True
+        user.update_user(userData)
+        response = rc.Response('I\'m happy you accepted to receive reminders by me! If you\'ll forgot to chat with me for 48 hours, I will send you a message to help you to keep on track with your sustainable habits!',"TOKEN 1",'',None,'')
+        #adjust the user prompt to the greetings in order to start the regular conversation
+        userPrompt = p.USER_GREETINGS_PHRASE
+        return response
+    elif(token == p.TASK_0_6_HOOK):
+        log.save_log("REMINDER_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = rc.Response('I\'m sorry you declined to receive reminders by me! If you\'ll change your mind, you can enable them asking me to update your profile.',"TOKEN 1",'',None,'')
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
@@ -172,7 +190,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("REQUIRED_ANOTHER_RECIPE_IMPROVEMENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"temporary_declined",1)
         originalUserPrompt = memory.messages[1].content
-        response = rc.Response('',"TOKEN 1",'',None,originalUserPrompt)
+        response = rc.Response('',"TOKEN 3.10",'',None,originalUserPrompt)
         return response
 ########################################################################################
 
@@ -262,13 +280,11 @@ def answer_question(userData,userPrompt,token,info,memory):
         return response
 ########################################################################################
 
-#BOT PRESENTATION#######################################################################
-    elif(token == p.TASK_8_HOOK):
-        log.save_log("BOT_PRESENTATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_8_PROMPT, userPrompt, 0.3, userData)
-        return response
-
 def manage_suggestion(userData,memory,status,whichJson=0):
     originalPrompt = utils.de_escape_curly_braces(memory.messages[0].content)
     jsonRecipe = utils.extract_json(originalPrompt, whichJson)
     fhService.build_and_save_user_history(userData, jsonRecipe, status)
+
+def manage_last_interaction(userData):
+    userData.lastInteraction = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    user.update_user_last_interaction(userData.id, userData.lastInteraction)
