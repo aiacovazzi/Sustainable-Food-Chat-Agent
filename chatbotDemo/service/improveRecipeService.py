@@ -16,6 +16,10 @@ def get_base_recipe(mealDataJson):
     if(mealData['ingredients'] != [] and mealData['ingredients'] != None):
         ingredients = ingService.get_ingredient_list_from_generic_list_of_string(mealData['ingredients'])
     else:
+        #this else is for the case when the user does not provide the ingredients but actually it should never happen
+        #because the user must always provide the ingredients
+        #I decided to keep it here just in case, but previous test showed that searching for a recipe without ingredients provide not reliable results for this context
+        #so it is always better to provide the ingredients, like in the food diary task
         dBrecipe = recipePersistence.get_recipe_by_title(mealData['name'])
         if(dBrecipe == None or dBrecipe == 'null'):
             dBrecipe = recipePersistence.get_most_similar_recipe(mealData['name'])

@@ -12,6 +12,9 @@ from telegram.ext import *
 from dotenv import load_dotenv, find_dotenv
 from functools import wraps
 import service.domain.FoodHistoryService as foodHistory
+from apscheduler.schedulers.background import BackgroundScheduler
+from datetime import datetime, timedelta
+import asyncio
 
 load_dotenv(find_dotenv())
 token = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -77,6 +80,15 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text('Bye! Hope to talk to you again soon.', reply_markup=ReplyKeyboardRemove())
     return ConversationHandler.END
 
+async def send_reminder(context: CallbackContext):
+    """Send a reminder to users who have reminders enabled and haven't interacted recently."""
+    users = us.get_all_users()
+    for user in users:
+        if user['reminder']:
+            last_interaction = datetime.strptime(user['lastInteraction'], '%Y-%m-%d %H:%M:%S').date()
+            if datetime.now().date() - last_interaction >= timedelta(days=2):
+                await context.bot.send_message(chat_id=user['id'], text="Hey! It's been a while since we last talked. How about a chat to keep up with your sustainable habits and discover new recipe? Just write me something and I'll be here for you!")
+
 def main() -> None:
     """Run the bot."""
     application = Application.builder().token(token).build()
@@ -92,6 +104,11 @@ def main() -> None:
 
     # Handle the case when a user sends /start but they're not in a conversation
     application.add_handler(CommandHandler('start', start))
+
+    # Set up the scheduler
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(lambda: asyncio.run(send_reminder(application)), 'cron', hour=23, minute=12)
+    scheduler.start()
 
     application.run_polling()
 

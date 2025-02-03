@@ -82,7 +82,7 @@ You previously asked the user if she want to receive reminder about the bot usag
 The user will answer to a yes/no question.
 If the user answer is affirmative then produce the string "TOKEN 0.5 ".
 If the user answer is negative then produce the string "TOKEN 0.6 ".
-If the user ask what kind of reminder you will send, just answer that you will send a reminder about the bot usage every 48 hours if the user don't use the system. Then ask again if she want to receive the reminder and produce the string "TOKEN 0.4".
+If the user ask what kind of reminder you will send, just answer that you will send a reminder about the bot usage every two days if the user don't use the system. Then ask again if she want to receive the reminder and produce the string "TOKEN 0.4".
 If the user answer something unrelated to a yes/no question then explain that you need a yes/no answer and ask again if she want to receive the reminder. Finally produce the string "TOKEN 0.4".
 Do not write anything else.
 """
@@ -166,8 +166,13 @@ This json will be used in the next task for the improvement of the recipe.
 
 Finally perform one of the following actions:
 - print "TOKEN 3.20" if the ingredients are valorized. 
-- otherwise tell the user that the recipe with the given recipe name is not processable without a proper ingredient list and ask her to provide it. Then write "TOKEN 3.10 " to continue the conversation.
+- otherwise tell the user that the recipe with the given recipe name is not processable without a proper ingredient list and ask her to provide it. Then write "TOKEN 3.15 " to continue the conversation.
 Do not write anything else beside the token and the json.
+"""
+TASK_3_15_PROMPT = """You are a food recommender system with the role of helps users to improve the sustainability of a given recipe.
+You previously asked the user to provide you the ingredients of the recipe.
+If the user provide the ingredients list, then simply print "TOKEN 3.10 ".
+If the user provide something unrelated to this task, simply tell that is ok to start a new conversation, then print "TOKEN 1 " to continue the conversation.
 """
 TASK_3_20_PROMPT = """You will receive two recipe as json stucture; the base recipe {baseRecipe} and the sustainable improved recipe {improvedRecipe}.
 Your task is to suggest to the user what to substitute in the base recipe in order to obtain the improved recipe.
@@ -395,6 +400,7 @@ TASK_3_HOOK = "TOKEN 3"
 
 #Recipe improvement
 TASK_3_10_HOOK = "TOKEN 3.10"
+TASK_3_15_HOOK = "TOKEN 3.15"
 TASK_3_20_HOOK = "TOKEN 3.20"
 TASK_3_30_HOOK = "TOKEN 3.30"
 TASK_3_40_HOOK = "TOKEN 3.40"

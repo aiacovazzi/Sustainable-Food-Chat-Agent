@@ -161,6 +161,10 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("RECIPE_IMPROVEMENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         response = lcs.execute_chain(p.TASK_3_10_PROMPT, userPrompt, 0.3, userData)
         return response
+    elif(token == p.TASK_3_15_HOOK):
+        log.save_log("RECIPE_IMPROVEMENT_INGREDIENT_LIST_EVALUATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_3_15_PROMPT, userPrompt, 0.3, userData)
+        return response
     elif(token == p.TASK_3_20_HOOK):
         log.save_log("RECIPE_IMPROVEMENT_EXECUTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #call the recipe improvement service

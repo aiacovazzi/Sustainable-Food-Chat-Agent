@@ -5,6 +5,10 @@ import persistence.MongoConnectionManager as mongo
 db = mongo.get_connection()
 collection = db['users']
 
+def get_all_users():
+    users = collection.find()
+    return users
+
 def save_user(userJson):
     user = jsonpickle.decode(userJson)
     collection.insert_one(user)

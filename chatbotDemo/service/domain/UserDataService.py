@@ -26,3 +26,6 @@ def update_user_last_interaction(userId, lastInteraction):
     if(userData != None):
         userData.lastInteraction = lastInteraction
         update_user(userData)
+
+def get_all_users():
+    return userDB.get_all_users()
