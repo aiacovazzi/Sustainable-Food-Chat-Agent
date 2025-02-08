@@ -3,6 +3,7 @@ import jsonpickle
 import numpy as np
 import service.domain.FoodHistoryService as foodHistory
 import service.domain.RecipeService as recipeService
+import service.domain.UserDataService as userService
 import service.bot.EmbedderService as embedder
 import persistence.RecipePersistence as recipePersistence
 import pandas as pd
@@ -56,6 +57,10 @@ def get_recipe_suggestion(mealDataJson, userData):
     if(mealData['ingredients_desired'] != None and mealData['ingredients_desired']  != ''):
         desiredIngredientsEmbeddingString = ', '.join(mealData['ingredients_desired'])
         desiredIngredientsEmbedding = embedder.embed_list(desiredIngredientsEmbeddingString, False)
+    else:
+        tastes = userService.get_taste(userData.id, mealData['mealType'].lower())
+        if(tastes != []):
+            desiredIngredientsEmbedding = np.array(tastes, dtype=np.float32)
     
     if(mealData['ingredients_not_desired'] != None and mealData['ingredients_not_desired']  != ''):
         notDesiredIngredientsEmbeddingString = ', '.join(mealData['ingredients_not_desired'])
@@ -82,13 +87,9 @@ def get_recipe_suggestion(mealDataJson, userData):
     if(allergies != None and allergies != '' and restrictions != []):
         allergenes = """ "$and": [ """
         for allergen in allergies:
-            allergenes += """ {"allergies": { "$regex": "%s" }}, """ % allergen
+            allergenes += """ {"tags": { "$regex": "%s-free" }}, """ % allergen
         allergenes = allergenes[:-2]
         allergenes += """ ] """
-
-    #temporary override for the allergenes because the database is not updated
-    allergenes = ""
-
 
     #filter for the meal type    
     mealType = mealData['mealType']
@@ -172,7 +173,7 @@ def get_recipe_suggestion(mealDataJson, userData):
     suggestedRecipe = jsonpickle.decode(recipePersistence.get_recipe_by_id(int(suggestedRecipe["recipe_id"])))
 
     #convert the recipe to a Recipe object
-    suggestedRecipe = recipeService.convert_in_emealio_recipe(suggestedRecipe,removedConstraints)
+    suggestedRecipe = recipeService.convert_in_emealio_recipe(suggestedRecipe,removedConstraints,mealType)
 
     #convert the recipe to a string json
     suggestedRecipeStr = suggestedRecipe.to_json()

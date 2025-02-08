@@ -1,7 +1,7 @@
 import jsonpickle
 
 class Recipe:
-    def __init__(self, name, id, ingredients, sustainabilityScore, instructions, description, removedConstraints):
+    def __init__(self, name, id, ingredients, sustainabilityScore, instructions, description, removedConstraints, mealType):
         self.name = name
         self.id = id
         self.ingredients = ingredients
@@ -9,6 +9,7 @@ class Recipe:
         self.instructions = instructions
         self.description = description
         self.removedConstraints = removedConstraints
+        self.mealType = mealType
         
     #populate fields from a json
     def from_json(self, jsonString):
@@ -21,6 +22,7 @@ class Recipe:
         self.instructions = json_obj.instructions
         self.description = json_obj.description
         self.removedConstraints = json_obj.removedConstraints
+        self.mealType = json_obj.mealType
         return self
     
     def to_json(self):

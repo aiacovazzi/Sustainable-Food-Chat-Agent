@@ -2,6 +2,7 @@ import os
 import re
 import dto.Response as resp
 from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv, find_dotenv
@@ -12,6 +13,7 @@ import datetime
 
 PRINT_LOG = False
 MODEL = 'openai'
+#MODEL = 'anthropic'
 TOKEN_REGEX = r"TOKEN -?\d+(\.\d+)?"
 INFO_REGEX_ANGULAR = r"<(.*?)>"
 # Regex to find JSON objects (limited to one level of nesting)
@@ -27,11 +29,17 @@ INFO_REGEX_CURLY = r'\{[^{}]*\}(?:,\s*\{[^{}]*\})*'
 # chatgpt-4o-latest
 # gpt-4o
 # o3-mini
+
+
+#claude-3-sonnet-20241022
 load_dotenv(find_dotenv())
 
 if(MODEL == 'openai'):
     openai_api_key = os.getenv("OPENAI_API_KEY")
     llm = ChatOpenAI(api_key=openai_api_key, model="gpt-4o-2024-08-06")
+if(MODEL == 'anthropic'):
+    anthropic_api_key=os.getenv("ANTHROPIC_API_KEY")
+    llm = ChatAnthropic(model='claude-3-5-sonnet-20241022')
 
 def get_prompt(input_prompt,memory):
     if(memory != None):
@@ -79,7 +87,7 @@ def execute_chain(input_prompt, input_query, temperature, userData, memory = Non
         memory.add_ai_message(answer)
         
     response = resp.Response(answer,action,info,memory,'')
-    log.save_log(response, datetime.datetime.now(), "Agent", userData.id, PRINT_LOG)
+    log.save_log(response, datetime.datetime.now(), "Agent "+MODEL, userData.id, PRINT_LOG)
     return response
 
 def get_token(answer):

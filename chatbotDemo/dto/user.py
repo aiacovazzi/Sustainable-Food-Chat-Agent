@@ -15,7 +15,7 @@ class User:
         lastInteraction: the last time the user interacted with the chatbot. Mandatory.
         """
         self.username = username
-        self.id = id
+        self.id = str(id)
         self.name = name
         self.surname = surname
         self.dateOfBirth = dateOfBirth

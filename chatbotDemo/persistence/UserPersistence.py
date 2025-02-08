@@ -23,3 +23,6 @@ def get_user_by_user_id(userId):
 
 def update_user_last_interaction(userId, lastInteraction):
     collection.update_one({"id":userId}, {"$set": {"lastInteraction": lastInteraction}}, upsert=False)
+
+def update_user_tastes(userId, tastes):
+    collection.update_one({"id":userId}, {"$set": {"tastes": tastes}}, upsert=False)

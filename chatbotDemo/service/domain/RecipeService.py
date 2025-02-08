@@ -57,7 +57,7 @@ def get_recipe_cluster(recipe):
     if recipe.sustainabilityScore > 0.15 and recipe.sustainabilityScore <= 1:
         return 2
 
-def convert_in_emealio_recipe(mongoRecipe,removedConstraints):
+def convert_in_emealio_recipe(mongoRecipe,removedConstraints,mealType):
     title = mongoRecipe['title']
     id = mongoRecipe['recipe_id']
     instructions = mongoRecipe['recipe_url']
@@ -68,4 +68,4 @@ def convert_in_emealio_recipe(mongoRecipe,removedConstraints):
     else:
         description = None
     ingredients = ingredientService.get_ingredient_list_from_full_ingredient_string(mongoRecipe['ingredients'])
-    return recipe.Recipe(title,id,ingredients,sustainabilityScore,instructions,description,removedConstraints)
+    return recipe.Recipe(title,id,ingredients,sustainabilityScore,instructions,description,removedConstraints,mealType)

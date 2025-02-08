@@ -60,7 +60,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         user.save_user(userData)
         return response
     elif(token == p.TASK_0_4_HOOK):
-         log.save_log("ASKING_PERMISSION_FOR_RIMENDER", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+         log.save_log("ASKING_PERMISSION_FOR_REMINDER", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
          response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_4, userPrompt, 0.4, userData)
          return response
     elif(token == p.TASK_0_5_HOOK):

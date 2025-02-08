@@ -14,6 +14,7 @@ from functools import wraps
 import service.domain.FoodHistoryService as foodHistory
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timedelta
+import service.ComputeMonthlyUserTaste as cmu
 import asyncio
 
 load_dotenv(find_dotenv())
@@ -89,6 +90,10 @@ async def send_reminder(context: CallbackContext):
             if datetime.now().date() - last_interaction >= timedelta(days=2):
                 await context.bot.send_message(chat_id=user['id'], text="Hey! It's been a while since we last talked. How about a chat to keep up with your sustainable habits and discover new recipe? Just write me something and I'll be here for you!")
 
+async def compute_monthly_user_taste():
+    """Compute the user's taste for each meal type at the end of the month."""
+    cmu.compute_monthly_user_taste()
+
 def main() -> None:
     """Run the bot."""
     application = Application.builder().token(token).build()
@@ -107,7 +112,11 @@ def main() -> None:
 
     # Set up the scheduler
     scheduler = BackgroundScheduler()
-    scheduler.add_job(lambda: asyncio.run(send_reminder(application)), 'cron', hour=23, minute=12)
+
+    #reminder scheduled to be sent every day at 12:00 if the user hasn't interacted in the last 2 days
+    scheduler.add_job(lambda: asyncio.run(send_reminder(application)), 'cron', hour=12, minute=00)
+    #compute the user's taste at the start of the month based on the previous month's data
+    scheduler.add_job(lambda: asyncio.run(compute_monthly_user_taste()), 'cron', day=1, hour=0, minute=0)
     scheduler.start()
 
     application.run_polling()

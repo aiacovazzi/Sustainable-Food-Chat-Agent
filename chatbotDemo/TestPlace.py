@@ -4,6 +4,7 @@ import service.domain.FoodHistoryService as foodHistory
 import jsonpickle
 import persistence.RecipePersistence as recipePersistence
 from datetime import datetime, timedelta
+import service.ComputeMonthlyUserTaste as cmu
 
 #print(irs.get_recipe_improved('{\n  "name": "Beef and Tomato Sandwich",\n  "ingredients": [\n    "bun",\n    "cow meat",\n    "tomato",\n    "mayonnaise"\n  ]\n}'))
 
@@ -18,7 +19,7 @@ from datetime import datetime, timedelta
 #print(recipePersistence.get_most_similar_recipe("Banana and milk shake wonderful recipe")) 
 
 
-users = us.get_all_users()
+'''users = us.get_all_users()
 for user in users:
     #user = jsonpickle.encode(user)
     print(user['username'])
@@ -28,4 +29,9 @@ for user in users:
         #trim date to only date
         date = date.date()
         print(date)
-        print(datetime.now().date())
+        print(datetime.now().date())'''
+
+#userdata = us.getUserData(220868585)
+#cmu.compute_user_taste(userdata)
+
+print(us.get_taste(585, 'breakfast'))

@@ -45,7 +45,7 @@ name: the name of the user.
 surname: the surname of the user.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY.
 nation: the nation of the user. If the user provide her nationality, set the nation field as the nation of the user.
-allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanuts", "soy", "dairy", "nuts", "celery", "mustard", "sesame", "sulphites", "lupin", "molluscs"], if the user provide something related to some item, use the item as constraint.
+allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
 restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"].
 The user could provide you those information in a conversational form and also via a structured json.
 
@@ -61,7 +61,7 @@ name: the name of the user. Mandatory.
 surname: the surname of the user. Mandatory.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY. Mandatory.
 nation: the nation of the user. Mandatory. 
-allergies: a list of food that the user cannot eat. Optional. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanuts", "soy", "dairy", "nuts", "celery", "mustard", "sesame", "sulphites", "lupin", "molluscs"], if the user provide something related to some item, use the item as constraint.
+allergies: a list of food that the user cannot eat. Optional. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
 restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"]. Optional.
 
 The user will provide you a json containing some information about her profile.
@@ -214,8 +214,9 @@ name: the name of the user.
 surname: the surname of the user.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY.
 nation: the nation of the user. If the user provide her nationality, set the nation field as the nation of the user.
-allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanuts", "soy", "dairy", "nuts", "celery", "mustard", "sesame", "sulphites", "lupin", "molluscs"], if the user provide something related to some item, use the item as constraint.
+allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
 restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"].
+reminder: boolean value that tells if the user allows to receive reminders.
 Those information are intended to be the new information that the user want to update in her profile.
 
 Print the string "TOKEN 4.30", then remind the user the information that can be updated.
@@ -227,8 +228,9 @@ name: the name of the user.
 surname: the surname of the user.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY.
 nation: the nation of the user. If the user provide her nationality, set the nation field as the nation of the user.
-allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanuts", "soy", "dairy", "nuts", "celery", "mustard", "sesame", "sulphites", "lupin", "molluscs"], if the user provide something related to some item, use the item as constraint.
+allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
 restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"].
+reminder: boolean value that tells if the user allows to receive reminders.
 The user could provide you part of those information in a conversational form and also via a structured json.
 Those information are intended to be the new information that the user want to update in her profile.
 
@@ -244,9 +246,9 @@ name: the name of the user. Mandatory.
 surname: the surname of the user. Mandatory.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY. Mandatory.
 nation: the nation of the user. Mandatory. 
-allergies: a list of food that the user cannot eat. Optional. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanuts", "soy", "dairy", "nuts", "celery", "mustard", "sesame", "sulphites", "lupin", "molluscs"], if the user provide something related to some item, use the item as constraint.
+allergies: a list of food that the user cannot eat. Optional. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
 restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"]. Optional.
-
+reminder: boolean value that tells if the user allows to receive reminders. Optional.
 The user will provide you a json containing only part of those information about her profile in order to update them.
 
 Produce the output following the next steps:
@@ -330,15 +332,21 @@ Always mantain a respectful and polite tone.
 TASK_7_PROMPT = """You are a food recommender system with the role of helps users to choose more environment sustainable foods.
 The user will provide you a sentence containing a meal that she assert to have eaten.
 The meal data is structured as follows:
-mealType: the type of meal. The possible values are ["Breakfast", "Lunch", "Dinner", "Break"]. Mandatory.
-ingredients: a list of ingredients that the user assert to have in the recipe. Mandatory.
+mealType: the type of meal. The possible values are ["Breakfast", "Lunch", "Dinner", "Break"]. Mandatory. Used to register the meal in the correct moment of the day.
+ingredients: a list of ingredients that the user assert to have in the recipe. Mandatory. Used to properly estimate the environmental impact of the meal.
 name: the name of the recipe. Optional.
 The user could provide you those information in a conversational form and also via a structured json.
 
+If the user ask something about the constraints, explain the constraint in detail, then:
+    1: Print the string "TOKEN 7".
+
+Otherwise:     
 Print the string "TOKEN 7.10" and a json with the information collected until now. Set the absent information as empty string. 
 Derive a proper recipe name from the list of ingredients provided by the user if not provided.
 Do not write anything else beside the token and the json.
 Do not made up any other question or statement that are not the previous ones.
+
+
 """
 TASK_7_10_PROMPT = """You are a food recommender system with the role of helps users to choose more environment sustainable foods.
 The user will provide you a sentence containing a meal that she assert to have eaten.
@@ -355,12 +363,6 @@ If the user doesn't provide you all the mandatory informations:
     1: Print the string "TOKEN 7".
     2: Print the json provided by the user (do not write anything else beside the token and the json).
     3: Ask her the remaining informations. 
-
-If the user ask something about the unsutisfied constraints, explain the constraint in detail, then:
-    1: Print the string "TOKEN 7".
-    2: Print the json provided by the user (do not write anything else beside the token and the json).
-
-.
 """
 TASK_7_20_PROMPT = """You are a food recommender system with the role of helps users to choose more environment sustainable foods.
 The user will provide you a sentence containing a meal that she assert to have eaten.

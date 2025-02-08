@@ -4,37 +4,51 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import os
 
-system_prompt = """You are a food expert with the aim of identifying allergens in food ingredients.
-Given the following list of 14 allergens: [gluten, crustacean, egg, fish, peanuts, soy, dairy, nuts, celery, mustard, sesame, sulphites, lupin, molluscs]
-Write a list of allergens that are present in the following ingredient: INGREDIENT (assume that the ingredient is raw, unprocessed in the simplest form).
-If no allergens are present, write "no allergens".
-The list must be written in the following format: [allergen1, allergen2, allergen3]
-Write a small explation (max 20 words) of why the allergen is present in the ingredient BEFORE the list of allergens.
-"""
-
-def execute_chain(input_prompt, input_query, temperature):
-    llm.temperature = temperature
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            ("system", input_prompt),
-            ("human", "{query}"),
-        ]
-    )
-    output_parser = StrOutputParser()
-    chain = prompt | llm | output_parser
-    answer = chain.invoke({ "query": input_query })
-    return answer
+def update_allergies():
+    client = MongoClient('localhost', 27017)
+    db_1 = client['emealio_food_db']
+    collection1 = db_1['ingredients']
 
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(api_key=openai_api_key, model="gpt-4o-mini")
 
-client = MongoClient('localhost', 27017)
-db = client['emealio_food_db']
-collection = db['ingredients']
+    db_2 = client['emealio_allergy']
+    collection2 = db_2['ingredients']
 
-#loop over the first 20 ingredients
-for ingredient in collection.find().limit(100):
-    prompt = system_prompt.replace("INGREDIENT", ingredient['ingredient'])
-    allergenes = execute_chain(prompt, ingredient['ingredient'], 0.1)
-    print(ingredient['ingredient'] +': '+allergenes)
+    #loop over all ingredients in collection1
+    for ingredient in collection1.find():
+        #take the item in db_2 that has the same id
+        item = collection2.find_one({"_id": ingredient["_id"]})
+        #save in db_1 item the field allergen and allergen type
+        if item["allergen"] == "Yes":
+            collection1.update_one({"_id": ingredient["_id"]}, {"$set": {"allergen": item["allergen"], "allergen_type": item["allergen type"]}})
+        else:
+            collection1.update_one({"_id": ingredient["_id"]}, {"$set": {"allergen": False, "allergen_type": None}})
+
+def update_recipes():
+    client = MongoClient('localhost', 27017)
+    db_1 = client['emealio_food_db']
+    collection1 = db_1['recipes']
+
+    db_2 = client['emealio_allergy']
+    collection2 = db_2['recipes']
+
+    i = 0
+    #loop over all recipes in collection1
+    for recipe in collection1.find():
+        #take the item in db_2 that has the same id
+        item = collection2.find_one({"_id": recipe["_id"]})
+        #update the tags of the recipe in collection1 with the tags of the recipe in collection2
+        if "tags" in item:
+            collection1.update_one({"_id": recipe["_id"]}, {"$set": {"tags": item["tags"]}})
+        #if the item in collection2 has the field allergens, update the allergens of the recipe in collection1 with the allergens of the recipe in collection2
+        if "allergens" in item:
+            collection1.update_one({"_id": recipe["_id"]}, {"$set": {"allergens": item["allergens"]}})
+        else:
+            collection1.update_one({"_id": recipe["_id"]}, {"$unset": {"allergens": ""}})
+
+        if i % 1000 == 0:
+            print(i)
+        
+        i += 1
+
+update_recipes()

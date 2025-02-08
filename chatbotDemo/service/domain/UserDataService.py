@@ -7,7 +7,7 @@ def getUserData(userId):
         print("User data is empty")
         return None
     else:
-        userDbData = userDB.get_user_by_user_id(userId)
+        userDbData = userDB.get_user_by_user_id(str(userId))
         if(userDbData == None):
             return None
         userJson = jsonpickle.encode(userDbData)
@@ -29,3 +29,10 @@ def update_user_last_interaction(userId, lastInteraction):
 
 def get_all_users():
     return userDB.get_all_users()
+
+def get_taste(userId, mealType):
+    userDbData = userDB.get_user_by_user_id(str(userId))
+    if(userDbData == None):
+        return None
+    else:
+        return userDbData['tastes'][mealType]

@@ -5,6 +5,7 @@ import sys
 from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
 import pandas as pd
+import ast  
 
 def remove_additional_info(ingredient):
     #given a string like "water _ 2 __ cups"
@@ -443,14 +444,14 @@ def compute_recipe_ingredient_embedding():
         ingredientsArray = ingredients.split(", ")
 
         #recipe_embeddind as a blank 1024 array
-        recipe_embeddind = np.zeros(1024)
+        recipe_embedding = np.zeros(1024)
         for i in range(len(ingredientsArray)):
             ingredient = ingredients_db.find_one({'ingredient': ingredientsArray[i]})
             if ingredient is not None:
                 ingredient_embedding = ingredient['ingredient_embedding']
-                recipe_embeddind += np.array(ingredient_embedding)
+                recipe_embedding += np.array(ingredient_embedding)
 
-        recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"ingredients_embedding": pd.Series(recipe_embeddind).to_list()}})
+        recipes_db.update_one({"_id": recipe['_id']}, {"$set": {"ingredients_embedding": pd.Series(recipe_embedding).to_list()}})
         #get the embeddings
         if j % 100 == 0:
             print("Done ", j)
@@ -459,16 +460,82 @@ def compute_recipe_ingredient_embedding():
     print("Done")
 
 
+def counter(s):
+    inside_brackets = False
+    open_parens = 0
+    count = 0
+
+    for char in s:
+        if char == "[":
+            inside_brackets = True
+        elif char == "]":
+            inside_brackets = False
+        elif inside_brackets and char == "(":
+            if open_parens == 0:
+                count += 1  
+            open_parens += 1
+        elif inside_brackets and char == ")":
+            open_parens -= 1
+    return count
+
+##check for mismatch between original hummus db ingredients and the simplified ingredients
+#>1 : 6157
+#>2 : 2313
+#>3 : 997
+#>4 : 440
+def compute_numeric_mismatch():
+    client = MongoClient('localhost', 27017)
+    db_1 = client['emealio_food_db']
+    collection1 = db_1['recipes']
+
+    total_mismatch = 0
+
+    ## Loop over all recipes in collection1
+    for recipe in collection1.find():
+        origina_ing_num = counter(recipe.get('original_hummus_db_ingredients'))
+        simplified_ingredients = recipe.get('ingredients')
+        ingredients_list = get_ingredients(simplified_ingredients)
+        simplified_ing_num = len(ingredients_list)
+        if origina_ing_num != simplified_ing_num:
+
+            if(origina_ing_num-simplified_ing_num > 4):
+                #update recipe setting the new field "disabled" to True
+                collection1.update_one({"_id": recipe['_id']}, {"$set": {"disabled": True}})
+
+                total_mismatch += 1
+            else:
+                collection1.update_one({"_id": recipe['_id']}, {"$set": {"disabled": False}})
+
+    
+    print("Total Mismatch: ", total_mismatch)
+
+def extract_free_tags():
+    client = MongoClient('localhost', 27017)
+    db_1 = client['emealio_food_db']
+    collection1 = db_1['recipes']
+    free_set = set()
+
+    ## Loop over all recipes in collection1
+    for recipe in collection1.find():
+        tags = recipe.get('tags')
+        list = ast.literal_eval(tags)
+        free = [element for element in list if '-free' in element]
+        free_set.update(free)
+    
+    print(free_set)
+
+
+
 ###### MAIN ######### 
 #scoring functions
 #compute_coverage()
 #compute_sustainability_scores()
 #compute_overall_sustainability_scores()
 #compute_normalized_sustainability_scores()
-define_recipe_cluster()
+#define_recipe_cluster()
 
 #report functions
-produce_new_db_report()
+#produce_new_db_report()
 #produce_old_db_report()
 
 
@@ -478,3 +545,7 @@ produce_new_db_report()
 #compute_title_and_ingredient_embedding()
 #compute_embedding_of_ingredients()
 #compute_recipe_ingredient_embedding()
+
+#compute_numeric_mismatch()
+
+extract_free_tags()
