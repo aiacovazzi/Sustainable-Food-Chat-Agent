@@ -24,8 +24,6 @@ def compute_monthly_user_taste():
 def compute_user_taste(user):
     #get the user history of the month
     userHistory = foodHistory.get_user_history_of_month(user.id)
-    if userHistory is not None:
-        userHistory = jsonpickle.decode(Utils.de_escape_curly_braces(userHistory))
     breackfastTaste = compute_taste(userHistory, 'Breakfast')
     lunchTaste = compute_taste(userHistory, 'Lunch')
     dinnerTaste = compute_taste(userHistory, 'Dinner')
@@ -35,7 +33,7 @@ def compute_user_taste(user):
     
 
 def compute_taste(userHistory, mealType):
-    if userHistory is None:
+    if userHistory is None or len(userHistory) == 0:
         return None
 
     meals = []
@@ -62,9 +60,9 @@ def get_recipe_emebedding(recipe):
     recipeNameEmbedding = np.zeros(1024)
     for ingredient in recipe:
 
-        ingFromDb = jsonpickle.decode(ingredientPersistence.get_ingredient_by_name(ingredient['name']))
+        ingFromDb = ingredientPersistence.get_ingredient_by_name(ingredient['name'])
         if ingFromDb is None:
-            ingFromDb = jsonpickle.decode(ingredientPersistence.get_most_similar_ingredient(ingredient['name']))
+            ingFromDb = ingredientPersistence.get_most_similar_ingredient(ingredient['name'])
         
         embedding = ingFromDb['ingredient_embedding']
         recipeNameEmbedding += embedding

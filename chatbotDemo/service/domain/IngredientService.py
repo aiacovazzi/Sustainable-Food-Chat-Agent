@@ -1,6 +1,5 @@
 import persistence.IngredientPersistence as ip
 import dto.Ingredient as ingredientDto
-import jsonpickle
 
 def remove_additional_info(ingredient):
     #given a string like "water _ 2 __ cups"
@@ -31,9 +30,9 @@ def get_ingredient_list_from_full_ingredient_string(ingredients):
 def get_ingredient_list_from_generic_list_of_string(ingredientsListOfString):
     ingredients = []
     for ingredient in ingredientsListOfString:
-        foodFromDB= jsonpickle.decode(ip.get_ingredient_by_name(ingredient))
+        foodFromDB= ip.get_ingredient_by_name(ingredient)
         if foodFromDB == None or foodFromDB == 'null':
-            foodFromDB = jsonpickle.decode(ip.get_most_similar_ingredient(ingredient))
+            foodFromDB = ip.get_most_similar_ingredient(ingredient)
         ingredients.append(foodFromDB['ingredient'])
     return get_ingredient_list(ingredients)
 
@@ -41,7 +40,7 @@ def get_ingredient_list(ingredientsList):
     ingredientObjList = []
     for ingredient in ingredientsList:
         #query the database
-        ingredientInDB = jsonpickle.decode(ip.get_ingredient_by_name(ingredient))
+        ingredientInDB = ip.get_ingredient_by_name(ingredient)
 
         #if the ingredienntDB has the cfp data then use it else use None
         if 'cfp' in ingredientInDB:

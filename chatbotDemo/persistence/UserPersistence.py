@@ -1,4 +1,3 @@
-from pymongo import MongoClient
 import jsonpickle
 import persistence.MongoConnectionManager as mongo
 

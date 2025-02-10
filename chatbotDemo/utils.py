@@ -1,4 +1,6 @@
 import regex as re
+import jsonpickle
+
 INFO_REGEX_CURLY = r'\{(?:[^{}]|(?R))*\}'
 
 def extract_json(text, which):
@@ -20,3 +22,6 @@ def clean_json_string(json_string):
     pattern = r'^```json\s*(.*?)\s*```$'
     cleaned_string = re.sub(pattern, r'\1', json_string, flags=re.DOTALL)
     return cleaned_string.strip()
+
+def adapt_output_to_bot(output):
+    return escape_curly_braces(jsonpickle.encode(output))

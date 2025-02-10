@@ -11,12 +11,8 @@ def save_user_history(userHistoryJson):
 def get_user_history(userId):
     #get the user history of the week, given that the status is accepted
     fullUserHistory = collection.find({"userId": userId})
-    return jsonpickle.encode(fullUserHistory)
+    return fullUserHistory
 
 def clean_temporary_declined_suggestions(userId):
     #clean the temporary declined suggestions
     collection.delete_many({"userId": userId, "status": "temporary_declined"})
-
-def get_temporary_declined_suggestions(userId):
-    fullUserHistory = collection.find({"userId": userId, "status": "temporary_declined"})
-    return jsonpickle.encode(fullUserHistory)

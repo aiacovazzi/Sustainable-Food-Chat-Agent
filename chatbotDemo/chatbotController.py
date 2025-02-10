@@ -114,7 +114,7 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_2_10_HOOK):
         log.save_log("PROVIDING_FOOD_SUGGESTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #call recommender system
-        suggestedRecipe = food.get_recipe_suggestion(info,userData)
+        suggestedRecipe = utils.adapt_output_to_bot(food.get_recipe_suggestion(info,userData))
         info = utils.escape_curly_braces(info)
         userDataStr = utils.escape_curly_braces(userData.to_json())
         userPrompt = "Suggest me a recipe given the following constraints " + info
@@ -169,8 +169,8 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("RECIPE_IMPROVEMENT_EXECUTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #call the recipe improvement service
         baseRecipe = imp.get_base_recipe(info)
-        improvedRecipe = imp.get_recipe_improved(baseRecipe,userData)
-        response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=baseRecipe, improvedRecipe=improvedRecipe), userPrompt, 0.1, userData, memory, True)
+        improvedRecipe = utils.adapt_output_to_bot(imp.get_recipe_improved(baseRecipe,userData))
+        response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(baseRecipe), improvedRecipe=improvedRecipe), userPrompt, 0.1, userData, memory, True)
         return response
     elif(token == p.TASK_3_30_HOOK):
         log.save_log("RECIPE_IMPROVEMENT_CHAT_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -232,7 +232,7 @@ def answer_question(userData,userPrompt,token,info,memory):
 #HISTORY RETRIEVAL######################################################################
     elif(token == p.TASK_5_HOOK):
         log.save_log("FOOD_HISTORY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        foodHistory = history.get_user_history_of_week(userData.id)
+        foodHistory = utils.adapt_output_to_bot(history.get_user_history_of_week(userData.id))
         response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6, userData)
         return response
 ########################################################################################
@@ -251,13 +251,13 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_6_20_HOOK):
         log.save_log("SUSTAINABILITY_INGREDIENTS_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         ingredientsData = jsonpickle.decode(info)
-        ingredientsData = utils.escape_curly_braces(jsonpickle.encode(ingService.get_ingredient_list_from_generic_list_of_string(ingredientsData['ingredients'])))
+        ingredientsData = utils.adapt_output_to_bot(ingService.get_ingredient_list_from_generic_list_of_string(ingredientsData['ingredients']))
         response = lcs.execute_chain(p.TASK_6_20_PROMPT.format(ingredients = ingredientsData), userPrompt, 0.6, userData, memory, True)
         return response
     elif(token == p.TASK_6_30_HOOK):
         log.save_log("SUSTAINABILITY_RECIPE_EXPERT_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         recipesData = jsonpickle.decode(info)
-        recipes = er.extractRecipes(recipesData)
+        recipes = utils.adapt_output_to_bot(er.extractRecipes(recipesData))
         response = lcs.execute_chain(p.TASK_6_30_PROMPT.format(recipes = recipes), userPrompt, 0.6, userData, memory, True)
         return response
     elif(token == p.TASK_6_40_HOOK):

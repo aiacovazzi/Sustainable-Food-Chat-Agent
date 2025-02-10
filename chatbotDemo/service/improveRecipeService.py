@@ -3,13 +3,8 @@ import service.domain.IngredientService as ingService
 import service.domain.RecipeService as recipeService
 import persistence.RecipePersistence as recipePersistence
 import dto.Recipe as recipe
-import pandas as pd
-import numpy as np
-import service.bot.EmbedderService as embedder
-import service.domain.FoodHistoryService as foodHistory
 import service.SuggestRecipeService as food
 import persistence.RecipePersistence as recipePersistence
-import Utils
 
 def get_base_recipe(mealDataJson):
     mealData = jsonpickle.decode(mealDataJson)
@@ -23,15 +18,13 @@ def get_base_recipe(mealDataJson):
         dBrecipe = recipePersistence.get_recipe_by_title(mealData['name'])
         if(dBrecipe == None or dBrecipe == 'null'):
             dBrecipe = recipePersistence.get_most_similar_recipe(mealData['name'])
-        dBrecipe = jsonpickle.decode(dBrecipe)
         ingredients = ingService.get_ingredient_list_from_full_ingredient_string(dBrecipe['ingredients'])
 
     baseRecipe = recipe.Recipe(mealData["name"],None,ingredients,None,None,None,None,None)
     recipeService.compute_recipe_sustainability_score(baseRecipe)
-    return  Utils.escape_curly_braces(jsonpickle.encode(baseRecipe))
+    return baseRecipe
 
 def get_recipe_improved(baseRecipe, userData):
-    baseRecipe = jsonpickle.decode(Utils.de_escape_curly_braces(baseRecipe))
     recipeCluster = recipeService.get_recipe_cluster(baseRecipe)
     ingredients = baseRecipe.ingredients
     ingredientsString = ', '.join([ingredient.name for ingredient in ingredients])

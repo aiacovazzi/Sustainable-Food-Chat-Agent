@@ -34,7 +34,7 @@ surname: the surname of the user. Mandatory.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY. Mandatory.
 nation: the nation of the user. Mandatory.
 allergies: a list of food that the user cannot eat. Optional.
-restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"]. Optional.
+restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "kosher"]. Optional.
 
 Print the string "TOKEN 0.1", then ask the user to provide you all the information above.
 """
@@ -46,7 +46,7 @@ surname: the surname of the user.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY.
 nation: the nation of the user. If the user provide her nationality, set the nation field as the nation of the user.
 allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
-restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"].
+restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "kosher"].
 The user could provide you those information in a conversational form and also via a structured json.
 
 If the user answer something unrelated to this task: Print the string "TOKEN 0.1" and gently remind the task you want to pursuit.
@@ -62,7 +62,7 @@ surname: the surname of the user. Mandatory.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY. Mandatory.
 nation: the nation of the user. Mandatory. 
 allergies: a list of food that the user cannot eat. Optional. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
-restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"]. Optional.
+restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "kosher"]. Optional.
 
 The user will provide you a json containing some information about her profile.
 
@@ -215,7 +215,7 @@ surname: the surname of the user.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY.
 nation: the nation of the user. If the user provide her nationality, set the nation field as the nation of the user.
 allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
-restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"].
+restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "kosher"].
 reminder: boolean value that tells if the user allows to receive reminders.
 Those information are intended to be the new information that the user want to update in her profile.
 
@@ -229,7 +229,7 @@ surname: the surname of the user.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY.
 nation: the nation of the user. If the user provide her nationality, set the nation field as the nation of the user.
 allergies: a list of food that the user cannot eat. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
-restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"].
+restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "kosher"].
 reminder: boolean value that tells if the user allows to receive reminders.
 The user could provide you part of those information in a conversational form and also via a structured json.
 Those information are intended to be the new information that the user want to update in her profile.
@@ -247,7 +247,7 @@ surname: the surname of the user. Mandatory.
 dateOfBirth: the date of birth of the user in the format DD/MM/YYYY. Mandatory.
 nation: the nation of the user. Mandatory. 
 allergies: a list of food that the user cannot eat. Optional. The possible constraints are ["gluten", "crustacean", "egg", "fish", "peanut", "soy", "lactose", "nut", "celery", "mustard", "sesame", "sulfite", "lupin", "mollusk"], if the user provide something related to some item, use the item as constraint.
-restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "halal", "kosher"]. Optional.
+restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "kosher"]. Optional.
 reminder: boolean value that tells if the user allows to receive reminders. Optional.
 The user will provide you a json containing only part of those information about her profile in order to update them.
 

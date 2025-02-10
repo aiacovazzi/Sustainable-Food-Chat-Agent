@@ -1,4 +1,3 @@
-import Utils
 import jsonpickle
 import numpy as np
 import service.domain.FoodHistoryService as foodHistory
@@ -112,9 +111,8 @@ def get_recipe_suggestion(mealDataJson, userData):
 
     #obtain the user history
     userHistory = foodHistory.get_user_history_of_week(userData.id, False)
-    if userHistory != None and userHistory != '[]':
+    if userHistory != None and len(userHistory) > 0:
         #filter for not being in the user history
-        userHistory = jsonpickle.decode(Utils.de_escape_curly_braces(userHistory))
         tagsUserHistory = """"recipe_id": {"$nin": ["""
         for history in userHistory:
             tagsUserHistory +=  str(history['recipeId']) + ","
@@ -170,16 +168,12 @@ def get_recipe_suggestion(mealDataJson, userData):
     suggestedRecipe = get_preferable_recipe_by_taste(suggestedRecipes,desiredIngredientsEmbedding,notDesiredIngredientsEmbedding,recipeNameEmbedding,userData)
 
     #get the full recipe from the database
-    suggestedRecipe = jsonpickle.decode(recipePersistence.get_recipe_by_id(int(suggestedRecipe["recipe_id"])))
+    suggestedRecipe = recipePersistence.get_recipe_by_id(int(suggestedRecipe["recipe_id"]))
 
     #convert the recipe to a Recipe object
     suggestedRecipe = recipeService.convert_in_emealio_recipe(suggestedRecipe,removedConstraints,mealType)
 
-    #convert the recipe to a string json
-    suggestedRecipeStr = suggestedRecipe.to_json()
-
-    #return the recipe in a json format
-    return Utils.escape_curly_braces(suggestedRecipeStr)
+    return suggestedRecipe
 
 def query_template_replacement (mandatoryRepalcement, notMandatoryReplacement, numberReplacement, queryTemplate):
     for replacement in mandatoryRepalcement:

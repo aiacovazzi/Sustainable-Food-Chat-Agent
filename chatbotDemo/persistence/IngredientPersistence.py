@@ -1,4 +1,3 @@
-import jsonpickle
 import service.bot.EmbedderService as embedder
 import pandas as pd
 import numpy as np
@@ -25,7 +24,7 @@ def get_numpy_ingredient_embeddings():
 
 def get_ingredient_by_name(ingredientName):
     ingredient = collection.find_one({"ingredient": ingredientName})
-    return jsonpickle.encode(ingredient)
+    return ingredient
 
 def get_most_similar_ingredient(ingredientName):
     ingredients_df = pd.DataFrame(get_ingredients_list())

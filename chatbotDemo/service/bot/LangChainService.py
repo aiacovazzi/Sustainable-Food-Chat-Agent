@@ -24,14 +24,14 @@ INFO_REGEX_CURLY = r'\{[^{}]*\}(?:,\s*\{[^{}]*\})*'
 # https://openai.com/api/pricing/
 # gpt-3.5-turbo-0125
 # gpt-4o-mini
-# gpt-4o-2024-08-06
+# gpt-4o-2024-08-06 *
 # gpt-4
 # chatgpt-4o-latest
 # gpt-4o
 # o3-mini
 
 
-#claude-3-sonnet-20241022
+#claude-3-sonnet-20241022 *
 load_dotenv(find_dotenv())
 
 if(MODEL == 'openai'):

@@ -29,7 +29,7 @@ def get_numpy_recipe_embeddings():
 
 def get_recipe_by_id(recipeId):
     recipe = collection.find_one({"recipe_id": recipeId})
-    return jsonpickle.encode(recipe)
+    return recipe
 
 def get_recipe_by_title(recipeTitle):
     query = """{"title": { "$regex": "RECIPE_TITLE", "$options": "i" }}"""
@@ -41,7 +41,7 @@ def get_recipe_by_title(recipeTitle):
         return None
     found.sort(key=lambda x: len(x["title"]))
     first = found[0]
-    return jsonpickle.encode(first)
+    return first
 
 def get_most_similar_recipe(recipeTitle):
     recipe_df = pd.DataFrame(get_recipe_list())

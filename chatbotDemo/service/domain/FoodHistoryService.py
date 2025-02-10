@@ -3,16 +3,12 @@ from datetime import datetime, timedelta
 import jsonpickle
 import dto.UserHistory as uh
 import dto.Recipe as recipe
-import persistence.IngredientPersistence as ingredientDB
 import service.domain.RecipeService as recipeService
-import dto.Ingredient as ingDto
 import service.domain.IngredientService as ingService
-import Utils
 
 def get_user_history_of_week(userId, onlyAccepted = True):
     #get the user history of the week
     fullUserHistory = userHistoryDB.get_user_history(userId)
-    fullUserHistory = jsonpickle.decode(fullUserHistory)
     #filter the user history of the week
     sysdate = datetime.today()
     previousWeek = sysdate - timedelta(days=7)
@@ -25,12 +21,11 @@ def get_user_history_of_week(userId, onlyAccepted = True):
     if len(userHistory) == 0:
         return None
     
-    return Utils.escape_curly_braces(jsonpickle.encode(userHistory))
+    return userHistory
 
 def get_user_history_of_month(userId):
     #get the user history of the week
     fullUserHistory = userHistoryDB.get_user_history(userId)
-    fullUserHistory = jsonpickle.decode(fullUserHistory)
     #filter the user history of the week
     sysdate = datetime.today()
     previousMonth = sysdate - timedelta(days=30)
@@ -43,13 +38,10 @@ def get_user_history_of_month(userId):
     if len(userHistory) == 0:
         return None
     
-    return Utils.escape_curly_braces(jsonpickle.encode(userHistory))
+    return userHistory
 
 def clean_temporary_declined_suggestions(userId):
     userHistoryDB.clean_temporary_declined_suggestions(userId)
-
-def get_temporary_declined_suggestions(userId):
-    return userHistoryDB.get_temporary_declined_suggestions(userId)
 
 def save_user_history(userHistoryJson):
     userHistoryDB.save_user_history(userHistoryJson)
