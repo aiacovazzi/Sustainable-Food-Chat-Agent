@@ -2,7 +2,7 @@ import logging
 import os
 import ChatbotController as cc
 import Constants as con
-import dto.User as user
+import dto.User as User
 import service.domain.UserDataService as us
 from time import sleep
 from random import random
@@ -56,7 +56,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     #if the user data is empty the start a "get data", conversation
     if(context.user_data['userData'] == None):
-        context.user_data['userData'] = user.User(telegramUser['username'],telegramUser['id'],None,None,None,None,None,None,None,None)
+        context.user_data['userData'] = User.User(telegramUser['username'],telegramUser['id'],None,None,None,None,None,None,None,None)
         response = cc.answer_question(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,"",None)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
