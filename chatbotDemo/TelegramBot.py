@@ -14,7 +14,7 @@ from functools import wraps
 import service.domain.FoodHistoryService as foodHistory
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timedelta
-import service.ComputeMonthlyUserTaste as cmu
+import service.asyncr.ComputeMonthlyUserTaste as cmu
 import asyncio
 
 load_dotenv(find_dotenv())
