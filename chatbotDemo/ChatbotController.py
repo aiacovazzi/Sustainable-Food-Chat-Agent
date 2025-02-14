@@ -5,10 +5,10 @@ import service.domain.UserDataService as user
 import service.SuggestRecipeService as food
 import service.ImproveRecipeService as imp
 import service.domain.IngredientService as ingService
-import service.asyncr.ComputeMonthlyUserTaste as taste
+import service.asyncr.ComputeMonthlyUserTasteService as taste
 import dto.Response as rc
 import jsonpickle
-import service.ExpertRecipe as er
+import service.ExpertRecipeService as er
 import Utils as utils
 import service.domain.FoodHistoryService as fhService
 import service.bot.LogService as log
@@ -98,7 +98,7 @@ def answer_question(userData,userPrompt,token,info,memory):
 #FOOD SUGGESTION########################################################################
     elif(token == p.TASK_2_HOOK):
         log.save_log("FOOD_SUGGESTION_INTERACTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt, 0.1, userData)
+        response = lcs.execute_chain(p.TASK_2_PROMPT, userPrompt + ' ' + info, 0.1, userData)
         return response
     elif(token == p.TASK_2_05_HOOK):
         log.save_log("FOOD_SUGGESTION_DATA_VERIFICATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)

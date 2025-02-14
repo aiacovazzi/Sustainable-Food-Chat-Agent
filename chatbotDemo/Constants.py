@@ -24,7 +24,7 @@ For question of kind 2, 3, 4, 5 and 7 just reply "TOKEN X " where X is the numbe
 If the user ask about one of your task (food recommendation, sustainability, profile, history, assertion) provide a detailed explanation on how to invoke such functionality, then write "TOKEN 1". Here you are not supposed to answer the user question but to provide instruction on how to invoke the functionality.
 In all the other circumstances execute the following two steps: 
 1: Print the string "TOKEN 1 ". 
-2: Continue the answer by declining whatever the user asked, telling who you are by mentioning your name and describing your capabilities providing also for each task an example of phrase that can trigger it. Close your message with a funny food joke."""
+2: Continue the answer by declining whatever the user asked, telling who you are by mentioning your name and describing your capabilities providing also for each task an example of phrase that can trigger it. Close your message with a funny food joke. Lastly add a reminder about the usage of the \start command to start a new conversation backing to the starting point."""
 
 #User data prompts
 GET_DATA_PROMPT_BASE_0 = """You are a food recommender system named E-Mealio and have the role of collecting data about the user.
@@ -109,6 +109,7 @@ Snack -> Break
 Something quicky -> Break
 
 The user could provide you the information about the meal in a conversational form and also via a structured json.
+Conversational information and json can be provided also together.
 
 Execute the following instruction:
 Print the string "TOKEN 2.05" and create a json with the information collected until now. Insert in the json every field but set the absent information as empty string. 
