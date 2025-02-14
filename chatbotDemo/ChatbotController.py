@@ -5,6 +5,7 @@ import service.domain.UserDataService as user
 import service.SuggestRecipeService as food
 import service.ImproveRecipeService as imp
 import service.domain.IngredientService as ingService
+import service.asyncr.ComputeMonthlyUserTaste as taste
 import dto.Response as rc
 import jsonpickle
 import service.ExpertRecipe as er
@@ -57,6 +58,7 @@ def answer_question(userData,userPrompt,token,info,memory):
         #persist user data calling MongoDB...
         response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_3, "User data: " + userData.to_json(), 0.4, userData)
         userData.reminder = False
+        userData.tastes = taste.return_empty_tastes()
         user.save_user(userData)
         return response
     elif(token == p.TASK_0_4_HOOK):
@@ -65,7 +67,7 @@ def answer_question(userData,userPrompt,token,info,memory):
          return response
     elif(token == p.TASK_0_5_HOOK):
         log.save_log("REMINDER_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        userData.reminder = True
+        userData.reminder = True 
         user.update_user(userData)
         response = rc.Response('I\'m happy you accepted to receive reminders by me! If you\'ll forgot to chat with me for 48 hours, I will send you a message to help you to keep on track with your sustainable habits!',"TOKEN 1",'',None,'')
         #adjust the user prompt to the greetings in order to start the regular conversation

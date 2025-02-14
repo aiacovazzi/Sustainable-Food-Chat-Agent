@@ -1,7 +1,7 @@
 import jsonpickle
 
 class User:
-    def __init__(self, username, id, name, surname, dateOfBirth, nation, allergies, restrictions, reminder, lastInteraction):
+    def __init__(self, username, id, name, surname, dateOfBirth, nation, allergies, restrictions, reminder, lastInteraction, tastes):
         """
         username: the username of the user. Mandatory.
         id: the id of the user. Mandatory.
@@ -13,6 +13,7 @@ class User:
         restrictions: a list of alimentary restrictions derived by ethics choices or religious beliefs. The possible constraints are ["vegan", "vegetarian", "islam", "hinduism", "ebraic"]. Optional.
         reminder: a boolean value that indicates if the user wants to receive reminders. Optional.
         lastInteraction: the last time the user interacted with the chatbot. Mandatory.
+        tastes: a dictionary that contains the tastes of the user for each meal type. Mandatory.
         """
         self.username = username
         self.id = str(id)
@@ -24,6 +25,7 @@ class User:
         self.restrictions = restrictions
         self.reminder = reminder
         self.lastInteraction = lastInteraction
+        self.tastes = tastes
 
     #populate fields from a json
     def from_json(self, jsonString):
@@ -39,6 +41,8 @@ class User:
             self.reminder = json_obj['reminder']
         if('lastInteraction' in json_obj):
             self.lastInteraction = json_obj['lastInteraction']
+        if('tastes' in json_obj):
+            self.tastes = json_obj['tastes']
         #those fields are loaded only when bulding a user object from the database
         if('username' in json_obj):
             self.username = json_obj['username']
@@ -66,6 +70,8 @@ class User:
             self.reminder = json_obj['reminder']
         if('lastInteraction' in json_obj):
             self.lastInteraction = json_obj['lastInteraction']
+        if('tastes' in json_obj):
+            self.tastes = json_obj['tastes']
         return self
     
     def to_json(self):

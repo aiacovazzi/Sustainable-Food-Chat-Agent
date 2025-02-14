@@ -14,7 +14,7 @@ def compute_monthly_user_taste():
     for user in users:
         #convert the user from dictionary to object
         userJson = jsonpickle.encode(user)
-        userData = userDto.User(None,None,None,None,None,None,None,None,None,None)
+        userData = userDto.User(None,None,None,None,None,None,None,None,None,None,None)
         userData.from_json(userJson)
         compute_user_taste(userData)
 
@@ -68,4 +68,9 @@ def get_recipe_emebedding(recipe):
         recipeNameEmbedding += embedding
     return recipeNameEmbedding
 
-    
+def return_empty_tastes():
+    breackfastTaste = compute_taste(None, 'Breakfast')
+    lunchTaste = compute_taste(None, 'Lunch')
+    dinnerTaste = compute_taste(None, 'Dinner')
+    snackTaste = compute_taste(None, 'Snack')
+    return {'breakfast': pd.Series(breackfastTaste).to_list(), 'lunch': pd.Series(lunchTaste).to_list(), 'dinner': pd.Series(dinnerTaste).to_list(), 'snack': pd.Series(snackTaste).to_list()}

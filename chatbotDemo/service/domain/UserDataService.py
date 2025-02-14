@@ -11,7 +11,7 @@ def getUserData(userId):
         if(userDbData == None):
             return None
         userJson = jsonpickle.encode(userDbData)
-        userData = user.User(None,None,None,None,None,None,None,None,None,None)
+        userData = user.User(None,None,None,None,None,None,None,None,None,None,None)
         userData.from_json(userJson)
         return userData
     

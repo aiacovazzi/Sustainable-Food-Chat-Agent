@@ -13,7 +13,7 @@ class TestController(unittest.TestCase):
         self.assertTrue(response.answer.__len__() > 0)
 
     def get_user_data(self):
-        return ud.User("Test", 0, "Test", None, None, None, None, None)
+        return ud.User("Test", 0, "Test", None, None, None, None, None, None, None, None)
 
 if __name__ == '__main__':
     unittest.main()
