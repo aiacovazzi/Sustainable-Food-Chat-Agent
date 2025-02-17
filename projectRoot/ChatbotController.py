@@ -21,7 +21,7 @@ def aswer_router(userData,userPrompt,token,memory,info):
     response = rc.Response('','','','','')
     while(response.answer==''):
         try:
-            response = answer_question(userData,userPrompt,token,info,memory)
+            response = answer_question(userData,userPrompt,token,memory,info)
         except Exception as e:
             error = "An error occurred: " + str(e)
             log.save_log(error, datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -37,7 +37,7 @@ def aswer_router(userData,userPrompt,token,memory,info):
     manage_last_interaction(userData)
     return response   
 
-def answer_question(userData,userPrompt,token,info,memory):
+def answer_question(userData,userPrompt,token,memory,info):
 #0 USER DATA RETRIEVAL##################################################################
     if(token == p.TASK_0_HOOK):
         log.save_log("PRESENTING_USER_DATA_RETRIEVAL", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -69,13 +69,13 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("REMINDER_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         userData.reminder = True 
         user.update_user(userData)
-        response = rc.Response('I\'m happy you accepted to receive reminders by me! If you\'ll forgot to chat with me for 48 hours, I will send you a message to help you to keep on track with your sustainable habits!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m happy you accepted to receive reminders by me! If you\'ll forgot to chat with me for 48 hours, I will send you a message to help you to keep on track with your sustainable habits!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
     elif(token == p.TASK_0_6_HOOK):
         log.save_log("REMINDER_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = rc.Response('I\'m sorry you declined to receive reminders by me! If you\'ll change your mind, you can enable them asking me to update your profile.',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m sorry you declined to receive reminders by me! If you\'ll change your mind, you can enable them asking me to update your profile.',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
@@ -134,13 +134,13 @@ def answer_question(userData,userPrompt,token,info,memory):
         log.save_log("SUGGESTION_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"accepted")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m glad you accepted my suggestion! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m glad you accepted my suggestion! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         return response
     elif(token == p.TASK_2_40_HOOK):
         log.save_log("SUGGESTION_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m sorry you didn\'t accepted my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m sorry you didn\'t accepted my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         return response
     elif(token == p.TASK_2_50_HOOK):
         log.save_log("REQUIRED_ANOTHER_SUGGESTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -183,14 +183,14 @@ def answer_question(userData,userPrompt,token,info,memory):
         #save the improved recipe as consumed by the user since she will have to eat it
         manage_suggestion(userData,memory,"accepted",1)
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m glad you accepted my improved version of the recipe! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m glad you accepted my improved version of the recipe! If I can help you with other food sustainability questions, I\'m here to help!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         return response
     elif(token == p.TASK_3_50_HOOK):
         log.save_log("RECIPE_IMPROVEMENT_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #don't save the rejected recipe, this because this don't have to be considered as a suggestion? i'm thinking about it
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m sorry you didn\'t accepted my improved version of the recipe. If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,'')
+        response = rc.Response('I\'m sorry you didn\'t accepted my improved version of the recipe. If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         return response
     elif(token == p.TASK_3_60_HOOK):
         log.save_log("REQUIRED_ANOTHER_RECIPE_IMPROVEMENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -235,7 +235,11 @@ def answer_question(userData,userPrompt,token,info,memory):
     elif(token == p.TASK_5_HOOK):
         log.save_log("FOOD_HISTORY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         foodHistory = utils.adapt_output_to_bot(history.get_user_history_of_week(userData.id))
-        response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6, userData)
+        response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6, userData, memory, True)
+        return response
+    elif(token == p.TASK_5_10_HOOK):
+        log.save_log("FOOD_HISTORY_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+        response = lcs.execute_chain(p.TASK_5_10_PROMPT, userPrompt, 0.6, userData, memory, True)
         return response
 ########################################################################################
 

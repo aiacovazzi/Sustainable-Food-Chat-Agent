@@ -23,6 +23,7 @@ logger = logging.getLogger(__name__)
 
 userData = ''
 userMessage = ''
+MULTIPLE_MESSAGES = True
 
 #chatbot states
 INTERACTION = range(1)
@@ -31,6 +32,7 @@ def update_context(context: ContextTypes.DEFAULT_TYPE, response):
         context.user_data['action'] = response.action
         context.user_data['memory'] = response.memory
         context.user_data['info'] = response.info
+        context.user_data['callbackMessage'] = response.modifiedPrompt
         return context
 
 def send_action(action):
@@ -55,7 +57,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     #if the user data is empty the start a "get data", conversation
     if(context.user_data['userData'] == None):
         context.user_data['userData'] = user.User(telegramUser['username'],telegramUser['id'],None,None,None,None,None,None,None,None,None)
-        response = cc.answer_question(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,"",None)
+        response = cc.answer_question(context.user_data['userData'],con.USER_FIRST_MEETING_PHRASE,con.TASK_0_HOOK,None,"")
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
     else:
@@ -68,10 +70,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 @send_action(ChatAction.TYPING)
 async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Manage the conversation loop between the user and the chatbot."""
-    userMessage = update.message.text
+    userMessage = context.user_data['callbackMessage'] if len(context.user_data['callbackMessage'])>0 else update.message.text
     response = cc.aswer_router(context.user_data['userData'],userMessage,context.user_data['action'],context.user_data['memory'],context.user_data['info'])
     await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
     context = update_context(context,response)
+
+    #this means that the bot has to ask the user something else
+    if len(context.user_data['callbackMessage'])>0 and MULTIPLE_MESSAGES:
+        #await asyncio.sleep(2)
+        return await interaction(update, context)
+    
     return None
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:

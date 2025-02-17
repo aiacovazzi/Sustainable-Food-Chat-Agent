@@ -25,3 +25,6 @@ def update_user_last_interaction(userId, lastInteraction):
 
 def update_user_tastes(userId, tastes):
     collection.update_one({"id":userId}, {"$set": {"tastes": tastes}}, upsert=False)
+
+def delete_user_by_user_id(userId):
+    collection.delete_one({"id":userId})
