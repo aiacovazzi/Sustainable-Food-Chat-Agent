@@ -61,7 +61,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
     else:
-        response = cc.aswer_router(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"",None)
+        response = cc.answer_router(context.user_data['userData'],con.USER_GREETINGS_PHRASE,con.TASK_1_HOOK,"",None)
         foodHistory.clean_temporary_declined_suggestions(context.user_data['userData'].id)
         await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
         context = update_context(context,response)
@@ -71,7 +71,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Manage the conversation loop between the user and the chatbot."""
     userMessage = context.user_data['callbackMessage'] if len(context.user_data['callbackMessage'])>0 else update.message.text
-    response = cc.aswer_router(context.user_data['userData'],userMessage,context.user_data['action'],context.user_data['memory'],context.user_data['info'])
+    response = cc.answer_router(context.user_data['userData'],userMessage,context.user_data['action'],context.user_data['memory'],context.user_data['info'])
     await context.bot.sendMessage(chat_id=update.message.chat_id, text=response.answer)
     context = update_context(context,response)
 

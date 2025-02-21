@@ -43,7 +43,7 @@ def get_recipe_suggestion(mealDataJson, userData):
     tagsMealDuration = ""
     projection = {"_id": 1, "recipe_id": 1, "title_embedding": 1, "ingredients_embedding": 1, "sustainability_score": 1} 
 
-    #initializa as empty numpy array
+    #initialize as empty numpy array
     desiredIngredientsEmbedding = np.array([])
     notDesiredIngredientsEmbedding = np.array([])
     recipeNameEmbedding = np.array([])
@@ -58,7 +58,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         desiredIngredientsEmbedding = embedder.embed_list(desiredIngredientsEmbeddingString, False)
     else:
         tastes = userService.get_taste(userData.id, mealData['mealType'].lower())
-        if(tastes != []):
+        if(tastes != None and tastes != []):
             desiredIngredientsEmbedding = np.array(tastes, dtype=np.float32)
     
     if(mealData['ingredients_not_desired'] != None and mealData['ingredients_not_desired']  != ''):
