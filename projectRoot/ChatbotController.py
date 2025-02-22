@@ -291,7 +291,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         #calling the proper service to save the meal data computing the sustainability
         jsonRecipeAssertion = utils.extract_json(info, 0)
         fhService.build_and_save_user_history_from_user_assertion(userData, jsonRecipeAssertion)
-        response = lcs.execute_chain(p.TASK_7_20_PROMPT, "Meal data: " + info, 0.2, userData)
+        response = lcs.execute_chain(p.TASK_7_20_PROMPT, "Meal data: " + info, 0.1, userData)
         return response
 ########################################################################################
 
