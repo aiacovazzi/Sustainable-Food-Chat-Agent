@@ -25,6 +25,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         { "sustainability_label": { "$in": [0, 1] } }, 
         { "percentage_covered_cfp": { "$gte": 70 } }, 
         { "percentage_covered_wfp": { "$gte": 70 } },
+        { "disabled": false },
         {TAGS_SUSTAINABILITY},
         {TAGS_RESTRICTIONS},
         {ALLERGENES},

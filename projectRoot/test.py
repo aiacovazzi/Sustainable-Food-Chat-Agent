@@ -197,7 +197,7 @@ class TestController(unittest.TestCase):
     def test_from_hub_to_expert_concept(self):
         print("answer_question: Expert Hub Entry Point; Concept Expert")
         userData = self.get_valid_user_data()
-        response = cc.answer_question(userData,"What is cilmate change?",con.TASK_1_HOOK,None,"")
+        response = cc.answer_question(userData,"What is climate change?",con.TASK_1_HOOK,None,"")
         self.print_answers(response)
         #the hub moves to the expert hub
         self.assertEqual(response.action, con.TASK_3_HOOK)
