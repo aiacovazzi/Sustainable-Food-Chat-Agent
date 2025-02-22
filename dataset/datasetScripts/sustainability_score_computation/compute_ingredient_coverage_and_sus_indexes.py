@@ -7,6 +7,14 @@ from sentence_transformers import SentenceTransformer
 import pandas as pd
 import ast  
 
+
+#GENERAL UTILITIES FUNCTIONS:
+#-functions that are used to compute the sustainability scores and coverage of the ingredients in the recipes
+#-functions that are used to produce the reports that are used to compare the new database with the old one
+#-functions that are used to compute the embeddings of the recipes and the ingredients
+#-functions that are used to compute the clusters of the recipes based on their sustainability scores
+#-functions that are used to compute the mismatch between the original hummus db ingredients and the simplified ingredients
+
 def remove_additional_info(ingredient):
     #given a string like "water _ 2 __ cups"
     #find the  index of the character "_" and remove everything after it
@@ -488,26 +496,32 @@ def compute_numeric_mismatch():
     db_1 = client['emealio_food_db']
     collection1 = db_1['recipes']
 
-    total_mismatch = 0
+    total_disabled = 0
+    total_not_disabled = 0
+
+    #count how many recipes have been extracted from the original hummus db
+    print("Total Recipes: ", collection1.count_documents({}))
 
     ## Loop over all recipes in collection1
     for recipe in collection1.find():
-        origina_ing_num = counter(recipe.get('original_hummus_db_ingredients'))
+        original_ing_num = counter(recipe.get('original_hummus_db_ingredients'))
         simplified_ingredients = recipe.get('ingredients')
         ingredients_list = get_ingredients(simplified_ingredients)
         simplified_ing_num = len(ingredients_list)
-        if origina_ing_num != simplified_ing_num:
 
-            if(origina_ing_num-simplified_ing_num > 4):
-                #update recipe setting the new field "disabled" to True
-                collection1.update_one({"_id": recipe['_id']}, {"$set": {"disabled": True}})
+        if(original_ing_num-simplified_ing_num > 4):
+            #update recipe setting the new field "disabled" to True
+            collection1.update_one({"_id": recipe['_id']}, {"$set": {"disabled": True}})
 
-                total_mismatch += 1
-            else:
-                collection1.update_one({"_id": recipe['_id']}, {"$set": {"disabled": False}})
+            total_disabled += 1
+        else:
+            total_not_disabled += 1
+            collection1.update_one({"_id": recipe['_id']}, {"$set": {"disabled": False}})
+                
 
     
-    print("Total Mismatch: ", total_mismatch)
+    print("Total Mismatch: ", total_disabled)
+    print("Total Not Mismatch: ", total_not_disabled)
 
 def extract_free_tags():
     client = MongoClient('localhost', 27017)
@@ -546,6 +560,6 @@ def extract_free_tags():
 #compute_embedding_of_ingredients()
 #compute_recipe_ingredient_embedding()
 
-#compute_numeric_mismatch()
+#extract_free_tags()
 
-extract_free_tags()
+compute_numeric_mismatch()
