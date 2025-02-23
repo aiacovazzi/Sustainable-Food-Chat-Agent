@@ -28,7 +28,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         { "disabled": false },
         {TAGS_SUSTAINABILITY},
         {TAGS_RESTRICTIONS},
-        {ALLERGENES},
+        {TAGS_ALLERGENES},
         {TAGS_MEAL_TYPE},
         {TAGS_USER_HISTORY},
         {TAGS_HEALTHINESS},
@@ -133,7 +133,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         tagsMealDuration = """ "tags": { "$regex": "30-minutes-or-less" } """
 
     #replace the tags in the query template
-    mandatoryReplacement = [["TAGS_SUSTAINABILITY",tagsSustainability],["TAGS_RESTRICTIONS",tagsRestrictions],["ALLERGENES",allergenes],["TAGS_MEAL_TYPE",tagsMealType]]
+    mandatoryReplacement = [["TAGS_SUSTAINABILITY",tagsSustainability],["TAGS_RESTRICTIONS",tagsRestrictions],["TAGS_ALLERGENES",allergenes],["TAGS_MEAL_TYPE",tagsMealType]]
     notMadatoryReplacement = [["TAGS_USER_HISTORY",tagsUserHistory],["TAGS_HEALTHINESS",tagsHealthiness],["TAGS_MEAL_DURATION",tagsMealDuration]]
 
     numberOfFoundRecipes = 0
@@ -159,14 +159,14 @@ def get_recipe_suggestion(mealDataJson, userData):
         #no recipe found
         return None
     
-    #order the suggested recipes by the sustainability score (the lower the better) // this is useful for the case in which the user does not have any preference so the system will suggest the most sustainable recipe
-    suggestedRecipes = suggestedRecipes.sort("sustainability_score")
-
-    suggestedRecipes = list(suggestedRecipes)
-    log.save_log("Retrieved " + str(numberOfFoundRecipes) + " and converted in list", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
+    log.save_log("Retrieved " + str(numberOfFoundRecipes) + " recipes", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         
-
     suggestedRecipe = get_preferable_recipe_by_taste(suggestedRecipes,desiredIngredientsEmbedding,notDesiredIngredientsEmbedding,recipeNameEmbedding,userData)
+
+    if(suggestedRecipe == None):
+        #order the suggested recipes by the sustainability score (the lower the better)
+        suggestedRecipes = suggestedRecipes.sort("sustainability_score")
+        suggestedRecipe = suggestedRecipes[0]
 
     #get the full recipe from the database
     suggestedRecipe = recipePersistence.get_recipe_by_id(int(suggestedRecipe["recipe_id"]))
@@ -191,15 +191,15 @@ def query_template_replacement (mandatoryRepalcement, notMandatoryReplacement, n
 
     return queryTemplate
 
-def get_preferable_recipe_by_taste(recipeList, desiredIgredientsEmbeddings, notDesiredIgredientsEmbeddings,recipeNameEmbedding, userData):
+def get_preferable_recipe_by_taste(recipeSet, desiredIgredientsEmbeddings, notDesiredIgredientsEmbeddings,recipeNameEmbedding, userData):
     log.save_log("Start similarity searching ", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
     
     #if both desiredIgredientsEmbeddings and notDesiredIgredientsEmbeddings are None then return the first recipe
     if(len(desiredIgredientsEmbeddings) == 0 and len(notDesiredIgredientsEmbeddings) == 0):
-        return recipeList[0]
+        return None
     
-    # Convert recipeList to DataFrame
-    recipes_df = pd.DataFrame(recipeList)
+    # Convert recipeSet to DataFrame
+    recipes_df = pd.DataFrame(list(recipeSet))
 
     # Initialize taste_score
     recipes_df['taste_score'] = 0.0
