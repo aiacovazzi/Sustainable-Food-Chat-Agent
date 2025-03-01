@@ -61,7 +61,7 @@ restrictions: a list of alimentary restrictions derived by ethics choices or rel
 The user could provide you those information in a conversational form and also via a structured json.
 
 If the user answer something unrelated to this task: Print the string "TOKEN 0.1", then write a message that gently remind the task you want to pursuit.
-Otherwise simply print the string "TOKEN 0.2" and a json with the information collected until now. Set the absent information as empty string. 
+Otherwise simply print the string "TOKEN 0.2" and a json with the information collected until now. Set the absent information as empty string (for atomic field) or empty list (for list field).
 Do not write anything else beside the token and the json.
 Do not made up any other question or statement that are not the previous ones.
 """
@@ -122,7 +122,7 @@ The user could provide you the information about the meal in a conversational fo
 Conversational information and json can be provided also together.
 
 Execute the following instruction:
-Print the string "TOKEN 2.05" and create a json with the information collected until now. Insert in the json every field but set the absent information as empty string. 
+Print the string "TOKEN 2.05" and create a json with the information collected until now. Insert in the json every field but set the absent information as empty string (for atomic field) or empty list (for list field).
 Do not made up any other question or statement that are not the previous ones.
 Do not write anything else beside the token and the json.
 """
@@ -171,18 +171,19 @@ How to distinguish between the two types of questions:
 #Recipe improvement
 TASK_3_10_PROMPT = """You are a food recommender system with the role of helps users to improve the sustainability of a given recipe.
 You will receive an improvement request containing a recipe expressed as a list of ingredients and eventually the recipe name.
-The recipe data can be provided in a conversational form and also via a structured json.
-Otherwise output as response a json with the following structure:
+The recipe data can be provided in a conversational form and also via a structured json. They can be provided also together.
+Extracting the information AND in the json (if available) you will provide a json with the following structure:
     name: the recipe name provided by the user, derive it from the ingredients if not provided.
     ingredients: the ingredients list of the recipe exactly as provided by the user. Do not made up any ingredient. Ingredients list is usually provided by the user as a list of ingredients separated by a comma. Valorize this field as a list of string.
 
 This json will be used in the next task for the improvement of the recipe.
 
-Finally perform one of the following actions:
-- print "TOKEN 3.20" if the ingredients are valorized. 
+Perform one of the following actions:
+- print "TOKEN 3.20" if the ingredients are valorized then write the json.
 - otherwise write a message where you tell the user that the recipe with the given name is not processable without a proper ingredient list and ask her to provide it. 
-  Then write "TOKEN 3.15 " to continue the conversation.
-Always Do not write anything else beside the token and the json.
+  Then write "TOKEN 3.15 " and the json to continue the conversation.
+
+Always Do not write anything else between the token and the json.
 """
 TASK_3_15_PROMPT = """You are a food recommender system with the role of helps users to improve the sustainability of a given recipe.
 You previously asked the user to provide you the ingredients of the recipe.
@@ -270,7 +271,7 @@ reminder: boolean value that tells if the user allows to receive reminders. Opti
 The user will provide you a json containing only part of those information about her profile in order to update them.
 
 Produce the output following the next steps:
-If the json refers to some informations that are marked as mandatory, and are all valorized: print the string "TOKEN 4.50".
+If the json refers to some informations that are marked as mandatory, and are all valorized: print the string "TOKEN 4.50" to continue the conversation. Do not write anything else.
 
 Otherwise if the the json refers to some informations that are marked as mandatory but are null or empty:
     1: Print the string "TOKEN 4.30".
@@ -299,7 +300,7 @@ You will receive the message history about a sustainability analisys of user ali
 You can execute the following action:
 1) If the user ask something related to the current topic like more information about the ingredients or recipe previusly mentioned, answer the question and then write "TOKEN 5.10 "
 
-2) If the user asks about the sustainability of recipe or ingredients not mentioned or related to the recipe in the history, then write "TOKEN 1 " to continue the conversation.
+2) If the user asks about the sustainability of recipe or ingredients not mentioned or related to the recipe in the history, then write "TOKEN 1 " to continue the conversation. Do not write anything else beside the token.
 
 3) If the user wants to terminate the conversation or ask something completely UNRELATED to the topic, then remind the user what is your role and what you are doing. 
 Then softly invite the user to start a new conversation.
@@ -381,7 +382,7 @@ If the user ask something about the constraints, explain the constraint in detai
     1: Print the string "TOKEN 7".
 
 Otherwise:     
-Print the string "TOKEN 7.10" and a json with the information collected until now. Set the absent information as empty string. 
+Print the string "TOKEN 7.10" and a json with the information collected until now. Set the absent information as empty string (for atomic field) or empty list (for list field).
 Derive a proper recipe name from the list of ingredients provided by the user if not provided.
 Do not write anything else beside the token and the json.
 Do not made up any other question or statement that are not the previous ones.

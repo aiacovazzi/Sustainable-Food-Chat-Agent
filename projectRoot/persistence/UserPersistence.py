@@ -28,3 +28,7 @@ def update_user_tastes(userId, tastes):
 
 def delete_user_by_user_id(userId):
     collection.delete_one({"id":userId})
+
+def get_all_users_with_reminder():
+    users = collection.find({"reminder": True})
+    return users

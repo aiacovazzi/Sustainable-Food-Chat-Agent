@@ -58,8 +58,8 @@ class TestController(unittest.TestCase):
         self.assertEqual(userData.surname, "Rossi")
         self.assertEqual(userData.dateOfBirth, "01/01/1990")
         self.assertEqual(userData.nation, "Italy")
-        self.assertEqual(userData.allergies,"")
-        self.assertEqual(userData.restrictions, "")
+        self.assertEqual(userData.allergies,[])
+        self.assertEqual(userData.restrictions, [])
 
     def test_user_registration_all_mandatory_and_optional_data(self):
         print("answer_router: Test User Registration Presentation: All Mandatory and Optiona Data Provided")
@@ -88,8 +88,8 @@ class TestController(unittest.TestCase):
         self.assertEqual(userData.surname, "Rossi")
         self.assertEqual(userData.dateOfBirth, "01/01/1990")
         self.assertEqual(userData.nation, "Italy")
-        self.assertEqual(userData.allergies,"")
-        self.assertEqual(userData.restrictions, "")
+        self.assertEqual(userData.allergies,[])
+        self.assertEqual(userData.restrictions, [])
         response = cc.answer_router(userData,"Yes I want reminders",con.TASK_0_4_HOOK,"",None)
         self.assertEqual(response.action, con.TASK_1_HOOK)
         self.assertEqual(userData.reminder, True)
@@ -105,8 +105,8 @@ class TestController(unittest.TestCase):
         self.assertEqual(userData.surname, "Rossi")
         self.assertEqual(userData.nation, "Italy")
         self.assertEqual(userData.dateOfBirth, "")
-        self.assertEqual(userData.allergies,"")
-        self.assertEqual(userData.restrictions, "")
+        self.assertEqual(userData.allergies,[])
+        self.assertEqual(userData.restrictions, [])
 
         response = cc.answer_router(userData,"I was born on 01/01/1990, i'm also allergic to peanuts.",con.TASK_0_1_HOOK,"",None)
         self.print_answers(response)
@@ -117,7 +117,7 @@ class TestController(unittest.TestCase):
         self.assertEqual(userData.dateOfBirth, "01/01/1990")
         self.assertEqual(userData.nation, "Italy")
         self.assertTrue("peanut" in userData.allergies)
-        self.assertEqual(userData.restrictions, "")
+        self.assertEqual(userData.restrictions, [])
 
         response = cc.answer_router(userData,"No thanks.",con.TASK_0_4_HOOK,"",None)
         self.assertEqual(response.action, con.TASK_1_HOOK)
@@ -796,7 +796,7 @@ class TestController(unittest.TestCase):
     def get_valid_user_data(self):
         return ud.User("Test", 0, "Giacomo", "Rossi", "01/01/1990", "Italy", "", "", "", "", False)
     
-    def print_answers(self, response, print_info = True):
+    def print_answers(self, response, print_info = False):
         if print_info:
             print(response.answer)
 

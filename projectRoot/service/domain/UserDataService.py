@@ -27,8 +27,8 @@ def update_user_last_interaction(userId, lastInteraction):
         userData.lastInteraction = lastInteraction
         update_user(userData)
 
-def get_all_users():
-    return userDB.get_all_users()
+def get_all_users_with_reminder():
+    return userDB.get_all_users_with_reminder()
 
 def get_taste(userId, mealType):
     userDbData = userDB.get_user_by_user_id(str(userId))

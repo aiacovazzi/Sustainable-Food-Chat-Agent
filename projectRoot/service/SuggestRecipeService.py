@@ -84,7 +84,7 @@ def get_recipe_suggestion(mealDataJson, userData):
 
     #filter for the allergies 
     allergies = userData.allergies
-    if(allergies != None and allergies != '' and restrictions != []):
+    if(allergies != None and allergies != '' and allergies != []):
         allergenes = """ "$and": [ """
         for allergen in allergies:
             allergenes += """ {"tags": { "$regex": "%s-free" }}, """ % allergen

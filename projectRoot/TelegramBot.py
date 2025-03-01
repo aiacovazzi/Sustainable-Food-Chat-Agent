@@ -89,12 +89,11 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 async def send_reminder(context: CallbackContext):
     """Send a reminder to users who have reminders enabled and haven't interacted recently."""
-    users = us.get_all_users()
+    users = us.get_all_users_with_reminder()
     for user in users:
-        if user['reminder']:
-            last_interaction = datetime.strptime(user['lastInteraction'], '%Y-%m-%d %H:%M:%S').date()
-            if datetime.now().date() - last_interaction >= timedelta(days=2):
-                await context.bot.send_message(chat_id=user['id'], text="Hey! It's been a while since we last talked. How about a chat to keep up with your sustainable habits and discover new recipe? Just write me something and I'll be here for you!")
+        last_interaction = datetime.strptime(user['lastInteraction'], '%Y-%m-%d %H:%M:%S').date()
+        if datetime.now().date() - last_interaction >= timedelta(days=2):
+            await context.bot.send_message(chat_id=user['id'], text="Hey! It's been a while since we last talked. How about a chat to keep up with your sustainable habits and discover new recipe? Just write me something and I'll be here for you!")
 
 async def compute_monthly_user_taste():
     """Compute the user's taste for each meal type at the end of the month."""
