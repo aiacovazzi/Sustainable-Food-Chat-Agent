@@ -80,6 +80,12 @@ async def interaction(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
         #await asyncio.sleep(2)
         return await interaction(update, context)
     
+    #this means that the bot is in the memory reset state, so we can send a new message
+    if context.user_data['action'] == "TASK -1" and MULTIPLE_MESSAGES:
+        context.user_data['callbackMessage'] = con.USER_GREETINGS_PHRASE
+        #await asyncio.sleep(2)
+        return await interaction(update, context)
+    
     return None
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:

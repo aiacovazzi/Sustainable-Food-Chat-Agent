@@ -91,7 +91,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("GRETINGS", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #passing though the main hub imply starting a new conversation so I can reset the memory
         memory = None
-        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.2, userData)
+        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.1, userData)
         return response
 ########################################################################################
 
@@ -120,7 +120,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         info = utils.escape_curly_braces(info)
         userDataStr = utils.escape_curly_braces(userData.to_json())
         userPrompt = "Suggest me a recipe given the following constraints " + info
-        if(suggestedRecipe != None):
+        if(suggestedRecipe != 'null'):
             response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, True)
         else:
             response = lcs.execute_chain(p.TASK_2_10_1_PROMPT.format( mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, False)        
@@ -236,11 +236,11 @@ def answer_question(userData,userPrompt,token,memory,info):
     elif(token == p.TASK_5_HOOK):
         log.save_log("FOOD_HISTORY", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         foodHistory = utils.adapt_output_to_bot(history.get_user_history_of_week(userData.id))
-        response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.6, userData, memory, True)
+        response = lcs.execute_chain(p.TASK_5_PROMPT.format(food_history=foodHistory), userPrompt, 0.3, userData, memory, True)
         return response
     elif(token == p.TASK_5_10_HOOK):
         log.save_log("FOOD_HISTORY_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = lcs.execute_chain(p.TASK_5_10_PROMPT, userPrompt, 0.6, userData, memory, True)
+        response = lcs.execute_chain(p.TASK_5_10_PROMPT, userPrompt, 0.3, userData, memory, True)
         if response.action == p.TASK_MINUS_1_HOOK:
             response.modifiedPrompt = p.USER_GREETINGS_PHRASE
         return response
