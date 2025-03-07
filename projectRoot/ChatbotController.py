@@ -51,7 +51,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("PERFORMING_USER_DATA_EVALUATION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #update user data using the information so far retrieved
         userData.from_json(info)
-        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + info, 0.2, userData)
+        response = lcs.execute_chain(p.GET_DATA_PROMPT_BASE_0_2, "User data: " + userData.to_json(), 0.2, userData)
         return response
     elif(token == p.TASK_0_3_HOOK):
         log.save_log("PERSISTING_USER_DATA", datetime.datetime.now(), "System", userData.id, PRINT_LOG)

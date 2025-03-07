@@ -239,11 +239,11 @@ class Test2ControllerRegistration(unittest.TestCase):
         self.assertEqual(response.action, con.TASK_0_2_HOOK)
         #info data produced but incomplete
         self.assertTrue(response.info.strip() != '')
-        userData = jsonpickle.decode(response.info)
+        userDataObtained = jsonpickle.decode(response.info)
         #check if the data is correct
-        self.assertEqual(userData['name'], "Giacomo")
-        self.assertEqual(userData['surname'], "Rossi")
-        self.assertEqual(userData['dateOfBirth'], "")        
+        self.assertEqual(userDataObtained['name'], "Giacomo")
+        self.assertEqual(userDataObtained['surname'], "Rossi")
+        self.assertEqual(userDataObtained['dateOfBirth'], "")        
         #answer empty becuase the response is a change of inner state, is not for the user
         self.assertTrue(len(response.answer) == 0)
 
@@ -262,7 +262,33 @@ class Test2ControllerRegistration(unittest.TestCase):
         self.assertEqual(userData.allergies,[])
         self.assertEqual(userData.restrictions, [])
 
-    def test5_user_registration_all_mandatory_and_optional_data(self):
+    def test5_user_registration_not_all_mandatory_data_and_unrelated_response(self):
+        print("answer_router: Test User Registration Presentation: All Mandatory Data Provided")
+        userData = get_user_data()
+        response = cc.answer_router(userData,"Hello, I'm Giacomo Rossi, born in Italy.",con.TASK_0_1_HOOK,"",None)
+        print_answers(response)
+        self.assertEqual(response.action, con.TASK_0_1_HOOK)
+        self.assertTrue(len(response.answer) > 0)
+
+        response = cc.answer_router(userData,"What do you want??",con.TASK_0_1_HOOK,"",None)
+        print_answers(response)
+        self.assertEqual(response.action, con.TASK_0_1_HOOK)
+        self.assertTrue(len(response.answer) > 0)
+
+        response = cc.answer_router(userData,"I born the first of january 1990",con.TASK_0_1_HOOK,"",None)
+        print_answers(response)
+        self.assertEqual(response.action, con.TASK_0_4_HOOK)
+        self.assertTrue(len(response.answer) > 0)
+
+        #user data object is updated with the provided data
+        self.assertEqual(userData.name, "Giacomo")
+        self.assertEqual(userData.surname, "Rossi")
+        self.assertEqual(userData.dateOfBirth, "01/01/1990")
+        self.assertEqual(userData.nation, "Italy")
+        self.assertEqual(userData.allergies,[])
+        self.assertEqual(userData.restrictions, [])
+
+    def test6_user_registration_all_mandatory_and_optional_data(self):
         print("answer_router: Test User Registration Presentation: All Mandatory and Optiona Data Provided")
         userData = get_user_data()
         response = cc.answer_router(userData,"Hello, I'm Giacomo Rossi, born in Italy on 01/01/1990. Im allergic to peanut and fish. I Follow a vegan diet.",con.TASK_0_1_HOOK,"",None)
@@ -278,7 +304,7 @@ class Test2ControllerRegistration(unittest.TestCase):
         self.assertTrue("fish" in userData.allergies)
         self.assertTrue("vegan" in userData.restrictions)
 
-    def test6_user_registration_multistep_with_reminder_consent(self):
+    def test7_user_registration_multistep_with_reminder_consent(self):
         print("multistep answer_router: Test User Registration Presentation: All Mandatory Data Provided; Then Provide Reminder Consent")
         userData = get_user_data()
         response = cc.answer_router(userData,"Hello, I'm Giacomo Rossi, born in Italy on 01/01/1990.",con.TASK_0_1_HOOK,"",None)
@@ -295,7 +321,7 @@ class Test2ControllerRegistration(unittest.TestCase):
         self.assertEqual(response.action, con.TASK_1_HOOK)
         self.assertEqual(userData.reminder, True)
 
-    def test7_user_registration_multistep_with_negate_reminder_consent(self):
+    def test8_user_registration_multistep_with_negate_reminder_consent(self):
         print("multistep answer_router: Test User Registration Presentation: All Mandatory Data Provided, But In Two Step; Then Negate Reminder Consent")
         userData = get_user_data()
         response = cc.answer_router(userData,"Hello, I'm Giacomo Rossi, born in Italy.",con.TASK_0_1_HOOK,"",None)
