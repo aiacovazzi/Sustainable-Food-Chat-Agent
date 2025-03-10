@@ -91,7 +91,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("GRETINGS", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         #passing though the main hub imply starting a new conversation so I can reset the memory
         memory = None
-        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.1, userData)
+        response = lcs.execute_chain(p.STARTING_PROMPT, userPrompt, 0.3, userData)
         return response
 ########################################################################################
 
@@ -123,7 +123,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         if(suggestedRecipe != 'null'):
             response = lcs.execute_chain(p.TASK_2_10_PROMPT.format(suggestedRecipe=suggestedRecipe, mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, True)
         else:
-            response = lcs.execute_chain(p.TASK_2_10_1_PROMPT.format( mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, False)        
+            response = lcs.execute_chain(p.TASK_2_10_1_PROMPT.format(mealInfo=info, userData=userDataStr), userPrompt, 0.6, userData, memory, False)        
         #produce suggestion
         return response
     elif(token == p.TASK_2_20_HOOK):
@@ -173,7 +173,12 @@ def answer_question(userData,userPrompt,token,memory,info):
         #call the recipe improvement service
         baseRecipe = imp.get_base_recipe(info)
         improvedRecipe = utils.adapt_output_to_bot(imp.get_recipe_improved(baseRecipe,userData))
-        response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(baseRecipe), improvedRecipe=improvedRecipe), userPrompt, 0.1, userData, memory, True)
+        if(improvedRecipe != 'null'):
+            response = lcs.execute_chain(p.TASK_3_20_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(baseRecipe), improvedRecipe=improvedRecipe), userPrompt, 0.1, userData, memory, True)
+        else:
+            None
+            userDataStr = utils.escape_curly_braces(userData.to_json())
+            response = lcs.execute_chain(p.TASK_3_20_1_PROMPT.format(baseRecipe=utils.adapt_output_to_bot(baseRecipe), userData=userDataStr), userPrompt, 0.1, userData)
         return response
     elif(token == p.TASK_3_30_HOOK):
         log.save_log("RECIPE_IMPROVEMENT_CHAT_LOOP", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
