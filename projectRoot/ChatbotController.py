@@ -27,7 +27,7 @@ def answer_router(userData,userPrompt,token,memory,info):
             log.save_log(error, datetime.datetime.now(), "System", userData.id, PRINT_LOG)
             stacktarce = "Stacktrace: " + str(traceback.format_exc())
             log.save_log(stacktarce, datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-            response = rc.Response("I\'m sorry, I was not able to process your request. Please send an email to a.iacovazzi6@studenti.uniba.it", "TOKEN 1", '', None, '')
+            response = rc.Response("I'm sorry, I was not able to process your request. Please send an email to a.iacovazzi6@studenti.uniba.it", "TOKEN 1", '', None, '')
             raise e
         token = response.action
         info = response.info
@@ -69,13 +69,13 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("REMINDER_ACCEPTED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         userData.reminder = True 
         user.update_user(userData)
-        response = rc.Response('I\'m happy you accepted to receive reminders by me! If you\'ll forgot to chat with me for 48 hours, I will send you a message to help you to keep on track with your sustainable habits!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
+        response = rc.Response("I'm happy you accepted to receive reminders from me! If you forget to chat with me in two days, I will send you a message to help you stay on track with your sustainable habits!","TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
     elif(token == p.TASK_0_6_HOOK):
         log.save_log("REMINDER_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
-        response = rc.Response('I\'m sorry you declined to receive reminders by me! If you\'ll change your mind, you can enable them asking me to update your profile.',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
+        response = rc.Response("Ok, you decided not to receive reminders from me! If you change your mind, you can enable them by asking me to update your profile.","TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         #adjust the user prompt to the greetings in order to start the regular conversation
         userPrompt = p.USER_GREETINGS_PHRASE
         return response
@@ -140,7 +140,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         log.save_log("SUGGESTION_DECLINED", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m sorry you didn\'t accepted my suggestion. I hope you will find something for you next time! If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
+        response = rc.Response("That's okay! I hope you find something that suits you next time. If you have any other questions about food sustainability, I'm here to help!","TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         return response
     elif(token == p.TASK_2_50_HOOK):
         log.save_log("REQUIRED_ANOTHER_SUGGESTION", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
@@ -196,7 +196,7 @@ def answer_question(userData,userPrompt,token,memory,info):
         #don't save the rejected recipe, this because this don't have to be considered as a suggestion? i'm thinking about it
         manage_suggestion(userData,memory,"declined")
         fhService.clean_temporary_declined_suggestions(userData.id)
-        response = rc.Response('I\'m sorry you didn\'t accepted my improved version of the recipe. If I can help you with other food sustainability answer, I\'m here to help!',"TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
+        response = rc.Response("That's okay! I hope you find something that suits you next time. If you have any other questions about food sustainability, I'm here to help!","TOKEN 1",'',None,p.USER_GREETINGS_PHRASE)
         return response
     elif(token == p.TASK_3_60_HOOK):
         log.save_log("REQUIRED_ANOTHER_RECIPE_IMPROVEMENT", datetime.datetime.now(), "System", userData.id, PRINT_LOG)
