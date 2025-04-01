@@ -99,7 +99,7 @@ def get_recipe_suggestion(mealDataJson, userData):
         tagsMealType = """ "$and": [ { "tags": { "$regex": "main-dish" } }, { "tags": { "$regex": "lunch" } } ] """
     elif(mealType == "Breakfast"):
         tagsMealType = """ "tags": { "$regex": "breakfast" } """
-    elif(mealType == "Snack"):
+    elif(mealType == "Break"):
         tagsMealType = """ "tags": { "$regex": "snack" } """
     #no meal type specified, take all the meal types as filter
     else:
