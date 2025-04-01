@@ -27,8 +27,8 @@ def compute_user_taste(user):
     breackfastTaste = compute_taste(userHistory, 'Breakfast')
     lunchTaste = compute_taste(userHistory, 'Lunch')
     dinnerTaste = compute_taste(userHistory, 'Dinner')
-    snackTaste = compute_taste(userHistory, 'Snack')
-    tastes = {'breakfast': pd.Series(breackfastTaste).to_list(), 'lunch': pd.Series(lunchTaste).to_list(), 'dinner': pd.Series(dinnerTaste).to_list(), 'snack': pd.Series(snackTaste).to_list()}
+    breakTaste = compute_taste(userHistory, 'Break')
+    tastes = {'breakfast': pd.Series(breackfastTaste).to_list(), 'lunch': pd.Series(lunchTaste).to_list(), 'dinner': pd.Series(dinnerTaste).to_list(), 'break': pd.Series(breakTaste).to_list()}
     userPersistence.update_user_tastes(user.id, tastes)
     
 
