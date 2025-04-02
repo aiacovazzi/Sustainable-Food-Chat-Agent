@@ -179,7 +179,7 @@ Follow these steps to produce the output:
   Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
   
   The sustainability score is such that the lower the value, the better the recipe is for the environment. It ranges from 0 to 1.
-  Do not provide it explicitly bu use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
   
   Provide the URL that redirects to the recipe instructions.
 
@@ -267,7 +267,7 @@ Follow these steps to produce the output:
   Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
   
   The sustainability score is such that the lower the value, the better the recipe is for the environment. It ranges from 0 to 1.
-  Do not provide it explicitly bu use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
 
   Then, highlight this request using an emoji, ask if the user wants to accept the improvement.
   Explain also that the response will be saved in the user's profile for track the consumption of the recipe and allow the evaluation of the user's sustainability habits.
@@ -372,7 +372,7 @@ Follow these steps to produce the output:
 
 - Otherwise:
   Print the string "TOKEN 5.10", then summarize the overall food history using a conversational tone.
-  subsequently provide a small analysis of the user's sustainability habits.
+  Subsequently provide a small analysis of the user's sustainability habits.
   Use information about the carbon footprint and water footprint of the ingredients to support your explanation, but keep it simple and understandable. If you refer to numbers, provide an idea of whether those values are good or bad for the environment.
   The sustainability score is such that the lower the value, the better the recipe is for the environment, but avoid providing it explicitly.
 
@@ -441,9 +441,7 @@ Follow these steps to produce the output:
   Refer to numbers of CFP and WFP, but also provide an idea of whether those values are good or bad for the environment.
   
   The sustainability score is such that the lower the value, the better the recipe is for the environment. It ranges from 0 to 1.
-  Do not provide it explicitly bu use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
-  
-  Finally, ask if the user wants to accept the improvement.
+  Do not provide it explicitly but use a Likert scale to describe it printing from 0 to 5 stars (use ascii stars, using black stars as point and white stars as filler).
 
 Be succinct, using up to 200 words.
 Maintain a respectful and polite tone."""
