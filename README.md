@@ -1,4 +1,4 @@
-# 🌱 Sustainable Food Chat Agent
+# 🌱E-Mealio: A Chat Agent for Sustainable Recipe Suggestions
 
 A project by **Antonio Raffaele Iacovazzi** for the *Master’s Thesis in Computer Science*  
 **Goal**: Develop a chat-based agent that helps users adopt sustainable food habits.
